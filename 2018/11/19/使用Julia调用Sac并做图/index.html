@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="本站致力于集合作者科研经验，记录与导师和Romanelli教授合作与学习的历程，以及广泛搜集地震学中广泛使用的经典代码。（暂时只用于作者个人整理，不发布到Github库中）"/>
+  <meta name="description" content="使用Julia调用Sac并做图"/>
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://ossr.github.io/"/>
+<link rel="canonical" href="http://ossr.github.io/2018/11/19/使用Julia调用Sac并做图/"/>
 
 
 
@@ -90,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> OSSR </title>
+    <title> 使用Julia调用Sac并做图 - OSSR </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -220,15 +220,11 @@
           <div id="content" class="content">
             
   
-  <section id="posts" class="posts">
-    
-      
-        
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/19/使用Julia调用Sac并做图/">使用Julia调用Sac并做图</a>
+          使用Julia调用Sac并做图
         
       </h1>
 
@@ -249,15 +245,18 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Julia基本操作及快捷键"><span class="toc-text">一、Julia基本操作及快捷键</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、SeisRequests"><span class="toc-text">二、SeisRequests</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用说明"><span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、关于SACPlot"><span class="toc-text">三、关于SACPlot</span></a></li></ol>
+    </div>
+  </div>
+
 
 
     <div class="post-content">
       
-        
-        
-
-        
-          <p><em>过渡循规蹈矩，只会在既有的泥潭中越陷越深。就像写文章一样，如果总是想一气呵成或是一蹴而就如行云流水般写就，那结局必定是寸步难行，特别是对于我这样的新手难说更是如此。因此，我可以尝试老师说的方式，文章的结论部分不要一次写完，每一次写一点。用在这种学习笔记中便是：不能总想着一次就把第一部分完成，然后开始第二部分，可以先把“菜”下锅，等需要放什么的时候再来。</em></p>
+        <p><em>过渡循规蹈矩，只会在既有的泥潭中越陷越深。就像写文章一样，如果总是想一气呵成或是一蹴而就如行云流水般写就，那结局必定是寸步难行，特别是对于我这样的新手难说更是如此。因此，我可以尝试老师说的方式，文章的结论部分不要一次写完，每一次写一点。用在这种学习笔记中便是：不能总想着一次就把第一部分完成，然后开始第二部分，可以先把“菜”下锅，等需要放什么的时候再来。</em></p>
 <p>​                                                                                </p>
 <hr>
 <h1 id="一、Julia基本操作及快捷键"><a href="#一、Julia基本操作及快捷键" class="headerlink" title="一、Julia基本操作及快捷键"></a>一、Julia基本操作及快捷键</h1><p>Ctrl+?  ，出现help?&gt;，寻求帮助</p>
@@ -312,269 +311,70 @@
 <li>2018-11-06，翻译初稿，后续想继续学习SAC在Julia中的使用，也借此绕开SAC对系统的限制，使用更快的Julia语言重新理解SAC。另外，必须清楚一条，程序语言的本质是解决问题，千万不要掉进去理解程序语言的每一个细节的这种“贪婪者”的陷阱。既然是在地震学中使用，那么只需要能解决问题便是王道。</li>
 </ul>
 
-        
       
     </div>
 
     
+      
+      
 
-    
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://ossr.github.io">张琰</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://ossr.github.io/2018/11/19/使用Julia调用Sac并做图/">http://ossr.github.io/2018/11/19/使用Julia调用Sac并做图/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
 
-  </article>
+
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/10/18/hello-world/">Hello World</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-18
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
       
-        
-        
-
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-      
-    </div>
-
     
 
     
-
-  </article>
-
-      
+      <footer class="post-footer">
         
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/08/28/2017-8-28-开研究生第一课-吴-李-0828/">写在前面的一点想法</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-08-28
-        </span>
-        
-          <span class="post-category">
+          <div class="post-tags">
             
-              <a href="/categories/行李箱/">行李箱</a>
+              <a href="/tags/Julia-SAC/">Julia_SAC</a>
             
-          </span>
+          </div>
         
         
-      </div>
-    </header>
-
+        
+  <nav class="post-nav">
     
     
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>研究生生活马上就要开始了，在开始之前，有必要做一些规划和设想（必须建立在强行根治个人拖沓懒惰的病根），而这些规划和设想的实现，都必须依赖于学习和效仿的对象，自己的老师。老师有很多，包括研究生导师、师兄师姐、同行业的权威学者、还有同学，甚至是从小一起长大的发小、兄弟。正是在不断的修行与纠正中，才有了点滴进步汇集而成的成长。</p>
-<p><strong>师者，所以传道授业解惑也</strong></p>
-<p>第一次听这话的时候，我还在读高一。在那个青涩、害羞而又懵懂的年纪，我还不太懂得“师者”这二字的概念，单纯的以为师者只是教授学生知识，仅此而已，既无关教导如何做人，也无关教导如何做事。如今，我结束了大学本科的学习，来到导师门下继续学习，对“师者”二字也有了更深的概念。</p>
-<p>师者，首先应该是老师，然后才是朋友，既能传道授业，也能在做人处事中身先立足，成为我们这些晚辈后生们学习的榜样。</p>
-<p><strong>师者，无关身份地位</strong></p>
-<p><strong>师者，首先在传道</strong></p>
-<p><strong>师者，行走的教科书</strong></p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/08/03/2017-8-4-Numpy之nadrray对象/">Numpy之nadrray对象</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-08-03
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Python/">Python</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/08/02/2017-8-3-numpy的安装与使用/">numpy的安装</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-08-02
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Python/">Python</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h1 id="1-什么是Numpy"><a href="#1-什么是Numpy" class="headerlink" title="1 什么是Numpy"></a>1 什么是Numpy</h1><p>维基百科上对Numpy有如下定义：</p>
-<p><strong>NumPy</strong>是Python语言的一个扩充程序库。支持高级大量的维度（数组）与矩阵运算，此外也针对数组运算提供大量的数学函数库。</p>
-<p>从上面这句话可以读出对Numpy的三个解释：</p>
-<p>（1）Numpy作为一个独立的库，从属于Python语言，属于Python的一个功能扩展，就像google或者火狐浏览器的诸多插件一样，有着它多特有的功能；</p>
-<p>（2）通过调用Numpy库，可以做简单的数组与矩阵运算；</p>
-<p>（3）Numpy库中包含大量的与矩阵和数组运算有关的函数库，使得在Python中可以进行复杂的矩阵和数组运算。</p>
-<h1 id="2-Numpy在windows下的安装"><a href="#2-Numpy在windows下的安装" class="headerlink" title="2 Numpy在windows下的安装"></a>2 Numpy在windows下的安装</h1><p>我的安装环境如下：</p>
-<ul>
-<li>Windows 10 专业版  64位操作系统</li>
-<li>官方纯净版Python-3.6.2</li>
-</ul>
-<p>这里需要注意的是，在Python官方网站上并没有对windows系统做严格区分，只提供了Python3.6.2和Python2.7.13两个版本，说明Python在win7,win8,win10上均可以正常运行。这也说明了Python3.x和Python2.x有着较大的差别，而Python也非常人性，继续维和和更新着2.x。正如GMT5.x是GMT的未来一样，Python3.x才是Python的未来。</p>
-<p><img src="/2017/08/02/2017-8-3-numpy的安装与使用/download.jpg" alt="download"></p>
-<p>在安装Python的过程中，勾上Add to the path ,安装程序便会自动在系统环境变量中加入Python启动路径。当然也可以不勾，最后手动加上。</p>
-<p>在准备好上述环境后，便可以按照以下步骤开始Numpy的安装：</p>
-<p>（1）<strong><em>下载</em></strong></p>
-<p>从<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/下载合适版本的包含MKL库的第三方Numpy" target="_blank" rel="noopener">http://www.lfd.uci.edu/~gohlke/pythonlibs/下载合适版本的包含MKL库的第三方Numpy</a>:</p>
-<p><img src="/2017/08/02/2017-8-3-numpy的安装与使用/num_dow.jpg" alt="num_dow"></p>
-<p>我使用的Python3.6，所以需要下载numpy-1.13.1+mkl-cp36-cp36m-win32.whl。其中，cp36意为Python3.6版本。我在一开始尝试过numpy-1.13.1+mkl-cp36-cp36m-win_amd64.whl，但是安装的时候报错与系统不平台不兼容，所以我猜测amd64的意思是说AMD64位处理器。win64位下可以运行32位任何程序，在这里下载32位的numpy库没有问题，后来系统也没有报错。</p>
-<p>（2）<strong><em>在cmd命令模式下安装</em></strong></p>
-<p>首先将Numpy库文件移至Python安装目录中，新建一个文件夹并命名位Numpy，然后将Numpy库文件移至其中。</p>
-<ul>
-<li>如果是安装在系统盘中（即默认目录），并在Advanced Options中选定Install for all users，则Python会安装在C:\Program Files (x86)\Python36-32。为了后续安装有足够多的权限，需要以管理员身份启动cmd命令窗口；</li>
-<li>如果没有安装在系统盘，或者在在Advanced Options中没有选定Install for all users，则Python会被安装在管理员用户目录中，只有管理员自己可以进行任何操作，以非管理员身份登入电脑无法使用Python。这时，不再需要以管理员身份启动cmd命令窗口，直接启动即可。</li>
-</ul>
-<p>打开cmd，以下面两种方式安装：</p>
-<ul>
-<li><p>pip  install  address of Numpy  </p>
-<p>例如：<code>pip install C:\Program Files (x86)\Python36-32\Numpy\numpy-1.13.1+mkl-cp36-cp36m-win32.whl</code></p>
-</li>
-<li><p>进入在Numpy目录下，pip  install  filename</p>
-<p>例如：<code>pip  install  numpy-1.13.1+mkl-cp36-cp36m-win32.whl</code></p>
-</li>
-</ul>
-<p>当最后出现<strong>Successful installed numpy-1.13.1+mkl</strong>时，说明安装成功。</p>
-<p><img src="/2017/08/02/2017-8-3-numpy的安装与使用/succ.jpg" alt="succ"></p>
-<p># </p>
-<p>修改日志：</p>
-<ul>
-<li>2017.8.2 初稿</li>
-</ul>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-      
-  <nav class="pagination">
-    
-    
-      <a class="next" href="/page/2/">
-        <span class="next-text">Next</span>
+      <a class="next" href="/2018/10/18/hello-world/">
+        <span class="next-text nav-default">Hello World</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
   </nav>
 
 
+      </footer>
     
-  </section>
+
+  </article>
+
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>
@@ -659,6 +459,11 @@
     </div>
 
     
+  
+  
+
+  
+
 
 
     
