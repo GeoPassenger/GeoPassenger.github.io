@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>2017-7-3-Markdown写作基础 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 如何产生首行缩进效果网上找到以下三种方法，可靠性未知，我试过第三种的不换行空格，无法产生缩进效果 半角空格:  &amp;amp;ensp 或者 &amp;amp;#8194 全角空格:  &amp;amp;emsp 或者 &amp;amp;#8195 不换行空格:   &amp;amp;nbsp 或者 &amp;amp;#160           2. 插入图片2.1 使用关联文件夹在网上查了很多关于如何在Hexo博客中完美插入本地图">
+<meta name="keywords" content="插入图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017-7-3-Markdown写作基础">
+<meta property="og:url" content="http://yoursite.com/2017/07/03/2017-7-3-Markdown写作基础/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 如何产生首行缩进效果网上找到以下三种方法，可靠性未知，我试过第三种的不换行空格，无法产生缩进效果 半角空格:  &amp;amp;ensp 或者 &amp;amp;#8194 全角空格:  &amp;amp;emsp 或者 &amp;amp;#8195 不换行空格:   &amp;amp;nbsp 或者 &amp;amp;#160           2. 插入图片2.1 使用关联文件夹在网上查了很多关于如何在Hexo博客中完美插入本地图">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2017/07/03/2017-7-3-Markdown写作基础/本地图片/IMG_1849.jpg">
+<meta property="og:updated_time" content="2017-10-07T17:09:22.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017-7-3-Markdown写作基础">
+<meta name="twitter:description" content="1. 如何产生首行缩进效果网上找到以下三种方法，可靠性未知，我试过第三种的不换行空格，无法产生缩进效果 半角空格:  &amp;amp;ensp 或者 &amp;amp;#8194 全角空格:  &amp;amp;emsp 或者 &amp;amp;#8195 不换行空格:   &amp;amp;nbsp 或者 &amp;amp;#160           2. 插入图片2.1 使用关联文件夹在网上查了很多关于如何在Hexo博客中完美插入本地图">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/03/2017-7-3-Markdown写作基础/本地图片/IMG_1849.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+  <link rel="stylesheet" href="/css/donate.css">
+  
+</head>
+
+  
+    
+      <body class="dark">
+    
+  
+      <div id="container" class="container">
+        <article id="post-2017-7-3-Markdown写作基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">OSSR</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2017-7-3-Markdown写作基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h1 id="1-如何产生首行缩进效果"><a href="#1-如何产生首行缩进效果" class="headerlink" title="1. 如何产生首行缩进效果"></a>1. 如何产生首行缩进效果</h1><p>网上找到以下三种方法，可靠性未知，我试过第三种的不换行空格，无法产生缩进效果</p>
+<p><code>半角空格:</code>  &amp;ensp 或者 &amp;#8194</p>
+<p><code>全角空格:</code>  &amp;emsp 或者 &amp;#8195</p>
+<p><code>不换行空格:</code>   &amp;nbsp 或者 &amp;#160          </p>
+<h1 id="2-插入图片"><a href="#2-插入图片" class="headerlink" title="2. 插入图片"></a>2. 插入图片</h1><h2 id="2-1-使用关联文件夹"><a href="#2-1-使用关联文件夹" class="headerlink" title="2.1 使用关联文件夹"></a>2.1 使用关联文件夹</h2><p>在网上查了很多关于如何在Hexo博客中完美插入本地图片的方法，很多都是说在source下建一个与_posts同级的文件夹，并命名为images，然后在博文中引用其相对路径即可。我反复尝试多次后发现这种方法根本不行（也有可能是我自己的原因）。为了使用户更系统的管理文章资源，Hexo提供了一种文章资源文件夹。文章资源文件夹，顾名思义，就是将一篇博文的所有资源集中在与之同名的一个文件夹中，这里面包括各类图片，一起其它有用处的资源。</p>
+<p>使用文章资源文件夹放入本地图片到博客中的方法：</p>
+<ul>
+<li><p>首先需要修改Hexo根目录下的配置文件_config.yml，将post_asset_folder后面的关键字由false改为true（<strong>在我装的hexo 3.3.7版本中，post_asset_folder后面已经是true，无需修改</strong>） </p>
+</li>
+<li><p>通过命令：<code>hexo new post article_name</code> 创建新文章时，会同时创建一个与之同名的文件夹，即为资源文件夹</p>
+</li>
+<li><p>将需要用到的图片放入该资源文件夹中，而后在Markdown文件中以如下方式引用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片名称](资源文件夹名称/图片名称.jpg)</span><br></pre></td></tr></table></figure>
+<p><strong>需要注意的是，方括号里面只需要放入图片名即可，不需要后缀。可以将方括号中的图片名称理解为指针</strong></p>
+<p>例如：<img src="本地图片/IMG_1849.jpg" alt="IMG_1849"></p>
+</li>
+</ul>
+<p>修改日志：</p>
+<p><strong>2017.7.10</strong>  补充上在Hexo博客中添加本地博客的方法  </p>
+
+      
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2017/07/03/2017-7-3-Markdown写作基础/" class="article-date">
+  <time datetime="2017-07-02T16:52:29.000Z" itemprop="datePublished">2017-07-03</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Category:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/完美使用Hexo之路/">完美使用Hexo之路</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插入图片/">插入图片</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/2017/07/04/2017-7-4-西南联大：刚毅卓绝/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          西南联大：刚毅卓绝
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/01/2017-7-4-记住回家的路/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">记住回家的路</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3/dist/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  </body>
+</html>

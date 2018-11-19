@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>numpy的安装 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1 什么是Numpy维基百科上对Numpy有如下定义： NumPy是Python语言的一个扩充程序库。支持高级大量的维度（数组）与矩阵运算，此外也针对数组运算提供大量的数学函数库。 从上面这句话可以读出对Numpy的三个解释： （1）Numpy作为一个独立的库，从属于Python语言，属于Python的一个功能扩展，就像google或者火狐浏览器的诸多插件一样，有着它多特有的功能； （2）通过调用">
+<meta name="keywords" content="Python Numpy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="numpy的安装">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/2017-8-3-numpy的安装与使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1 什么是Numpy维基百科上对Numpy有如下定义： NumPy是Python语言的一个扩充程序库。支持高级大量的维度（数组）与矩阵运算，此外也针对数组运算提供大量的数学函数库。 从上面这句话可以读出对Numpy的三个解释： （1）Numpy作为一个独立的库，从属于Python语言，属于Python的一个功能扩展，就像google或者火狐浏览器的诸多插件一样，有着它多特有的功能； （2）通过调用">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2017/08/02/2017-8-3-numpy的安装与使用/2017-8-3-numpy的安装与使用/download.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/08/02/2017-8-3-numpy的安装与使用/2017-8-3-numpy的安装与使用/num_dow.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/08/02/2017-8-3-numpy的安装与使用/2017-8-3-numpy的安装与使用/succ.jpg">
+<meta property="og:updated_time" content="2017-10-07T17:33:43.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="numpy的安装">
+<meta name="twitter:description" content="1 什么是Numpy维基百科上对Numpy有如下定义： NumPy是Python语言的一个扩充程序库。支持高级大量的维度（数组）与矩阵运算，此外也针对数组运算提供大量的数学函数库。 从上面这句话可以读出对Numpy的三个解释： （1）Numpy作为一个独立的库，从属于Python语言，属于Python的一个功能扩展，就像google或者火狐浏览器的诸多插件一样，有着它多特有的功能； （2）通过调用">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/02/2017-8-3-numpy的安装与使用/2017-8-3-numpy的安装与使用/download.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+  <link rel="stylesheet" href="/css/donate.css">
+  
+</head>
+
+  
+    
+      <body class="dark">
+    
+  
+      <div id="container" class="container">
+        <article id="post-2017-8-3-numpy的安装与使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">OSSR</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      numpy的安装
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h1 id="1-什么是Numpy"><a href="#1-什么是Numpy" class="headerlink" title="1 什么是Numpy"></a>1 什么是Numpy</h1><p>维基百科上对Numpy有如下定义：</p>
+<p><strong>NumPy</strong>是Python语言的一个扩充程序库。支持高级大量的维度（数组）与矩阵运算，此外也针对数组运算提供大量的数学函数库。</p>
+<p>从上面这句话可以读出对Numpy的三个解释：</p>
+<p>（1）Numpy作为一个独立的库，从属于Python语言，属于Python的一个功能扩展，就像google或者火狐浏览器的诸多插件一样，有着它多特有的功能；</p>
+<p>（2）通过调用Numpy库，可以做简单的数组与矩阵运算；</p>
+<p>（3）Numpy库中包含大量的与矩阵和数组运算有关的函数库，使得在Python中可以进行复杂的矩阵和数组运算。</p>
+<h1 id="2-Numpy在windows下的安装"><a href="#2-Numpy在windows下的安装" class="headerlink" title="2 Numpy在windows下的安装"></a>2 Numpy在windows下的安装</h1><p>我的安装环境如下：</p>
+<ul>
+<li>Windows 10 专业版  64位操作系统</li>
+<li>官方纯净版Python-3.6.2</li>
+</ul>
+<p>这里需要注意的是，在Python官方网站上并没有对windows系统做严格区分，只提供了Python3.6.2和Python2.7.13两个版本，说明Python在win7,win8,win10上均可以正常运行。这也说明了Python3.x和Python2.x有着较大的差别，而Python也非常人性，继续维和和更新着2.x。正如GMT5.x是GMT的未来一样，Python3.x才是Python的未来。</p>
+<p><img src="2017-8-3-numpy的安装与使用/download.jpg" alt="download"></p>
+<p>在安装Python的过程中，勾上Add to the path ,安装程序便会自动在系统环境变量中加入Python启动路径。当然也可以不勾，最后手动加上。</p>
+<p>在准备好上述环境后，便可以按照以下步骤开始Numpy的安装：</p>
+<p>（1）<strong><em>下载</em></strong></p>
+<p>从<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/下载合适版本的包含MKL库的第三方Numpy" target="_blank" rel="noopener">http://www.lfd.uci.edu/~gohlke/pythonlibs/下载合适版本的包含MKL库的第三方Numpy</a>:</p>
+<p><img src="2017-8-3-numpy的安装与使用/num_dow.jpg" alt="num_dow"></p>
+<p>我使用的Python3.6，所以需要下载numpy-1.13.1+mkl-cp36-cp36m-win32.whl。其中，cp36意为Python3.6版本。我在一开始尝试过numpy-1.13.1+mkl-cp36-cp36m-win_amd64.whl，但是安装的时候报错与系统不平台不兼容，所以我猜测amd64的意思是说AMD64位处理器。win64位下可以运行32位任何程序，在这里下载32位的numpy库没有问题，后来系统也没有报错。</p>
+<p>（2）<strong><em>在cmd命令模式下安装</em></strong></p>
+<p>首先将Numpy库文件移至Python安装目录中，新建一个文件夹并命名位Numpy，然后将Numpy库文件移至其中。</p>
+<ul>
+<li>如果是安装在系统盘中（即默认目录），并在Advanced Options中选定Install for all users，则Python会安装在C:\Program Files (x86)\Python36-32。为了后续安装有足够多的权限，需要以管理员身份启动cmd命令窗口；</li>
+<li>如果没有安装在系统盘，或者在在Advanced Options中没有选定Install for all users，则Python会被安装在管理员用户目录中，只有管理员自己可以进行任何操作，以非管理员身份登入电脑无法使用Python。这时，不再需要以管理员身份启动cmd命令窗口，直接启动即可。</li>
+</ul>
+<p>打开cmd，以下面两种方式安装：</p>
+<ul>
+<li><p>pip  install  address of Numpy  </p>
+<p>例如：<code>pip install C:\Program Files (x86)\Python36-32\Numpy\numpy-1.13.1+mkl-cp36-cp36m-win32.whl</code></p>
+</li>
+<li><p>进入在Numpy目录下，pip  install  filename</p>
+<p>例如：<code>pip  install  numpy-1.13.1+mkl-cp36-cp36m-win32.whl</code></p>
+</li>
+</ul>
+<p>当最后出现<strong>Successful installed numpy-1.13.1+mkl</strong>时，说明安装成功。</p>
+<p><img src="2017-8-3-numpy的安装与使用/succ.jpg" alt="succ"></p>
+<p># </p>
+<p>修改日志：</p>
+<ul>
+<li>2017.8.2 初稿</li>
+</ul>
+
+      
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2017/08/02/2017-8-3-numpy的安装与使用/" class="article-date">
+  <time datetime="2017-08-02T07:26:30.000Z" itemprop="datePublished">2017-08-02</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Category:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-Numpy/">Python Numpy</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/2017/08/03/2017-8-4-Numpy之nadrray对象/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Numpy之nadrray对象
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/18/2017-7-18-对GMT的理解/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">对GMT的理解</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3/dist/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  </body>
+</html>

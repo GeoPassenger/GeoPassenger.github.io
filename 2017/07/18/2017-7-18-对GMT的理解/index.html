@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>对GMT的理解 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="写在前面的话： ​         在准备毕业设计的时候，我如一名坐在K字头普快列车上的乘客一般，快速的浏览GMT的所有内容，快速的理解需要用到的内容。有事，由于时间紧迫，我都没来得及咀嚼，直接吞入肚中。这样的后果是，我可以用GMT做出我想要的图，但是我做不出高质量的看起来赏心悦目的图。 ​         做完毕业设计后，我如放下毕业设计一样，也放下了GMT的学习，全然不顾自己在GMT中还有很有">
+<meta name="keywords" content="GMT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对GMT的理解">
+<meta property="og:url" content="http://yoursite.com/2017/07/18/2017-7-18-对GMT的理解/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="写在前面的话： ​         在准备毕业设计的时候，我如一名坐在K字头普快列车上的乘客一般，快速的浏览GMT的所有内容，快速的理解需要用到的内容。有事，由于时间紧迫，我都没来得及咀嚼，直接吞入肚中。这样的后果是，我可以用GMT做出我想要的图，但是我做不出高质量的看起来赏心悦目的图。 ​         做完毕业设计后，我如放下毕业设计一样，也放下了GMT的学习，全然不顾自己在GMT中还有很有">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-10-07T17:33:33.832Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对GMT的理解">
+<meta name="twitter:description" content="写在前面的话： ​         在准备毕业设计的时候，我如一名坐在K字头普快列车上的乘客一般，快速的浏览GMT的所有内容，快速的理解需要用到的内容。有事，由于时间紧迫，我都没来得及咀嚼，直接吞入肚中。这样的后果是，我可以用GMT做出我想要的图，但是我做不出高质量的看起来赏心悦目的图。 ​         做完毕业设计后，我如放下毕业设计一样，也放下了GMT的学习，全然不顾自己在GMT中还有很有">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+  <link rel="stylesheet" href="/css/donate.css">
+  
+</head>
+
+  
+    
+      <body class="dark">
+    
+  
+      <div id="container" class="container">
+        <article id="post-2017-7-18-对GMT的理解" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">OSSR</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      对GMT的理解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <p><strong>写在前面的话：</strong></p>
+<p>​         在准备毕业设计的时候，我如一名坐在K字头普快列车上的乘客一般，快速的浏览GMT的所有内容，快速的理解需要用到的内容。有事，由于时间紧迫，我都没来得及咀嚼，直接吞入肚中。这样的后果是，我可以用GMT做出我想要的图，但是我做不出高质量的看起来赏心悦目的图。</p>
+<p>​         做完毕业设计后，我如放下毕业设计一样，也放下了GMT的学习，全然不顾自己在GMT中还有很有不理解的地方。幸运的是，我如今意识到自己的错误，重新继续自己的GMT学习之路：</p>
+<p>​         对以后的GMT学习，我想我应该在以下几点着重用力：</p>
+<p>（1）      重基础，重细节；</p>
+<p>（2）      自己敲代码，重示例；</p>
+<p>（3）      多思考，多与人讨论得出好的IDEAR，从而做出有创意的、高质量的图；</p>
+<p>好了，步入正题，GMT是什么。</p>
+<p>哦对，这里有一点需要补充，做笔记（不管是电子版还是手写）对加深理解非常用用处，还能帮助自己产生更多好的ideas。</p>
+<p>一、关于GMT的功能：</p>
+<p>GMT，全称是Generic Mapping Tools，即通用制图工具。</p>
+<p>GMT的功能可以分为以下三类：</p>
+<ul>
+<li>绘制不同类型的地图；</li>
+<li>绘制如线性轴、对数轴、指数轴等常见笛卡尔坐标系；</li>
+<li>简单数据处理分析，如多项式拟合、数据滤波、线性回归分析；</li>
+</ul>
+<p>这里需要注意的是，我现在只关注GMT的第一项功能，主要精力也只能集中在第一项功能上。</p>
+<p>二、关于GMT的优点：</p>
+<ol>
+<li><p>免费且开源；</p>
+</li>
+<li><p>跨平台；</p>
+</li>
+<li><p>模块化：</p>
+</li>
+</ol>
+<p>GMT将绘图和数据处理功能划分到不同的模块上，有以下优点：</p>
+<ul>
+<li>模块间相互独立，每一个作图模块都有着特定的功能，不会相互干扰；</li>
+<li>每一步作图的代码都是独立的；</li>
+<li>可以在shell或bat脚本中调用一系列模块，并用管道相连接，从而绘制复杂图件；</li>
+</ul>
+<p>三、使用平台</p>
+<p>在毕业设计期间，由于电脑的原因，加上同时学习Linux系统和GMT的难度太大，我在使用一段时间在Linux上作图后，毅然放弃Linux，转而用Windows系统。</p>
+<p>从我个人使用来看，bat脚本确实要比Shell脚本来的更加复杂和繁琐，在参考社区上示例时，还必须把shell语法转为bat语法，对于不懂bat语法也不懂shell语法的初学者来说，都有很大的难度。另外，使用Linux系统的人毕竟是少数，大多数人更加愿意使用Windows系统（我也是其中之一）。而使用Linux系统有两种方法：（1）准备一台台式机装上Linux系统，显然太麻烦；（2）使用虚拟机，但问题来了，虚拟内存同样会占据主机内存，而且每次拷出文件的时候都必须不断切换U盘的接入系统，切换速度也贼慢。同时，对一般电脑而言，不是任何时刻都能承受住Linux客机系统对主机系统的拖累。所以，在对Linux系统有足够的了解以及拥有一台以Linux为主机系统的电脑这两个条件得到满足以前，为节省时间、提高效率，我只能使用Windows作为我的主要学习平台。</p>
+<p>写到这里，心里很舒服，一些悬而未决的问题如果老是停留在脑海中的话，它们永远都会停留在无法解决的阶段，每次碰到同样的问题我都不得不做出艰难的抉择。而一旦以文字的形式写出来，就必须给出一个确定的答案，同时形成一种标准，供自己以后遵守。</p>
+<p>四、很重要的两个点：</p>
+<p>（1）      GMT只是一个作图工具；</p>
+<p>（2）      不断加深对数据的理解，对作图工具的理解，才能早日做出高质量图件；</p>
+<p>（3）      不拘泥于示例，不拘泥于固有知识，不拘泥于专业限制，最好可以向任何人寻求意见；</p>
+
+      
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2017/07/18/2017-7-18-对GMT的理解/" class="article-date">
+  <time datetime="2017-07-17T16:42:19.000Z" itemprop="datePublished">2017-07-18</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Category:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/GMT/">GMT</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GMT/">GMT</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/2017/08/02/2017-8-3-numpy的安装与使用/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          numpy的安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/12/2017-7-12-阶段小结/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2017-7-12-阶段小结</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3/dist/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  </body>
+</html>
