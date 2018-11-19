@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="使用Julia调用Sac并做图"/>
+  <meta name="description" content="使用Julia调用Sac并做图_non-original"/>
 
 
 
@@ -90,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> 使用Julia调用Sac并做图 - OSSR </title>
+    <title> 使用Julia调用Sac并做图_non-original - OSSR </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -224,7 +224,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          使用Julia调用Sac并做图
+          使用Julia调用Sac并做图_non-original
         
       </h1>
 
@@ -259,6 +259,7 @@
         <p><em>过渡循规蹈矩，只会在既有的泥潭中越陷越深。就像写文章一样，如果总是想一气呵成或是一蹴而就如行云流水般写就，那结局必定是寸步难行，特别是对于我这样的新手难说更是如此。因此，我可以尝试老师说的方式，文章的结论部分不要一次写完，每一次写一点。用在这种学习笔记中便是：不能总想着一次就把第一部分完成，然后开始第二部分，可以先把“菜”下锅，等需要放什么的时候再来。</em></p>
 <p>​                                                                                </p>
 <hr>
+<p>非原创</p>
 <h1 id="一、Julia基本操作及快捷键"><a href="#一、Julia基本操作及快捷键" class="headerlink" title="一、Julia基本操作及快捷键"></a>一、Julia基本操作及快捷键</h1><p>Ctrl+?  ，出现help?&gt;，寻求帮助</p>
 <p>]，英文模式下输入，进入Pkg模式，我不太了解，尝试两次后的初步感觉是，它可以通过以给定链接的方式下载库并安装。</p>
 <p>例如，进入Pkg模式后，添加模块的命令格式应为：</p>
@@ -299,12 +300,12 @@
 <ol>
 <li><p>plotrs，添加标签</p>
 <figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; B = SAC.sample(:array); <span class="comment"># Load sample data</span></span><br><span class="line">julia&gt; B = cut(B, :a, -<span class="number">30</span>, :a, <span class="number">30</span>); <span class="comment"># Cut traces</span></span><br><span class="line">julia&gt; <span class="keyword">import</span> Pkg; Pkg.add(<span class="string">"Plots"</span>); <span class="comment"># This allows us to call Plots directly below</span></span><br><span class="line">julia&gt; <span class="keyword">import</span> Plots; Plots.default(size=(<span class="number">600</span>,<span class="number">1000</span>), margin=<span class="number">4</span>Plots.mm) <span class="comment"># Change the default figure size and margin</span></span><br><span class="line">julia&gt; plotrs(B, :a, qdp=<span class="literal">false</span>, label=:kstnm, xlabel=<span class="string">"Time rel. PKIKP / s"</span>, ylabel=<span class="string">"Distance / °"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/19/使用Julia调用Sac并做图/plotrs.png" alt="1541506396999"></p>
+<p><img src="/2018/11/19/使用Julia调用Sac并做图/plotrs.png" alt="plotrs"></p>
 </li>
 </ol>
 <p>4.example plotrs</p>
 <figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; plotrs(A, y=:user0, xlabel=<span class="string">"Time / s"</span>, ylabel=<span class="string">"Lowpass frequency / Hz"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/19/使用Julia调用Sac并做图/example_plotrs.png" alt=""></p>
+<p><img src="/2018/11/19/使用Julia调用Sac并做图/example_plotrs.png" alt="example_plotrs"></p>
 <p><strong>参考</strong>:<a href="https://github.com/anowacki/SeisRequests.jl" target="_blank" rel="noopener">https://github.com/anowacki/SeisRequests.jl</a></p>
 <p><strong>修改历史：</strong></p>
 <ul>
@@ -353,6 +354,12 @@
         
   <nav class="post-nav">
     
+      <a class="prev" href="/2018/11/19/Linux下建立GMT常用数据库/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Linux下建立GMT常用数据库</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
     
       <a class="next" href="/2018/10/18/hello-world/">
         <span class="next-text nav-default">Hello World</span>
@@ -385,7 +392,7 @@
     
       
         
-          <a href="mailto:zhangyan1717@163.com" class="iconfont icon-email" title="email"></a>
+          <a href="mailto:geo_passenger_zy@163.com" class="iconfont icon-email" title="email"></a>
         
       
     
