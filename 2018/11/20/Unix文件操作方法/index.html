@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="本站致力于集合作者科研经验，记录与导师和Romanelli教授合作与学习的历程，以及广泛搜集地震学中广泛使用的经典代码。（暂时只用于作者个人整理，不发布到Github库中）"/>
+  <meta name="description" content="Unix文件操作方法"/>
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="https://crowboydoudou.github.io/archives/2017/"/>
+<link rel="canonical" href="https://crowboydoudou.github.io/2018/11/20/Unix文件操作方法/"/>
 
 
 
@@ -90,11 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title>
-  
-    Archives - OSSR
-  
-</title>
+    <title> Unix文件操作方法 - OSSR </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -224,119 +220,131 @@
           <div id="content" class="content">
             
   
-  
-  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Unix文件操作方法
+        
+      </h1>
 
-  <section id="archive" class="archive">
-    
-      
-        <div class="archive-title">
-          <span class="archive-post-counter">
-            11 Posts In Total
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Unix/">Unix</a>
+            
           </span>
-        </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Linux文件属性"><span class="toc-text">一、Linux文件属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、文件的基本操作常用命令"><span class="toc-text">二、文件的基本操作常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、环境变量"><span class="toc-text">三、环境变量</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p>在Unix或者类Unix上操作文件时，避不开反复的用到文件操作，包括文件的粘贴/复制/读取/权限更改/属性查看等等。我一般比较混乱，记录在这里以便快速查看。</p>
+<h1 id="一、Linux文件属性"><a href="#一、Linux文件属性" class="headerlink" title="一、Linux文件属性"></a>一、Linux文件属性</h1><p>类Unix系统非常注意安全性，但是又给了ROOT用户极大的操作权限。在操作文件时必须得注意以下几点：</p>
+<p>1.不要轻易删除或移动根目录下的文件</p>
+<p>2.不要轻易更改环境变量文件，例如.bashrc/.bash_profile</p>
+<p>在任意目录下输入ls -l （ls -al效果相同），常会显示出一列文件属性。如下图：</p>
+<p><img src="/2018/11/20/Unix文件操作方法/2018-11-20 17-07-02屏幕截图.png" alt=""></p>
+<p>说明：</p>
+<p>（1）第一列数据：-rw-r–r–，表示文件权限。第一个字符是“-”，代表本列数据是文件；rw代表可读可写；</p>
+<p>（2）第三、四列数据：第一个geoyan代表文件所有者，第二个geoyan代表用户组；</p>
+<p>（3）第五列数据：数据容量</p>
+<p>（4）第六列数据：修改日期</p>
+<h1 id="二、文件的基本操作常用命令"><a href="#二、文件的基本操作常用命令" class="headerlink" title="二、文件的基本操作常用命令"></a>二、文件的基本操作常用命令</h1><p>file: 查看文件类型，例如ASCII、data、binary等；</p>
+<p>stat: 查看文件大小、存储位置、软硬链接、以及最近访问、更改、改动的时间；</p>
+<p>which：疑似只能寻找路径在环境变量中的文件；</p>
+<p>cd: 切换目录；. 此一层，..上一层，-前一层，~主目录</p>
+<p>mkdir: 建立一个新的目录；</p>
+<p>rmdir:删除一个空目录；</p>
+<h1 id="三、环境变量"><a href="#三、环境变量" class="headerlink" title="三、环境变量"></a>三、环境变量</h1><p>PATH相当于给系统的一个指路牌，告诉笨笨的它哪里有什么（路径），而且会告诉它你去了之后就会“明白”你需要做什么（该路径下只有一个可执行文件）。而且，前面的“指示牌”总是能抢到机会，告诉它首先需要做什么（即在存在多个搜索地址时，先搜索到谁就先执行谁），如果有很多个目的地的话。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://crowboydoudou.github.io">Crowboydoudou</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://crowboydoudou.github.io/2018/11/20/Unix文件操作方法/">https://crowboydoudou.github.io/2018/11/20/Unix文件操作方法/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
       
     
 
     
-      
+      <footer class="post-footer">
         
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2017</h2>
+          <div class="post-tags">
+            
+              <a href="/tags/“文件操作”/">“文件操作”</a>
+            
           </div>
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            08-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/08/28/2017-8-28-开研究生第一课-吴-李-0828/" class="archive-post-link">
-            写在前面的一点想法
-          </a>
-        </span>
-      </div>
+        
+        
+  <nav class="post-nav">
     
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            08-02
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/08/02/2017-8-3-numpy的安装与使用/" class="archive-post-link">
-            numpy的安装
-          </a>
-        </span>
-      </div>
+      <a class="prev" href="/2018/11/20/在Linux系统和Windows系统上快速传递文件/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">在Linux系统和Windows系统上快速传递文件</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
     
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            07-03
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/07/03/2017-7-3-Markdown写作基础/" class="archive-post-link">
-            2017-7-3-Markdown写作基础
-          </a>
-        </span>
-      </div>
     
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            07-01
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/07/01/2017-7-1-Hexo搭建个人博客/" class="archive-post-link">
-            建立博客
-          </a>
-        </span>
-      </div>
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
+      <a class="next" href="/2018/11/20/11月7日与老师讨论/">
+        <span class="next-text nav-default">11月7日与老师讨论</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>
@@ -421,6 +429,11 @@
     </div>
 
     
+  
+  
+
+  
+
 
 
     

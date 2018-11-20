@@ -228,6 +228,181 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/11/20/在Linux系统和Windows系统上快速传递文件/">在Linux系统和Windows系统上快速传递文件</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Unix/">Unix</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>我有两台电脑，一台是CentOS系统台式机，一台是Windows系统笔记本。由于CentOS系统台式机速度更快，但是笔记本更方便携带，因此经常需要在两台电脑之间反复的传递文件，如果每一次都是用移动介质的话未免显得过于麻烦。</p>
+<p>第一个选项：WinSCP，提供了Windows到Unix服务器的多种连接方式，支持多个文件传输协议（i.e., FTP/SFTP），但是只能是服务器，而不能是普通的主机，放弃。</p>
+<p>第二个选项：TeamViewer，更适用于团队之间的远程协作或是提供网络服务的公司为客户解决技术问题，放弃。</p>
+<p>第三个选项：VNCserver</p>
+<h1 id="一、从CentOS到Windows"><a href="#一、从CentOS到Windows" class="headerlink" title="一、从CentOS到Windows"></a>一、从CentOS到Windows</h1><p>虽然很难受，但是对于非服务器的主机暂时只能用最笨的方法-U盘快转了。</p>
+<p>有一种暂时可行的方法是：在CentOS系统中虽然没有Unix版本的百度云盘可用，但是可以登录在线版。数据量较小的话，可以采用这样一种方式。数据量很大的时候，由于下载带宽限制，最好使用移动存储介质转运。（下同）</p>
+<h1 id="二、从Windows到CentOS"><a href="#二、从Windows到CentOS" class="headerlink" title="二、从Windows到CentOS"></a>二、从Windows到CentOS</h1><p>虽然很难受，但是对于非服务器的主机暂时只能用最笨的方法-U盘快转了</p>
+<p>未完待续……</p>
+<p><strong>文本日志：</strong></p>
+<p>1.2018年11月20日，提出问题，尝试了三种选项，都逃不开一个词：服务器</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/11/20/Unix文件操作方法/">Unix文件操作方法</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Unix/">Unix</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>在Unix或者类Unix上操作文件时，避不开反复的用到文件操作，包括文件的粘贴/复制/读取/权限更改/属性查看等等。我一般比较混乱，记录在这里以便快速查看。</p>
+<h1 id="一、Linux文件属性"><a href="#一、Linux文件属性" class="headerlink" title="一、Linux文件属性"></a>一、Linux文件属性</h1><p>类Unix系统非常注意安全性，但是又给了ROOT用户极大的操作权限。在操作文件时必须得注意以下几点：</p>
+<p>1.不要轻易删除或移动根目录下的文件</p>
+<p>2.不要轻易更改环境变量文件，例如.bashrc/.bash_profile</p>
+<p>在任意目录下输入ls -l （ls -al效果相同），常会显示出一列文件属性。如下图：</p>
+<p><img src="/2018/11/20/Unix文件操作方法/2018-11-20 17-07-02屏幕截图.png" alt=""></p>
+<p>说明：</p>
+<p>（1）第一列数据：-rw-r–r–，表示文件权限。第一个字符是“-”，代表本列数据是文件；rw代表可读可写；</p>
+<p>（2）第三、四列数据：第一个geoyan代表文件所有者，第二个geoyan代表用户组；</p>
+<p>（3）第五列数据：数据容量</p>
+<p>（4）第六列数据：修改日期</p>
+<h1 id="二、文件的基本操作常用命令"><a href="#二、文件的基本操作常用命令" class="headerlink" title="二、文件的基本操作常用命令"></a>二、文件的基本操作常用命令</h1><p>file: 查看文件类型，例如ASCII、data、binary等；</p>
+<p>stat: 查看文件大小、存储位置、软硬链接、以及最近访问、更改、改动的时间；</p>
+<p>which：疑似只能寻找路径在环境变量中的文件；</p>
+<p>cd: 切换目录；. 此一层，..上一层，-前一层，~主目录</p>
+<p>mkdir: 建立一个新的目录；</p>
+<p>rmdir:删除一个空目录；</p>
+<h1 id="三、环境变量"><a href="#三、环境变量" class="headerlink" title="三、环境变量"></a>三、环境变量</h1><p>PATH相当于给系统的一个指路牌，告诉笨笨的它哪里有什么（路径），而且会告诉它你去了之后就会“明白”你需要做什么（该路径下只有一个可执行文件）。而且，前面的“指示牌”总是能抢到机会，告诉它首先需要做什么（即在存在多个搜索地址时，先搜索到谁就先执行谁），如果有很多个目的地的话。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/11/20/11月7日与老师讨论/">11月7日与老师讨论</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/研究生与导师/">研究生与导师</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>11月7日，我与老师进行了DEEP会议以后的第一讨论，这一次讨论由于是刚刚与Romanelli教授见面并基本确定合作关系之后的首次讨论，就显得尤为重要，同时基本确定了后面一年以内的工作内容和大体方向。</p>
+<h1 id="Point-I-关于与Romanelli教授联系"><a href="#Point-I-关于与Romanelli教授联系" class="headerlink" title="Point I  关于与Romanelli教授联系"></a>Point I  关于与Romanelli教授联系</h1><p>11月6日的时候，我给Romanelli 教授发送了第二封邮件，提出来关于模拟的三个问题以及关于峰值地面加速度的问题。这三个问题分别是：</p>
+<p><img src="/2018/11/20/11月7日与老师讨论/微信截图_20181120214606.png" alt=""></p>
+<p>老师开始便指出了我在称呼教授的时候犯的错误：首先，我把教授的名和姓弄混淆了，Fabio Romanelli，Romanelli是姓，Fabio是名。当我和教授刚刚认识的时候，可以称呼他为Prof. Romanelli或者Mr. Romanelli；当我和教授很熟悉的时候，可以直呼Fabio；而在英文习惯中，称呼全称往往是准备干仗了，这个时候别人会称教授为Fabio Romanelli。然后，老师认为我提出的前三个问题过于宽泛，可以毫不夸张的说，前三个问题里面每一个问题或许都可以用一篇文章来回答。关于第一个问题，讨论某一点的地震波避不开场效应的讨论（Site Response），在不同的Site上，由于地下近地表结构的巨大差异，地下结构的属性特征会近似“附着”在通过的地震波上并改变它的细微特征。关于第二个问题与第三个问题，如何评价一个模型的好坏有多重方法。但是不可以忽略的是，模型毕竟是模型，肯定无法做到无限逼近真实情况。但是可以用具体的方法来衡量模型的好坏并为其“打分”，例如RMS方法，既考虑用<strong>贝叶斯准则</strong>可以评价一个模型有多好，也考虑模型的不同因素之间的影响。</p>
+<p>最后，老师提出，学生与导师之间的交流是一个长期而漫长的过程，而我与Romanelli教授之间便是如此。通过有意识的记录下与Fabio教授之间每次的邮件通讯内容，可以反映我是如何从一个“小白”新手进阶成“老司机”的，同时，这或许能成为学生如何与导师之间交流与讨论的一个很不错的教材。后面可以预料的是，我肯定会与教授一起写文章，于是可以叫做《The birth of a paper》</p>
+<h1 id="Point-II-按照审稿人意见修改稿子"><a href="#Point-II-按照审稿人意见修改稿子" class="headerlink" title="Point II  按照审稿人意见修改稿子"></a>Point II  按照审稿人意见修改稿子</h1><p>在一开始的时候，我开心的告诉老师，自己知道两位审稿人具体是谁。本以为只是一句顺口的话不会引起多大的反应，可是老师的表情立马变得严肃了起来，因为我第一次打破了规则。通常，为了保证文章在审核过程中公平公正，文章在送外审时需要隐去作者和作者单位等任何可能泄露作者信息的标识，以确保审稿人在审稿的时候不会受到任何可能影响文章审核质量的因素。然而，不管我以何种途径获取审稿人的信息，都已是不遵守规矩的表现。还好只是第一次，并不会造成多大的影响，但是我想的是，这或许是我在科研写作上上过的第一节关于“守规矩”的课程吧。</p>
+<p>审稿人意见分两份，第一份是在原稿上批注；第二份是审稿意见表。老师要求我对批注逐条回复和修改，对不清晰的地方需要重新向审稿人明确具体想表达的意思。对审稿意见表，可以修改的则修改，不可修改的也需要加进文章的ARGUEMENT中去。</p>
+<h1 id="Point-III-关于博士研究生研究方向"><a href="#Point-III-关于博士研究生研究方向" class="headerlink" title="Point III  关于博士研究生研究方向"></a>Point III  关于博士研究生研究方向</h1><p>这个问题问完后我立马就后悔了。老师有老师自己的打算，迟迟不定，必有他自己的理由和考虑，也许是正在思虑更加兼顾主线与扩展、兼顾主业与副业的研究方向，也许是考虑到我已经开始跟随Fabio教授学习Seismic Hazard，并没有足够的必要来确定一个方向。所幸，最后老师并没有回避这个问题，确定了一个或许只能暂时这样确定的方向：Application of NDSHA in CSES.</p>
+<p>当然，并不是仅仅把别人的方法搬过来就完事了那么简单。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/11/19/写在前面的话/">写在前面的话</a>
         
       </h1>
@@ -328,209 +503,6 @@
 </ul>
 <p>修改日志：</p>
 <p>2018-11-19：尝试通过PATH添加搜索路径到环境变量中，均失败。放在gmt自己创建的.gmt文件中可行。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/19/使用Julia调用Sac并做图/">使用Julia调用Sac并做图_non-original</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-19
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Julia/">Julia</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p><em>过渡循规蹈矩，只会在既有的泥潭中越陷越深。就像写文章一样，如果总是想一气呵成或是一蹴而就如行云流水般写就，那结局必定是寸步难行，特别是对于我这样的新手难说更是如此。因此，我可以尝试老师说的方式，文章的结论部分不要一次写完，每一次写一点。用在这种学习笔记中便是：不能总想着一次就把第一部分完成，然后开始第二部分，可以先把“菜”下锅，等需要放什么的时候再来。</em></p>
-<p>​                                                                                </p>
-<hr>
-<p>非原创</p>
-<h1 id="一、Julia基本操作及快捷键"><a href="#一、Julia基本操作及快捷键" class="headerlink" title="一、Julia基本操作及快捷键"></a>一、Julia基本操作及快捷键</h1><p>Ctrl+?  ，出现help?&gt;，寻求帮助</p>
-<p>]，英文模式下输入，进入Pkg模式，我不太了解，尝试两次后的初步感觉是，它可以通过以给定链接的方式下载库并安装。</p>
-<p>例如，进入Pkg模式后，添加模块的命令格式应为：</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg&gt;add url</span><br></pre></td></tr></table></figure>
-<p>例如：</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg&gt;add https://github.com/anowacki/SeisRequests.jl</span><br></pre></td></tr></table></figure>
-<p>当需要从Pkg模式下退出时，直接使用<strong>Backspace</strong>按键即可。</p>
-<h1 id="二、SeisRequests"><a href="#二、SeisRequests" class="headerlink" title="二、SeisRequests"></a>二、SeisRequests</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1.安装SAC.jl，可能需要编译SpecialFunctions</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg&gt; add https://github.com/anowacki/SAC.jl</span><br><span class="line">julia&gt; build Special Functions</span><br></pre></td></tr></table></figure>
-<p>2.安装SACPlot</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg&gt; add https://github.com/anowacki/SACPlot.jl</span><br></pre></td></tr></table></figure>
-<p>3.安装Plots</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; <span class="keyword">import</span> Pkg; Pkg.add(<span class="string">"Plots"</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>1.使用FDSN服务标准：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FDSNEvent:查询事件</span><br><span class="line">FDSNStation: 查询台站</span><br><span class="line">FDSNDataSelect: 请求波形数据</span><br></pre></td></tr></table></figure>
-<p>2.使用IRIS服务标准：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IRISTimeSeries: 请求波形数据</span><br></pre></td></tr></table></figure>
-<p>3.REPL</p>
-<p>​    待添加。。。。。。</p>
-<p>4.所有请求由<em>get_request</em>函数发出，它会自动返回<em>HTTP.message.Response</em>，包含有服务器返回的信息。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>参考:<a href="https://github.com/anowacki/SeisRequests.jl" target="_blank" rel="noopener">https://github.com/anowacki/SeisRequests.jl</a></p>
-<p>以获取2007年南威尔士地震数据为例：</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; <span class="keyword">using</span> SeisRequests  <span class="comment"># 启动SeisRequests</span></span><br><span class="line"></span><br><span class="line">julia&gt; req = FDSNStation(station=<span class="string">"JSA"</span>, network=<span class="string">"GB"</span>, channel=<span class="string">"?H?"</span>, level=<span class="string">"channel, format="text</span><span class="string">")</span></span><br><span class="line"><span class="string">FDSNStation</span></span><br><span class="line"><span class="string">  starttime: Missing missing</span></span><br><span class="line"><span class="string">  endtime: Missing missing</span></span><br><span class="line"><span class="string">  startbefore: Missing missing</span></span><br><span class="line"><span class="string">  startafter: Missing missing</span></span><br><span class="line"><span class="string">  endbefore: Missing missing</span></span><br><span class="line"><span class="string">  endafter: Missing missing</span></span><br><span class="line"><span class="string">  network: String "GB</span><span class="string">"</span></span><br><span class="line"><span class="string">  station: String "JSY</span><span class="string">"</span></span><br><span class="line"><span class="string">  ⋮</span></span><br><span class="line"><span class="string">  matchtimeseries: Missing missing</span></span><br><span class="line"><span class="string">  format: String "text</span><span class="string">"</span></span><br><span class="line"><span class="string">  nodata: Int64 204</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">julia&gt; get_request(req)</span></span><br><span class="line"><span class="string">[ Info: Request status: Successful request, results follow</span></span><br><span class="line"><span class="string">HTTP.Messages.Response:</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">Server: Apache-Coyote/<span class="number">1.1</span></span><br><span class="line">access-control-allow-origin: *</span><br><span class="line">content-disposition: inline; filename=<span class="string">"fdsnws-station_2018-08-23T13:37:35Z.txt"</span></span><br><span class="line">Content-<span class="built_in">Type</span>: text/plain</span><br><span class="line">Content-Length: <span class="number">176</span></span><br><span class="line"><span class="built_in">Date</span>: Thu, <span class="number">23</span> Aug <span class="number">2018</span> <span class="number">13</span>:<span class="number">37</span>:<span class="number">35</span> GMT</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line"><span class="comment">#Network | Station | Latitude | Longitude | Elevation | SiteName | StartTime | EndTime </span></span><br><span class="line">GB|JSA|<span class="number">49.1878</span>|-<span class="number">2.171698</span>|<span class="number">39.0</span>|ST AUBINS, JERSEY|<span class="number">2007</span>-<span class="number">09</span>-<span class="number">06</span>T00:<span class="number">00</span>:<span class="number">00</span>|<span class="number">2599</span>-<span class="number">12</span>-<span class="number">31</span>T23:<span class="number">59</span>:<span class="number">59</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; <span class="keyword">using</span> Dates, SAC <span class="comment"># `using Base.Dates` if still on Julia v1.0</span></span><br><span class="line"></span><br><span class="line">julia&gt; otime = <span class="built_in">DateTime</span>(<span class="number">2018</span>, <span class="number">02</span>, <span class="number">17</span>, <span class="number">14</span>, <span class="number">31</span>, <span class="number">6</span>) <span class="comment"># Cymllynfell event, South Wales</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">02</span>-<span class="number">17</span>T14:<span class="number">31</span>:<span class="number">06</span></span><br><span class="line"></span><br><span class="line">julia&gt; response = get_request(IRISTimeSeries(network=<span class="string">"GB"</span>, station=<span class="string">"JSA"</span>, location=<span class="string">"--"</span>, channel=<span class="string">"BHZ"</span>, starttime=otime, endtime=otime+Minute(<span class="number">5</span>), output=<span class="string">"sacbb"</span>));</span><br><span class="line">[ Info: Request status: Successful request, results follow</span><br><span class="line"></span><br><span class="line">julia&gt; trace = SACtr(response.body)</span><br><span class="line">SAC.SACtr:</span><br><span class="line">    delta: <span class="number">0.02</span></span><br><span class="line">   depmin: -<span class="number">9348.0</span></span><br><span class="line">   depmax: <span class="number">9834.0</span></span><br><span class="line">        b: <span class="number">0.0</span></span><br><span class="line">        <span class="literal">e</span>: <span class="number">299.97998</span></span><br><span class="line">   depmen: <span class="number">1.023</span></span><br><span class="line">   nzyear: <span class="number">2018</span></span><br><span class="line">   nzjday: <span class="number">48</span></span><br><span class="line">   nzhour: <span class="number">14</span></span><br><span class="line">    nzmin: <span class="number">31</span></span><br><span class="line">    nzsec: <span class="number">6</span></span><br><span class="line">   nzmsec: <span class="number">5</span></span><br><span class="line">    nvhdr: <span class="number">6</span></span><br><span class="line">     npts: <span class="number">15000</span></span><br><span class="line">   iftype: <span class="number">1</span></span><br><span class="line">    leven: <span class="literal">true</span></span><br><span class="line">   lpspol: <span class="literal">true</span></span><br><span class="line">   lovrok: <span class="literal">true</span></span><br><span class="line">   lcalda: <span class="literal">true</span></span><br><span class="line"> unused18: <span class="literal">true</span></span><br><span class="line">    kstnm: JSA</span><br><span class="line">   kcmpnm: BHZ</span><br><span class="line">   knetwk: GB</span><br><span class="line"></span><br><span class="line">julia&gt; <span class="keyword">using</span> SACPlot; plot1(trace)</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<p><img src="/2018/11/19/使用Julia调用Sac并做图/trace_Jelsy.png" alt="trace_Jelsy"></p>
-<h1 id="三、关于SACPlot"><a href="#三、关于SACPlot" class="headerlink" title="三、关于SACPlot"></a>三、关于SACPlot</h1><p>1.plot1画单道</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; t=SAC.sample()</span><br><span class="line">julia&gt; plot1(t)</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<p><img src="/2018/11/19/使用Julia调用Sac并做图/plot1.png" alt=""></p>
-<p>2.plot1画多道</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; A = [SAC.sample() <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">5</span>]  |&gt; rtrend! |&gt; taper!</span><br><span class="line"><span class="number">5</span>-element <span class="built_in">Array</span>&#123;SACtr,<span class="number">1</span>&#125;:</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"></span><br><span class="line">julia&gt; freqs = [<span class="number">1</span>/<span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">julia&gt; A[:user0] = freqs;</span><br><span class="line"></span><br><span class="line">julia&gt; lowpass!.(A, freqs);</span><br></pre></td></tr></table></figure>
-<p>做低通滤波后：</p>
-<p><img src="/2018/11/19/使用Julia调用Sac并做图/lowpass.png" alt=""></p>
-<p>最后一步成图：</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; pl(A)</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/19/使用Julia调用Sac并做图/multi_trace.png" alt=""></p>
-<ol>
-<li><p>plotrs，添加标签</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; B = SAC.sample(:array); <span class="comment"># Load sample data</span></span><br><span class="line">julia&gt; B = cut(B, :a, -<span class="number">30</span>, :a, <span class="number">30</span>); <span class="comment"># Cut traces</span></span><br><span class="line">julia&gt; <span class="keyword">import</span> Pkg; Pkg.add(<span class="string">"Plots"</span>); <span class="comment"># This allows us to call Plots directly below</span></span><br><span class="line">julia&gt; <span class="keyword">import</span> Plots; Plots.default(size=(<span class="number">600</span>,<span class="number">1000</span>), margin=<span class="number">4</span>Plots.mm) <span class="comment"># Change the default figure size and margin</span></span><br><span class="line">julia&gt; plotrs(B, :a, qdp=<span class="literal">false</span>, label=:kstnm, xlabel=<span class="string">"Time rel. PKIKP / s"</span>, ylabel=<span class="string">"Distance / °"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/19/使用Julia调用Sac并做图/plotrs.png" alt="plotrs"></p>
-</li>
-</ol>
-<p>4.example plotrs</p>
-<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; plotrs(A, y=:user0, xlabel=<span class="string">"Time / s"</span>, ylabel=<span class="string">"Lowpass frequency / Hz"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/19/使用Julia调用Sac并做图/example_plotrs.png" alt="example_plotrs"></p>
-<p><strong>参考</strong>:<a href="https://github.com/anowacki/SeisRequests.jl" target="_blank" rel="noopener">https://github.com/anowacki/SeisRequests.jl</a></p>
-<p><strong>修改历史：</strong></p>
-<ul>
-<li>2018-11-06，翻译初稿，后续想继续学习SAC在Julia中的使用，也借此绕开SAC对系统的限制，使用更快的Julia语言重新理解SAC。另外，必须清楚一条，程序语言的本质是解决问题，千万不要掉进去理解程序语言的每一个细节的这种“贪婪者”的陷阱。既然是在地震学中使用，那么只需要能解决问题便是王道。</li>
-</ul>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/10/18/hello-world/">Hello World</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-18
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/08/28/2017-8-28-开研究生第一课-吴-李-0828/">写在前面的一点想法</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-08-28
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/研究生与导师/">研究生与导师</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>研究生生活马上就要开始了，在开始之前，有必要做一些规划和设想（必须建立在强行根治个人拖沓懒惰的病根），而这些规划和设想的实现，都必须依赖于学习和效仿的对象，自己的老师。老师有很多，包括研究生导师、师兄师姐、同行业的权威学者、还有同学，甚至是从小一起长大的发小、兄弟。正是在不断的修行与纠正中，才有了点滴进步汇集而成的成长。</p>
-<p><strong>师者，所以传道授业解惑也</strong></p>
-<p>第一次听这话的时候，我还在读高一。在那个青涩、害羞而又懵懂的年纪，我还不太懂得“师者”这二字的概念，单纯的以为师者只是教授学生知识，仅此而已，既无关教导如何做人，也无关教导如何做事。如今，我结束了大学本科的学习，来到导师门下继续学习，对“师者”二字也有了更深的概念。</p>
-<p>师者，首先应该是老师，然后才是朋友，既能传道授业，也能在做人处事中身先立足，成为我们这些晚辈后生们学习的榜样。</p>
-<p><strong>师者，无关身份地位</strong></p>
-<p><strong>师者，首先在传道</strong></p>
-<p><strong>师者，行走的教科书</strong></p>
 
         
       
