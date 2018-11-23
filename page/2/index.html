@@ -228,6 +228,111 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/11/21/PSHA与USERF3模型/">PSHA与USERF3模型</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-21
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/NDSHA/">NDSHA</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>昨天想到与盛峰师兄讨论了USERF3模型与PSHA，记在这里：</p>
+<p>UCERF3，是一种基于断裂的地震危险性分析模型；</p>
+<p>PSHA，是一个地震危险性分析的工作框架；</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/11/20/在Linux系统和Windows系统上快速传递文件/">在Linux系统和Windows系统上快速传递文件</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Unix/">Unix</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>我有两台电脑，一台是CentOS系统台式机，一台是Windows系统笔记本。由于CentOS系统台式机速度更快，但是笔记本更方便携带，因此经常需要在两台电脑之间反复的传递文件，如果每一次都是用移动介质的话未免显得过于麻烦。</p>
+<p>第一个选项：WinSCP，提供了Windows到Unix服务器的多种连接方式，支持多个文件传输协议（i.e., FTP/SFTP），但是只能是服务器，而不能是普通的主机，放弃。</p>
+<p>第二个选项：TeamViewer，更适用于团队之间的远程协作或是提供网络服务的公司为客户解决技术问题，放弃。</p>
+<p>第三个选项：VNCserver</p>
+<h1 id="一、从CentOS到Windows"><a href="#一、从CentOS到Windows" class="headerlink" title="一、从CentOS到Windows"></a>一、从CentOS到Windows</h1><p>虽然很难受，但是对于非服务器的主机暂时只能用最笨的方法-U盘快转了。</p>
+<p>有一种暂时可行的方法是：在CentOS系统中虽然没有Unix版本的百度云盘可用，但是可以登录在线版。数据量较小的话，可以采用这样一种方式。数据量很大的时候，由于下载带宽限制，最好使用移动存储介质转运。（下同）</p>
+<h1 id="二、从Windows到CentOS"><a href="#二、从Windows到CentOS" class="headerlink" title="二、从Windows到CentOS"></a>二、从Windows到CentOS</h1><p>虽然很难受，但是对于非服务器的主机暂时只能用最笨的方法-U盘快转了</p>
+<p>未完待续……</p>
+<p><strong>文本日志：</strong></p>
+<p>1.2018年11月20日，提出问题，尝试了三种选项，都逃不开一个词：服务器</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/11/20/Unix文件操作方法/">Unix文件操作方法</a>
         
       </h1>
@@ -387,128 +492,6 @@
 <p>今天，我想重新开始我喜欢的书信。写给谁呢？就写给我未来的夫人吧。既然是给自己的夫人写信，那必定会是一件很美妙的事情。我想告诉她我的全部，我过去的故事，发生在和她在一起之前的故事，以及，我知道的所有美好的事情，都希望与她分享。</p>
 <p>放牛娃在插秧</p>
 <p>2018年11月19日</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/19/Linux下建立GMT常用数据库/">Linux下建立GMT常用数据库</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-19
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/GMT/">GMT</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>由于在GMT脚本中都会或多或少的使用到很多外部数据，常常需要将数据与脚本放在一个文件夹里。但是事实的情况是，数据一般会很大，和脚本混在一起也容易让本就混乱的文件结构更加复杂。</p>
-<p>分以下情形：</p>
-<ul>
-<li><p>[ ] 1.基础数据量不大时：</p>
-<p>当GMT脚本在执行时若找不到相应文件，会在主目录下创建一个.gmt文件，这个文件相当于一个与脚本文件所在文件相关联的文件，可以直接在这里搜索。因此一种简单的方法是直接将相关数据文件放进即可；当然这局限于较小的数据；</p>
-</li>
-</ul>
-<ul>
-<li><p>[ ] 2.数据量很大时，就有必要建立临时用于快速访问的临时环境变量，而且只在当前shell中有效。同时，由于一般大数据量都会放在外部移动硬盘中，如何快速访问硬盘中的数据？这会节省很大一部分用来读取数据到电脑内存中的时间。</p>
-<p><strong><em>remain to be solved</em></strong></p>
-</li>
-</ul>
-<p>修改日志：</p>
-<p>2018-11-19：尝试通过PATH添加搜索路径到环境变量中，均失败。放在gmt自己创建的.gmt文件中可行。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/19/确定GMT个人命令风格/">确定GMT个人命令风格</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-19
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/GMT/">GMT</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>一个GMT脚本应首先满足严谨且分层明确，然后是清晰和整洁。</p>
-<p>（1）严谨且分层明确，每一行代码的任务应该非常清楚，且相互隔开互不干扰；</p>
-<p>（2）代码命令和各选项的排列顺序应前后一致；可以省略的就省略，力图最简洁；</p>
-<p>风格示例如下：</p>
-<p><strong>第一部分：声明</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#声明编译器类型及变量,变量声明一般包含需要反复用到的经纬度范围、投影方式、流对象。</span></span><br><span class="line"><span class="comment">#！/bin/bash</span></span><br><span class="line">R=99.3/101.3/24.3/27</span><br><span class="line">J=M105/35/5.5i</span><br><span class="line">PS=KHD_faults.ps</span><br></pre></td></tr></table></figure>
-<p><strong>第二部分：GMT基本配置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#gmt对gmt.conf中的每一个参数都给了一个合理的默认值，在必要时才会修改，因此，这一部分不是必要的。</span></span><br><span class="line">gmt <span class="built_in">set</span> MAP_GRID_PEN_PRIMARY ......</span><br><span class="line">gmt <span class="built_in">set</span> FORMAT_GEO_MAP ddd_mm_ssF ......</span><br><span class="line">gmt <span class="built_in">set</span> FONT_ANNOT_PRIMARY ......</span><br></pre></td></tr></table></figure>
-<p><strong>第三部分：操作基础数据</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#这一部分的任务主要是操作绘图基础数据，例如高程数据topo、地形起伏数据ETOPO，经常需要切割以满足对某一区域的绘图需求。</span></span><br><span class="line">gmt grdcut ......</span><br><span class="line">gmt grdgradient ......</span><br><span class="line">gmt grd2cpt ......</span><br></pre></td></tr></table></figure>
-<p><strong>第四部分：绘图</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#正式绘图从这里开始，因此，管道流符号也在这里开始出现。</span></span><br><span class="line"><span class="comment">#绘图的第一步永远是底图，basemap。</span></span><br><span class="line"><span class="comment">#投影、经纬度范围的排列顺序：-J -R，这两个选项的命令只在这里出现一次即可，后面全部省略。</span></span><br><span class="line"><span class="comment">#文件头尾切割命令按-K -O排列。</span></span><br><span class="line">gmt psbasemap -R<span class="variable">$R</span> -J<span class="variable">$J</span> -Ba -P -K &gt; <span class="variable">$PS</span></span><br><span class="line">gmt grdimage ...... &gt;&gt; <span class="variable">$PS</span></span><br></pre></td></tr></table></figure>
-<p><strong>第五部分：PS文件操作</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#这一部分主要任务是转换PS文件到需要的格式</span></span><br><span class="line">gmt psconvert -Tt <span class="variable">$PS</span></span><br></pre></td></tr></table></figure>
-<p><strong>第六部分：删除配置文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#为使得工作目录尽可能简洁，需要删除运行脚本后产生的配置文件</span></span><br><span class="line">rm gmt.conf gmt.history</span><br></pre></td></tr></table></figure>
 
         
       

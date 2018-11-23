@@ -228,6 +228,113 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/11/23/GMT脚本之Topo和Geoid/">GMT脚本之Topo和Geoid</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-23
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/GMT/">GMT</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>=======================================================================================</p>
+<p>​            原始来源：GMT EXAMPLE 02</p>
+<p><strong>原始资料</strong>        绘图目的：使用网格数据绘制两个不同的图，高程和大地水准面</p>
+<p>​            绘图模块：gmtset, grd2cpt, grdgradient, grdimage, makecpt, psscale, pstext</p>
+<p>=======================================================================================</p>
+<p>加注释后的绘图代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ps=example_02.ps</span><br><span class="line"><span class="comment">#Font_TITLE用于控制标题使用的字体，30p;MAP_ANNOT_OBLIQUE控制经纬度标注方向。</span></span><br><span class="line">gmt <span class="built_in">set</span> FONT_TITLE 30p MAP_ANNOT_OBLIQUE 0  <span class="comment">#全局有效</span></span><br><span class="line"><span class="comment">#######################################################################################</span></span><br><span class="line"><span class="comment">#绘制图a</span></span><br><span class="line"><span class="comment">#makecpt用于制作CPT文件，这里的目的是，选择CPT文件rainbow中进行插值，定义要生成的CPT文件的Z值在。[-2,14]中，间隔为2。</span></span><br><span class="line">gmt makecpt -Crainbow -T-2/14/2 &gt; g.cpt</span><br><span class="line"><span class="comment">#grdimage用于在地图上绘制网格数据，HI_geoid.nc是即将被绘制的网格数据;-R指定了左下角坐标与右上角坐标，-JOc指定Oblique Mercator投影，宽度为4.4i;-E设置投影后网格经度，默认值100；-C指定了绘图时要指定的CPT文件；-X和-Y确定了绘图的原点</span></span><br><span class="line">gmt grdimage HI_geoid2.nc -R160/20/220/30r -JOc190/25.5/292/69/4.5i -E50 -K -P \</span><br><span class="line">            -B10 -Cg.cpt -X1.5i -Y1.25i &gt; <span class="variable">$ps</span></span><br><span class="line"><span class="comment">#psscale用于绘制颜色棒，-D指定了色标的尺寸和位置，第一个jRM：放在右边，o：参考点的额外偏移量，w：色标的长度和宽度，mc:将标注和标签共同放在色标的另一边，并垂直打印，e:为前景色和背景色加一三角形；-B，对色标而言，纵向为x，横向为y；-Bx2+lGEOID,设置x的间隔为2，标签为GEOID；-By+lm，间隔值缺失，标签为m.</span></span><br><span class="line">gmt psscale -Cg.cpt -DjRM+o0.6i/0+jLM+w2.88i/0.4i+mc+e -R -J -O -K -Bx2+lGEOID -By+lm &gt;&gt; <span class="variable">$ps</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#######################################################################################</span></span><br><span class="line"><span class="comment">#绘制图b</span></span><br><span class="line"><span class="comment">#-Z创建一个连续的颜色面板</span></span><br><span class="line">gmt grd2cpt HI_topo2.nc -Crelief -Z &gt; t.cpt</span><br><span class="line"><span class="comment">#计算网格的方向导数，-G指定输出文件</span></span><br><span class="line">gmt grdgradient HI_topo2.nc -A0 -Nt -GHI_topo2_int.nc</span><br><span class="line"><span class="comment">#-I增加光照，以上一步生成的网格文件来增加光照，MAP_TITLE_OFFSET设置图标题的底部与轴标注的顶部之间的距离</span></span><br><span class="line">gmt grdimage HI_topo2.nc -IHI_topo2_int.nc -R -J -B+t<span class="string">"H@#awaiian@# T@#opo and @#G@#eoid@#"</span> \</span><br><span class="line">            -B10 -E50 -O -K -Ct.cpt -Y4.5i --MAP_TITLE_OFFSET=0.5i &gt;&gt; <span class="variable">$ps</span></span><br><span class="line">gmt psscale -Ct.cpt -DjRM+o0.6i/0+jLM+w2.88i/0.4i+mc -R -J -O -K -I0.3 -Bx2+lTOPO -By+lkm &gt;&gt; <span class="variable">$ps</span></span><br><span class="line">gmt pstext -R0/8.5/0/11 -Jx1i -F+f30p,Helvetica-Bold+jCB -O -N -Y-4.5i &gt;&gt; <span class="variable">$ps</span> &lt;&lt; END</span><br><span class="line">-0.4 7.5 a)</span><br><span class="line">-0.4 3.0 b)</span><br><span class="line">END</span><br><span class="line">rm -f HI_topo2_int.nc ?.cpt gmt.conf</span><br></pre></td></tr></table></figure>
+<p>绘图效果：</p>
+<p><img src="/2018/11/23/GMT脚本之Topo和Geoid/微信截图_20181123095601.png" alt=""></p>
+<p>需要关注的问题：</p>
+<p>（1）gradient求网格文件的梯度，梯度文件可以作为grdimage中-I选项的网格文件用来控制光照强度</p>
+<p>（2）-B选项的第二种命令风格</p>
+<p>（3）暂时认为修改配置参数的位置会影响作用范围，若出现在开头则会影响整个脚本；若出现在某一行中只会影响当前行</p>
+<p>日志：</p>
+<p>（1）2018-11-23  添加原始代码</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/11/23/第三封信/">我的第二封信</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-23
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/牛皮信封/">牛皮信封</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/11/22/EXCEL中汉字转拼音/">EXCEL中汉字转拼音</a>
         
       </h1>
@@ -413,111 +520,6 @@
 <p>琰</p>
 <p>2018年11月21日</p>
 <p>不好意思今晚熬了点夜</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/21/PSHA与USERF3模型/">PSHA与USERF3模型</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-21
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/NDSHA/">NDSHA</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>昨天想到与盛峰师兄讨论了USERF3模型与PSHA，记在这里：</p>
-<p>UCERF3，是一种基于断裂的地震危险性分析模型；</p>
-<p>PSHA，是一个地震危险性分析的工作框架；</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/20/在Linux系统和Windows系统上快速传递文件/">在Linux系统和Windows系统上快速传递文件</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-20
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Unix/">Unix</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>我有两台电脑，一台是CentOS系统台式机，一台是Windows系统笔记本。由于CentOS系统台式机速度更快，但是笔记本更方便携带，因此经常需要在两台电脑之间反复的传递文件，如果每一次都是用移动介质的话未免显得过于麻烦。</p>
-<p>第一个选项：WinSCP，提供了Windows到Unix服务器的多种连接方式，支持多个文件传输协议（i.e., FTP/SFTP），但是只能是服务器，而不能是普通的主机，放弃。</p>
-<p>第二个选项：TeamViewer，更适用于团队之间的远程协作或是提供网络服务的公司为客户解决技术问题，放弃。</p>
-<p>第三个选项：VNCserver</p>
-<h1 id="一、从CentOS到Windows"><a href="#一、从CentOS到Windows" class="headerlink" title="一、从CentOS到Windows"></a>一、从CentOS到Windows</h1><p>虽然很难受，但是对于非服务器的主机暂时只能用最笨的方法-U盘快转了。</p>
-<p>有一种暂时可行的方法是：在CentOS系统中虽然没有Unix版本的百度云盘可用，但是可以登录在线版。数据量较小的话，可以采用这样一种方式。数据量很大的时候，由于下载带宽限制，最好使用移动存储介质转运。（下同）</p>
-<h1 id="二、从Windows到CentOS"><a href="#二、从Windows到CentOS" class="headerlink" title="二、从Windows到CentOS"></a>二、从Windows到CentOS</h1><p>虽然很难受，但是对于非服务器的主机暂时只能用最笨的方法-U盘快转了</p>
-<p>未完待续……</p>
-<p><strong>文本日志：</strong></p>
-<p>1.2018年11月20日，提出问题，尝试了三种选项，都逃不开一个词：服务器</p>
 
         
       
