@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="在CentOS上安装Matlab_R2017b"/>
+
+
+
+
+  <meta name="keywords" content="地震学、统计地震学、数学物理、计算机科学" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="OSSR">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://crowboydoudou.github.io/2018/11/26/在CentOS上安装Matlab-R2017b/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> 在CentOS上安装Matlab_R2017b - OSSR </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">OSSR</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">OSSR</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          在CentOS上安装Matlab_R2017b
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-26
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/地震学研究生业余基本功/">地震学研究生业余基本功</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        <p>考虑到工作站优越的性能和极快的处理速度，一直想在CentOS 7上安装Matlab。但是由于一直使用不到Matlab而被搁置，直到我发现同学的的Ubantu上有MATLAB 2017b。Matlab的安装和使用确实是一件耽误不得的事，而且更耽误不得的是在Matlab的安装上费时费力。在百度搜索中搜索到的结果大多都是不懂装懂，胡扯一顿，有时还会误导像我这样的初级选手。经过一番折腾后（花了我一天半时间），将过程记于此，供以后参考：</p>
+<p><strong>第一步：准备MATLAB2017b安装文件</strong></p>
+<p>百度云盘：</p>
+<p>链接：<a href="https://pan.baidu.com/s/1dHzveWH5wy2Ozk-JdHJc4Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1dHzveWH5wy2Ozk-JdHJc4Q</a><br>提取码：ttzg<br>需要说一句的是，之所以选择2017b，一是因为折腾了好久不甘心半途放弃，二是2017b中加入了深度学习包，也许以后用得到。</p>
+<p><img src="/2018/11/26/在CentOS上安装Matlab-R2017b/微信截图_20181128213425.png" alt=""></p>
+<p>这里一共五个文件。后缀为z01，z02，zip的三个文件是原镜像文件由于过大而分割后的文件（就是讲ISO镜像分割了），MATLABR2017b_Linux_Crack.tar.gz其中包含许可证文件，install_key.txt中包含安装秘钥。</p>
+<p><strong>第二步：提取ISO镜像文件</strong></p>
+<p>1，合并（也可称为“修复”，之前的切割已经破坏了文件的完整性）多个压缩文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat R2017b_glnxa64.* &gt; R2017b.zip</span><br></pre></td></tr></table></figure>
+<p>NOTE：合并后的文件可随意命名；合并后的文件即是完整的文件，无需修复。关于修复这一点我被坑了好久。</p>
+<p>修复命令也粘贴于此：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -F(FF) old.zip --out new.zip</span><br></pre></td></tr></table></figure>
+<p>2，获得ISO文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum zip  <span class="comment">#安装zip文件解压工具</span></span><br><span class="line">unzip R2017b.zip</span><br></pre></td></tr></table></figure>
+<p><strong>第三步：挂载镜像</strong></p>
+<p>首先，由于Windows系统与Unix或Unix-like系统的不同，在Unix和Unix-like系统中的文件和系统是隔离开的。因此，首先需要将镜像文件挂载至系统（挂载的意思可以理解成告诉系统这个镜像在哪里）。另外需要注意的是，挂载路径和安装路径不一致。我的经历是，挂载至/opt路径，安装至/home下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o auto loop R2017b_glnxa64.iso /opt/MATLAB  <span class="comment">#挂载至/opt/MATLAB下</span></span><br></pre></td></tr></table></figure>
+<p><strong>第四步：安装</strong></p>
+<p>安装这里有一个类似于build(GMT安装)的命令，install</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /home/geoyan/matlab/install</span><br></pre></td></tr></table></figure>
+<p>按照网上大多教程，若执行sudo ./install一般会提示找不到Install这个命令，因为./本来的功能其实是执行bash脚本。安装初始，需要输入install_key.txt中的秘钥。我的安装位置选择默认(/usr/local/MATLAB/)。</p>
+<p><strong>第五步：破解</strong></p>
+<p>和Window下不同的是，这里的破解指的是移动许可证文件。在MATLABR2017b_Linux_Crack.tar.gz解压后的文件MATLABR2017b_Linux_Crack中包含两个文件：MATLABR2017b_Linux_Crack（对，我没看错，又是一个坑）和libmwservices.so。假如操作libmwservices.so文件的话就会出错，这时必须选择MATLABR2017b_Linux_Crack中的文件；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp license_standalone /usr/<span class="built_in">local</span>/MATLAB/R2017b/licenses</span><br><span class="line">sudo cp libmwservices.so /usr/<span class="built_in">local</span>/MATLAB/R2017b/bin/glnxa64</span><br></pre></td></tr></table></figure>
+<p><strong>第六步：MATLAB的启动</strong></p>
+<p>这里可以分两种方式启动：</p>
+<p>（1）在bin目录在使用./matlab。缺点是每次都要进入安装目录里面</p>
+<p>（2）假如环境变量，在任何地方可以随时启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/MATLAB/R2017b/bin=<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
+<p>well done.</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://crowboydoudou.github.io">Crowboydoudou</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://crowboydoudou.github.io/2018/11/26/在CentOS上安装Matlab-R2017b/">https://crowboydoudou.github.io/2018/11/26/在CentOS上安装Matlab-R2017b/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/11/25/NDSHA中的震源系统/">
+        <span class="next-text nav-default">NDSHA中的震源系统</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:geo_passenger_zy@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Crowboydoudou</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

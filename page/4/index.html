@@ -228,6 +228,156 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/11/19/使用Julia调用Sac并做图/">使用Julia调用Sac并做图_non-original</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-19
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Julia/">Julia</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p><em>过渡循规蹈矩，只会在既有的泥潭中越陷越深。就像写文章一样，如果总是想一气呵成或是一蹴而就如行云流水般写就，那结局必定是寸步难行，特别是对于我这样的新手难说更是如此。因此，我可以尝试老师说的方式，文章的结论部分不要一次写完，每一次写一点。用在这种学习笔记中便是：不能总想着一次就把第一部分完成，然后开始第二部分，可以先把“菜”下锅，等需要放什么的时候再来。</em></p>
+<p>​                                                                                </p>
+<hr>
+<p>非原创</p>
+<h1 id="一、Julia基本操作及快捷键"><a href="#一、Julia基本操作及快捷键" class="headerlink" title="一、Julia基本操作及快捷键"></a>一、Julia基本操作及快捷键</h1><p>Ctrl+?  ，出现help?&gt;，寻求帮助</p>
+<p>]，英文模式下输入，进入Pkg模式，我不太了解，尝试两次后的初步感觉是，它可以通过以给定链接的方式下载库并安装。</p>
+<p>例如，进入Pkg模式后，添加模块的命令格式应为：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg&gt;add url</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg&gt;add https://github.com/anowacki/SeisRequests.jl</span><br></pre></td></tr></table></figure>
+<p>当需要从Pkg模式下退出时，直接使用<strong>Backspace</strong>按键即可。</p>
+<h1 id="二、SeisRequests"><a href="#二、SeisRequests" class="headerlink" title="二、SeisRequests"></a>二、SeisRequests</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1.安装SAC.jl，可能需要编译SpecialFunctions</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg&gt; add https://github.com/anowacki/SAC.jl</span><br><span class="line">julia&gt; build Special Functions</span><br></pre></td></tr></table></figure>
+<p>2.安装SACPlot</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg&gt; add https://github.com/anowacki/SACPlot.jl</span><br></pre></td></tr></table></figure>
+<p>3.安装Plots</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; <span class="keyword">import</span> Pkg; Pkg.add(<span class="string">"Plots"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>1.使用FDSN服务标准：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FDSNEvent:查询事件</span><br><span class="line">FDSNStation: 查询台站</span><br><span class="line">FDSNDataSelect: 请求波形数据</span><br></pre></td></tr></table></figure>
+<p>2.使用IRIS服务标准：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IRISTimeSeries: 请求波形数据</span><br></pre></td></tr></table></figure>
+<p>3.REPL</p>
+<p>​    待添加。。。。。。</p>
+<p>4.所有请求由<em>get_request</em>函数发出，它会自动返回<em>HTTP.message.Response</em>，包含有服务器返回的信息。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>参考:<a href="https://github.com/anowacki/SeisRequests.jl" target="_blank" rel="noopener">https://github.com/anowacki/SeisRequests.jl</a></p>
+<p>以获取2007年南威尔士地震数据为例：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; <span class="keyword">using</span> SeisRequests  <span class="comment"># 启动SeisRequests</span></span><br><span class="line"></span><br><span class="line">julia&gt; req = FDSNStation(station=<span class="string">"JSA"</span>, network=<span class="string">"GB"</span>, channel=<span class="string">"?H?"</span>, level=<span class="string">"channel, format="text</span><span class="string">")</span></span><br><span class="line"><span class="string">FDSNStation</span></span><br><span class="line"><span class="string">  starttime: Missing missing</span></span><br><span class="line"><span class="string">  endtime: Missing missing</span></span><br><span class="line"><span class="string">  startbefore: Missing missing</span></span><br><span class="line"><span class="string">  startafter: Missing missing</span></span><br><span class="line"><span class="string">  endbefore: Missing missing</span></span><br><span class="line"><span class="string">  endafter: Missing missing</span></span><br><span class="line"><span class="string">  network: String "GB</span><span class="string">"</span></span><br><span class="line"><span class="string">  station: String "JSY</span><span class="string">"</span></span><br><span class="line"><span class="string">  ⋮</span></span><br><span class="line"><span class="string">  matchtimeseries: Missing missing</span></span><br><span class="line"><span class="string">  format: String "text</span><span class="string">"</span></span><br><span class="line"><span class="string">  nodata: Int64 204</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">julia&gt; get_request(req)</span></span><br><span class="line"><span class="string">[ Info: Request status: Successful request, results follow</span></span><br><span class="line"><span class="string">HTTP.Messages.Response:</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">Server: Apache-Coyote/<span class="number">1.1</span></span><br><span class="line">access-control-allow-origin: *</span><br><span class="line">content-disposition: inline; filename=<span class="string">"fdsnws-station_2018-08-23T13:37:35Z.txt"</span></span><br><span class="line">Content-<span class="built_in">Type</span>: text/plain</span><br><span class="line">Content-Length: <span class="number">176</span></span><br><span class="line"><span class="built_in">Date</span>: Thu, <span class="number">23</span> Aug <span class="number">2018</span> <span class="number">13</span>:<span class="number">37</span>:<span class="number">35</span> GMT</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line"><span class="comment">#Network | Station | Latitude | Longitude | Elevation | SiteName | StartTime | EndTime </span></span><br><span class="line">GB|JSA|<span class="number">49.1878</span>|-<span class="number">2.171698</span>|<span class="number">39.0</span>|ST AUBINS, JERSEY|<span class="number">2007</span>-<span class="number">09</span>-<span class="number">06</span>T00:<span class="number">00</span>:<span class="number">00</span>|<span class="number">2599</span>-<span class="number">12</span>-<span class="number">31</span>T23:<span class="number">59</span>:<span class="number">59</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; <span class="keyword">using</span> Dates, SAC <span class="comment"># `using Base.Dates` if still on Julia v1.0</span></span><br><span class="line"></span><br><span class="line">julia&gt; otime = <span class="built_in">DateTime</span>(<span class="number">2018</span>, <span class="number">02</span>, <span class="number">17</span>, <span class="number">14</span>, <span class="number">31</span>, <span class="number">6</span>) <span class="comment"># Cymllynfell event, South Wales</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">02</span>-<span class="number">17</span>T14:<span class="number">31</span>:<span class="number">06</span></span><br><span class="line"></span><br><span class="line">julia&gt; response = get_request(IRISTimeSeries(network=<span class="string">"GB"</span>, station=<span class="string">"JSA"</span>, location=<span class="string">"--"</span>, channel=<span class="string">"BHZ"</span>, starttime=otime, endtime=otime+Minute(<span class="number">5</span>), output=<span class="string">"sacbb"</span>));</span><br><span class="line">[ Info: Request status: Successful request, results follow</span><br><span class="line"></span><br><span class="line">julia&gt; trace = SACtr(response.body)</span><br><span class="line">SAC.SACtr:</span><br><span class="line">    delta: <span class="number">0.02</span></span><br><span class="line">   depmin: -<span class="number">9348.0</span></span><br><span class="line">   depmax: <span class="number">9834.0</span></span><br><span class="line">        b: <span class="number">0.0</span></span><br><span class="line">        <span class="literal">e</span>: <span class="number">299.97998</span></span><br><span class="line">   depmen: <span class="number">1.023</span></span><br><span class="line">   nzyear: <span class="number">2018</span></span><br><span class="line">   nzjday: <span class="number">48</span></span><br><span class="line">   nzhour: <span class="number">14</span></span><br><span class="line">    nzmin: <span class="number">31</span></span><br><span class="line">    nzsec: <span class="number">6</span></span><br><span class="line">   nzmsec: <span class="number">5</span></span><br><span class="line">    nvhdr: <span class="number">6</span></span><br><span class="line">     npts: <span class="number">15000</span></span><br><span class="line">   iftype: <span class="number">1</span></span><br><span class="line">    leven: <span class="literal">true</span></span><br><span class="line">   lpspol: <span class="literal">true</span></span><br><span class="line">   lovrok: <span class="literal">true</span></span><br><span class="line">   lcalda: <span class="literal">true</span></span><br><span class="line"> unused18: <span class="literal">true</span></span><br><span class="line">    kstnm: JSA</span><br><span class="line">   kcmpnm: BHZ</span><br><span class="line">   knetwk: GB</span><br><span class="line"></span><br><span class="line">julia&gt; <span class="keyword">using</span> SACPlot; plot1(trace)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="/2018/11/19/使用Julia调用Sac并做图/trace_Jelsy.png" alt="trace_Jelsy"></p>
+<h1 id="三、关于SACPlot"><a href="#三、关于SACPlot" class="headerlink" title="三、关于SACPlot"></a>三、关于SACPlot</h1><p>1.plot1画单道</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; t=SAC.sample()</span><br><span class="line">julia&gt; plot1(t)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="/2018/11/19/使用Julia调用Sac并做图/plot1.png" alt=""></p>
+<p>2.plot1画多道</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; A = [SAC.sample() <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">5</span>]  |&gt; rtrend! |&gt; taper!</span><br><span class="line"><span class="number">5</span>-element <span class="built_in">Array</span>&#123;SACtr,<span class="number">1</span>&#125;:</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"> SAC.SACtr(delta=<span class="number">0.01</span>, b=<span class="number">9.459999</span>, npts=<span class="number">1000</span>, kstnm=CDV, gcarc=<span class="number">3.357463</span>, az=<span class="number">88.14708</span>, baz=<span class="number">271.8529</span>)</span><br><span class="line"></span><br><span class="line">julia&gt; freqs = [<span class="number">1</span>/<span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">julia&gt; A[:user0] = freqs;</span><br><span class="line"></span><br><span class="line">julia&gt; lowpass!.(A, freqs);</span><br></pre></td></tr></table></figure>
+<p>做低通滤波后：</p>
+<p><img src="/2018/11/19/使用Julia调用Sac并做图/lowpass.png" alt=""></p>
+<p>最后一步成图：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; pl(A)</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/19/使用Julia调用Sac并做图/multi_trace.png" alt=""></p>
+<ol>
+<li><p>plotrs，添加标签</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; B = SAC.sample(:array); <span class="comment"># Load sample data</span></span><br><span class="line">julia&gt; B = cut(B, :a, -<span class="number">30</span>, :a, <span class="number">30</span>); <span class="comment"># Cut traces</span></span><br><span class="line">julia&gt; <span class="keyword">import</span> Pkg; Pkg.add(<span class="string">"Plots"</span>); <span class="comment"># This allows us to call Plots directly below</span></span><br><span class="line">julia&gt; <span class="keyword">import</span> Plots; Plots.default(size=(<span class="number">600</span>,<span class="number">1000</span>), margin=<span class="number">4</span>Plots.mm) <span class="comment"># Change the default figure size and margin</span></span><br><span class="line">julia&gt; plotrs(B, :a, qdp=<span class="literal">false</span>, label=:kstnm, xlabel=<span class="string">"Time rel. PKIKP / s"</span>, ylabel=<span class="string">"Distance / °"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/19/使用Julia调用Sac并做图/plotrs.png" alt="plotrs"></p>
+</li>
+</ol>
+<p>4.example plotrs</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">julia&gt; plotrs(A, y=:user0, xlabel=<span class="string">"Time / s"</span>, ylabel=<span class="string">"Lowpass frequency / Hz"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/19/使用Julia调用Sac并做图/example_plotrs.png" alt="example_plotrs"></p>
+<p><strong>参考</strong>:<a href="https://github.com/anowacki/SeisRequests.jl" target="_blank" rel="noopener">https://github.com/anowacki/SeisRequests.jl</a></p>
+<p><strong>修改历史：</strong></p>
+<ul>
+<li>2018-11-06，翻译初稿，后续想继续学习SAC在Julia中的使用，也借此绕开SAC对系统的限制，使用更快的Julia语言重新理解SAC。另外，必须清楚一条，程序语言的本质是解决问题，千万不要掉进去理解程序语言的每一个细节的这种“贪婪者”的陷阱。既然是在地震学中使用，那么只需要能解决问题便是王道。</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/10/18/hello-world/">Hello World</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-18
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/08/28/2017-8-28-开研究生第一课-吴-李-0828/">写在前面的一点想法</a>
         
       </h1>
@@ -428,115 +578,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/07/01/2017-7-1-Hexo搭建个人博客/">建立博客</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-07-01
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/hexo/">hexo</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p><strong>本文为作者使用Hexo博客的初次尝试，在作者参照网上相关资源搭建该博客的过程中，发现很多问题和弊端，例如，有的例程给出了方法，但是没有说明具体方法，非常不利于刚入门的小白们学习。为此，同样身为小白一员的博主有意记录在博客搭建过程中遇到的问题以及解决方法，期待对后来的学习者扫清障碍。</strong></p>
-<h1 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h1><ul>
-<li><p>Win10 专业版操作系统</p>
-</li>
-<li><p>node.js最新版（建议node-v6.11.0）</p>
-</li>
-<li><p>Git最新版（建议v2.6.2版）</p>
-</li>
-<li><p>Github账号</p>
-<p>​</p>
-</li>
-</ul>
-<h1 id="2-Git与Node安装"><a href="#2-Git与Node安装" class="headerlink" title="2.Git与Node安装"></a>2.Git与Node安装</h1><ul>
-<li><p>无论是node.js，还是Git都可以安装在C盘以外的其他位置，在安装过程中无需修改默认选项，直接点下一步直至安装即可。</p>
-</li>
-<li><p>强烈建议从官网上下载Node和Git，不好的是从官网下载速度极慢，可以想办法获取官网下载链接后再使用迅雷下载。</p>
-<p>​</p>
-</li>
-</ul>
-<h1 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h1><p>（1）打开windows中的cmd或Git命令窗口（建议使用Git，毕竟是模拟Linux环境），输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong> hexo与cli之间以“-”连接，无空格；</p>
-<p>（2）在任意地址创建Hexo文件夹，在此文件夹下安装Hexo框架。此处可使用命令行创建Hexo文件夹，也可直接手动创建。我认为第二种方法更直接。我的Hexo项目的地址是：E:\Hexo。创建完后，进入该文件夹启动Git Bash Here，输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init Hexo  // 第一个hexo是命令行，第二个Hexo是项目名称（为方便起见，建议直接使用Hexo作为项目名）</span><br><span class="line">$ npm install     // 安装Hexo框架</span><br><span class="line">$ hexo server (或者是hexo s) // 启动Hexo本地服务（可到http://localhost:4000/查看），查看Hexo默认博客界面</span><br></pre></td></tr></table></figure>
-<ul>
-<li>可使用crtl + c 关闭hexo本地服务（我觉得关不关都可以吧，只是为了能够继续在Git中输入命令而已）</li>
-</ul>
-<p>（3）安装hexo主题：</p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>更多主题可在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a> 上查找，但是我暂时还没找到使用NEXT以外主题的方法，暂时先这样，等哪天我想换主题时，再来尝试这部分内容。</p>
-<ul>
-<li><p>修改Hexo根目录配置文件<strong>_config.yml</strong> 内容（在修改前最好先备份，防止改错后不知道怎么恢复）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next  // 冒号后面一定要有空格</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>每次修改配置文件都要执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean // 删除上一次的配置文件，第一次不需要，第二次配置时需要</span><br><span class="line">$ hexo genrate (或 hexo g) // 生成静态博客所有内容</span><br><span class="line">$ hexo s //启动hexo本地服务，仅用于查看修改配置文件后的显示效果，无实际意义</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="4-将本地博客托管到GitHub"><a href="#4-将本地博客托管到GitHub" class="headerlink" title="4.将本地博客托管到GitHub"></a>4.将本地博客托管到GitHub</h1><ul>
-<li><p>登入个人账户</p>
-</li>
-<li><p>新建仓库（creat a new repository），仓库命名格式为：user_name.github.io，例如geopassenger.github.io，仓库属性为Public属性</p>
-</li>
-<li><p>生成本地ssh密钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;email adress&quot; // 没必要一定要使用gmail邮箱，163邮箱就可以了</span><br></pre></td></tr></table></figure>
-<p>这里会要求输入密钥存放文件名以及密钥密码，但是没有必要，直接回车即可，最后的密钥会存放在用户目录下.ssh文件夹中</p>
-</li>
-<li><p>使用记事本或Notepad+打开密钥（有pub后缀的那个），粘贴到<a href="https://github.com/settings/keys对应位置并保存" target="_blank" rel="noopener">https://github.com/settings/keys对应位置并保存</a></p>
-</li>
-</ul>
-<h1 id="5-将本地博客内容同步到GitHub"><a href="#5-将本地博客内容同步到GitHub" class="headerlink" title="5.将本地博客内容同步到GitHub"></a>5.将本地博客内容同步到GitHub</h1><ul>
-<li><p>安装两个重要插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save        </span><br><span class="line">$ npm install hexo-deployer-git --save    // 安装部署发布工具</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改Hexo配置文件<strong>_config.yml</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: https://hexo.io/docs/configuration.html</span><br><span class="line">## Source: https://github.com/hexojs/hexo/</span><br><span class="line"></span><br><span class="line"># Site</span><br><span class="line">title: Hexo 							// 博客名</span><br><span class="line">subtitle:								// 博客副标题（可以理解为位于正标题下面的一句话）</span><br><span class="line">description:							// 形容作者的一句话，位于作者名称下方</span><br><span class="line">author: John Doe						// 作者名称</span><br><span class="line">language:								// 建议使用简体中文：zh-Hans</span><br><span class="line">timezone:								// 时区，可不管</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: http://yoursite.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">external_link: true # Open external links in new tab</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">  enable: true</span><br><span class="line">  line_number: true</span><br><span class="line">  auto_detect: false</span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"># Pagination</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:user_name/user_name.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean                        </span><br><span class="line">hexo generate                     //生成静态文件</span><br><span class="line">hexo server                       //本地预览，查看修改效果(这一步非必要)</span><br><span class="line">hexo deploy                       //关闭本地服务，使用部署命令部署到GitHub</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -545,6 +586,11 @@
         <span class="prev-text">Prev</span>
       </a>
     
+    
+      <a class="next" href="/page/5/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
