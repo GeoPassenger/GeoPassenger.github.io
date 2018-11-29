@@ -228,6 +228,114 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/11/29/ObsPy-滤波/">ObsPy_滤波</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-29
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/11/28/11月28日与老师讨论/">11月28日与老师讨论</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-28
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/研究生与导师/">研究生与导师</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p><strong>Introduction:</strong> 这应该是最糟心的一周了，面对一本九十多页的几乎是纯数学的NDSHA基础文献，我显得有些着急和畏惧。因此，在这一周的组会前两天，我都一直是懵的状态。另外，我不想将所有的时间都花在读文献上，还想折腾一下SAC、GMT和ObsPy。</p>
+<p><strong>Key words:</strong> 读书看文之方法论、处理地震记录</p>
+<p><strong>Point 1:</strong> 在准备阶段该如何看文献和英文书籍</p>
+<p>年轻人，总是心浮气躁，还火急火燎的，干啥都着急，总想着一步就跨到终点。这形容我来说就再合适不过了。不由想起在前面的讨论中，导师对我说过多次的一句话：不要着急。不能着急、不能着急、不能着急，重要的事说三遍以上。</p>
+<p>回归正题：首先，推公式还是非常有必要的，老师虽然没有强求，但是对于修复原来的数理基础就显得很有必要。</p>
+<p>若不想推公式而只是想要理解前沿，看文献即可，<strong>完全看想懂到什么程度</strong>。在一般的文献中，若出现公式的话，下文必须有对公式每一项的说明，谁是谁谁是谁，以后写论文也是这要求。若想进一步了解，则需要考虑每一项的意思，上下文可以理解。</p>
+<p>看公式的方法：</p>
+<p>第一层次：最粗略的方法</p>
+<p>（1）将公式看作一张图或是一句话，得学会从公式中找到最关键的东西。公式也是可以念出来的，先念然后才会懂。</p>
+<p>（2）这公式说的什么，某一项是什么，大致什么概念，物理图像如何</p>
+<p>第二层次：地震学中不是所有的书都那么好看。老师提议使用Ari Ben-Menahem的《Seismic Waves and Sources》，《定量地震学》的缺点来自于英国人的洁癖，他们更喜欢把公式写的非常优美，然而优美会隐蔽细节。Ben-Menahem则更加人性化，尽量避免使用爱因斯坦求和约定，将其中的细节全部展现出来。看教科书（尤其是英文教科书）的时候，需要尤其注意BOX。</p>
+<p>第三层次：补充数理方程和特征函数基础知识，对应更加复杂的情况。</p>
+<p>对虚数的理解：凡是有虚数的地方都写到指数e上，容易发现它代表一种波动，简谐波动。虚数于地震学家而言就是震动。</p>
+<p>第四层次：看一些写的很好的地震学教科书，看不懂的时候多看几本书。也可以尝试MATLAB中解微分方程的功能。</p>
+<p>当无法看清一个问题的时候，不妨拿到一个简单体系中做一次数学实验。</p>
+<p><strong>Point 2:</strong> 对“如何开始一段处理地震记录”的尝试的建议</p>
+<p>在不反演参数时，找到一次地震的台站和震中位置画出来在一张图上，做前置滤波，识别震相，频谱，三分量记录做Polarization.</p>
+<p>建议一：（参考老师与夏明之间的曾经合作过的工作，汶川地震）有地震、地震台站，寻找远震范围记录；首先做高通滤波，然后做能量、包络线，包络线近似于此地震震源时间函数。对特大地震是没有办法的办法。</p>
+<p>建议二：（彭志刚）有一地震记录，先做高通滤波，图a；再做低通滤波，图b。高通滤波结果与低通滤波结果放一起，容易发现，当面波在不同位置来临时，固定位置处会激发出Tremor。 </p>
+<p>Polarzation，如何求不同地震分量从哪个方向来的，可多看一些文章。</p>
+<p>后续工作：完成PPT-讲解NDSHA基本原理，先给老师讲，有机会给研究生论坛讲。</p>
+<p>嗯……………，信息增益依旧很大</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/11/26/在CentOS上安装Matlab-R2017b/">在CentOS上安装Matlab_R2017b</a>
         
       </h1>
@@ -411,118 +519,6 @@
 <p><img src="/2018/11/24/我的第二封信/微信图片_20181124231111.jpg" alt=""></p>
 <p>我并没有去想为什么老爷爷不开着车带着他的夫人，只是因为我太钟爱于这样虽然显得有点老式、但是极其美好的时刻。年轻的时候可以载着她，桥车或自行车，但是我更喜欢自行车，哪怕等我买得起自己的车的时候。假如只有四五公里地，我是非常愿意骑着自行车带着夫人去的。</p>
 <p>假如上图是现在，继续假设现在是2050年，从现在做一次回溯性的追本溯源到结婚的时候（也许是2020~2025年中的某一年，太老了记不清）。我会记得一场与众不同的婚礼，在乡下的老家里，或是在工作的城市，有各自的亲属，有各自曾经的恩师和挚友，没有大音响，没有流水线式的司仪，没有花花绿绿的各式婚庆道具，我们有自己设置的婚礼现场，我唱了一首《想把我唱给你听》后。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/24/区分震源深度和矩心深度/">区分震源深度和矩心深度</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-24
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/地震学基础/">地震学基础</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>地震学中存在两个“深度”的概念，分别是震源深度和矩心深度。</p>
-<p>区别一：从与破裂之间的关系的角度看</p>
-<p>震源深度，最初来自于把震源看做是一个点，即最先开始发生破裂的地方，这里到地表的竖直深度即为震源深度；震源深度也可以理解为地震开始的地方，可由初动震相得到。而矩心深度与破裂起始的位置无关</p>
-<p>区别二：从与能量释放过程的角度看</p>
-<p>矩心深度，更强调是能量开始释放的深度，且由CMT的反演得到；矩心位置相当于地震滑动的“矩心”，矩心指物体的转动中心，这里到力的作用线的垂直距离即是力臂。因此，可以认为矩心位置与地震应力也有关系。而震源深度和能量的释放无关。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/23/GMT脚本之Topo和Geoid/">GMT脚本之Topo和Geoid</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-23
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/GMT/">GMT</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>=======================================================================================</p>
-<p>​            原始来源：GMT EXAMPLE 02</p>
-<p><strong>原始资料</strong>        绘图目的：使用网格数据绘制两个不同的图，高程和大地水准面</p>
-<p>​            绘图模块：gmtset, grd2cpt, grdgradient, grdimage, makecpt, psscale, pstext</p>
-<p>=======================================================================================</p>
-<p>加注释后的绘图代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ps=example_02.ps</span><br><span class="line"><span class="comment">#Font_TITLE用于控制标题使用的字体，30p;MAP_ANNOT_OBLIQUE控制经纬度标注方向。</span></span><br><span class="line">gmt <span class="built_in">set</span> FONT_TITLE 30p MAP_ANNOT_OBLIQUE 0  <span class="comment">#全局有效</span></span><br><span class="line"><span class="comment">#######################################################################################</span></span><br><span class="line"><span class="comment">#绘制图a</span></span><br><span class="line"><span class="comment">#makecpt用于制作CPT文件，这里的目的是，选择CPT文件rainbow中进行插值，定义要生成的CPT文件的Z值在。[-2,14]中，间隔为2。</span></span><br><span class="line">gmt makecpt -Crainbow -T-2/14/2 &gt; g.cpt</span><br><span class="line"><span class="comment">#grdimage用于在地图上绘制网格数据，HI_geoid.nc是即将被绘制的网格数据;-R指定了左下角坐标与右上角坐标，-JOc指定Oblique Mercator投影，宽度为4.4i;-E设置投影后网格经度，默认值100；-C指定了绘图时要指定的CPT文件；-X和-Y确定了绘图的原点</span></span><br><span class="line">gmt grdimage HI_geoid2.nc -R160/20/220/30r -JOc190/25.5/292/69/4.5i -E50 -K -P \</span><br><span class="line">            -B10 -Cg.cpt -X1.5i -Y1.25i &gt; <span class="variable">$ps</span></span><br><span class="line"><span class="comment">#psscale用于绘制颜色棒，-D指定了色标的尺寸和位置，第一个jRM：放在右边，o：参考点的额外偏移量，w：色标的长度和宽度，mc:将标注和标签共同放在色标的另一边，并垂直打印，e:为前景色和背景色加一三角形；-B，对色标而言，纵向为x，横向为y；-Bx2+lGEOID,设置x的间隔为2，标签为GEOID；-By+lm，间隔值缺失，标签为m.</span></span><br><span class="line">gmt psscale -Cg.cpt -DjRM+o0.6i/0+jLM+w2.88i/0.4i+mc+e -R -J -O -K -Bx2+lGEOID -By+lm &gt;&gt; <span class="variable">$ps</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#######################################################################################</span></span><br><span class="line"><span class="comment">#绘制图b</span></span><br><span class="line"><span class="comment">#-Z创建一个连续的颜色面板</span></span><br><span class="line">gmt grd2cpt HI_topo2.nc -Crelief -Z &gt; t.cpt</span><br><span class="line"><span class="comment">#计算网格的方向导数，-G指定输出文件</span></span><br><span class="line">gmt grdgradient HI_topo2.nc -A0 -Nt -GHI_topo2_int.nc</span><br><span class="line"><span class="comment">#-I增加光照，以上一步生成的网格文件来增加光照，MAP_TITLE_OFFSET设置图标题的底部与轴标注的顶部之间的距离</span></span><br><span class="line">gmt grdimage HI_topo2.nc -IHI_topo2_int.nc -R -J -B+t<span class="string">"H@#awaiian@# T@#opo and @#G@#eoid@#"</span> \</span><br><span class="line">            -B10 -E50 -O -K -Ct.cpt -Y4.5i --MAP_TITLE_OFFSET=0.5i &gt;&gt; <span class="variable">$ps</span></span><br><span class="line">gmt psscale -Ct.cpt -DjRM+o0.6i/0+jLM+w2.88i/0.4i+mc -R -J -O -K -I0.3 -Bx2+lTOPO -By+lkm &gt;&gt; <span class="variable">$ps</span></span><br><span class="line">gmt pstext -R0/8.5/0/11 -Jx1i -F+f30p,Helvetica-Bold+jCB -O -N -Y-4.5i &gt;&gt; <span class="variable">$ps</span> &lt;&lt; END</span><br><span class="line">-0.4 7.5 a)</span><br><span class="line">-0.4 3.0 b)</span><br><span class="line">END</span><br><span class="line">rm -f HI_topo2_int.nc ?.cpt gmt.conf</span><br></pre></td></tr></table></figure>
-<p>绘图效果：</p>
-<p><img src="/2018/11/23/GMT脚本之Topo和Geoid/微信截图_20181123095601.png" alt=""></p>
-<p>需要关注的问题：</p>
-<p>（1）gradient求网格文件的梯度，梯度文件可以作为grdimage中-I选项的网格文件用来控制光照强度</p>
-<p>（2）-B选项的第二种命令风格</p>
-<p>（3）暂时认为修改配置参数的位置会影响作用范围，若出现在开头则会影响整个脚本；若出现在某一行中只会影响当前行</p>
-<p>日志：</p>
-<p>（1）2018-11-23  添加原始代码</p>
 
         
       

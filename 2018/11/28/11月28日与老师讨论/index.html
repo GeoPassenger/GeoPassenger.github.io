@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="在CentOS上安装Matlab_R2017b"/>
+  <meta name="description" content="11月28日与老师讨论"/>
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="https://crowboydoudou.github.io/2018/11/26/在CentOS上安装Matlab-R2017b/"/>
+<link rel="canonical" href="https://crowboydoudou.github.io/2018/11/28/11月28日与老师讨论/"/>
 
 
 
@@ -90,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> 在CentOS上安装Matlab_R2017b - OSSR </title>
+    <title> 11月28日与老师讨论 - OSSR </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -224,18 +224,18 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          在CentOS上安装Matlab_R2017b
+          11月28日与老师讨论
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-26
+          2018-11-28
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/地震学研究生业余基本功/">地震学研究生业余基本功</a>
+              <a href="/categories/研究生与导师/">研究生与导师</a>
             
           </span>
         
@@ -249,36 +249,28 @@
 
     <div class="post-content">
       
-        <p>考虑到工作站优越的性能和极快的处理速度，一直想在CentOS 7上安装Matlab。但是由于一直使用不到Matlab而被搁置，直到我发现同学的的Ubantu上有MATLAB 2017b。Matlab的安装和使用确实是一件耽误不得的事，而且更耽误不得的是在Matlab的安装上费时费力。在百度搜索中搜索到的结果大多都是不懂装懂，胡扯一顿，有时还会误导像我这样的初级选手。经过一番折腾后（花了我一天半时间），将过程记于此，供以后参考：</p>
-<p><strong>第一步：准备MATLAB2017b安装文件</strong></p>
-<p>百度云盘：</p>
-<p>链接：<a href="https://pan.baidu.com/s/1dHzveWH5wy2Ozk-JdHJc4Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1dHzveWH5wy2Ozk-JdHJc4Q</a><br>提取码：ttzg<br>需要说一句的是，之所以选择2017b，一是因为折腾了好久不甘心半途放弃，二是2017b中加入了深度学习包，也许以后用得到。</p>
-<p><img src="/2018/11/26/在CentOS上安装Matlab-R2017b/微信截图_20181128213425.png" alt=""></p>
-<p>这里一共五个文件。后缀为z01，z02，zip的三个文件是原镜像文件由于过大而分割后的文件（就是讲ISO镜像分割了），MATLABR2017b_Linux_Crack.tar.gz其中包含许可证文件，install_key.txt中包含安装秘钥。</p>
-<p><strong>第二步：提取ISO镜像文件</strong></p>
-<p>1，合并（也可称为“修复”，之前的切割已经破坏了文件的完整性）多个压缩文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat R2017b_glnxa64.* &gt; R2017b.zip</span><br></pre></td></tr></table></figure>
-<p>NOTE：合并后的文件可随意命名；合并后的文件即是完整的文件，无需修复。关于修复这一点我被坑了好久。</p>
-<p>修复命令也粘贴于此：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -F(FF) old.zip --out new.zip</span><br></pre></td></tr></table></figure>
-<p>2，获得ISO文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum zip  <span class="comment">#安装zip文件解压工具</span></span><br><span class="line">unzip R2017b.zip</span><br></pre></td></tr></table></figure>
-<p><strong>第三步：挂载镜像</strong></p>
-<p>首先，由于Windows系统与Unix或Unix-like系统的不同，在Unix和Unix-like系统中的文件和系统是隔离开的。因此，首先需要将镜像文件挂载至系统（挂载的意思可以理解成告诉系统这个镜像在哪里）。另外需要注意的是，挂载路径和安装路径不一致。我的经历是，挂载至/opt路径，安装至/home下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o auto loop R2017b_glnxa64.iso /opt/MATLAB  <span class="comment">#挂载至/opt/MATLAB下</span></span><br></pre></td></tr></table></figure>
-<p><strong>第四步：安装</strong></p>
-<p>安装这里有一个类似于build(GMT安装)的命令，install</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /home/geoyan/matlab/install</span><br></pre></td></tr></table></figure>
-<p>按照网上大多教程，若执行sudo ./install一般会提示找不到Install这个命令，因为./本来的功能其实是执行bash脚本。安装初始，需要输入install_key.txt中的秘钥。我的安装位置选择默认(/usr/local/MATLAB/)。</p>
-<p><strong>第五步：破解</strong></p>
-<p>和Window下不同的是，这里的破解指的是移动许可证文件。在MATLABR2017b_Linux_Crack.tar.gz解压后的文件MATLABR2017b_Linux_Crack中包含两个文件：MATLABR2017b_Linux_Crack（对，我没看错，又是一个坑）和libmwservices.so。假如操作libmwservices.so文件的话就会出错，这时必须选择MATLABR2017b_Linux_Crack中的文件；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp license_standalone /usr/<span class="built_in">local</span>/MATLAB/R2017b/licenses</span><br><span class="line">sudo cp libmwservices.so /usr/<span class="built_in">local</span>/MATLAB/R2017b/bin/glnxa64</span><br></pre></td></tr></table></figure>
-<p><strong>第六步：MATLAB的启动</strong></p>
-<p>这里可以分两种方式启动：</p>
-<p>（1）在bin目录在使用./matlab。缺点是每次都要进入安装目录里面</p>
-<p>（2）假如环境变量，在任何地方可以随时启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/MATLAB/R2017b/bin=<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
-<p>well done.</p>
+        <p><strong>Introduction:</strong> 这应该是最糟心的一周了，面对一本九十多页的几乎是纯数学的NDSHA基础文献，我显得有些着急和畏惧。因此，在这一周的组会前两天，我都一直是懵的状态。另外，我不想将所有的时间都花在读文献上，还想折腾一下SAC、GMT和ObsPy。</p>
+<p><strong>Key words:</strong> 读书看文之方法论、处理地震记录</p>
+<p><strong>Point 1:</strong> 在准备阶段该如何看文献和英文书籍</p>
+<p>年轻人，总是心浮气躁，还火急火燎的，干啥都着急，总想着一步就跨到终点。这形容我来说就再合适不过了。不由想起在前面的讨论中，导师对我说过多次的一句话：不要着急。不能着急、不能着急、不能着急，重要的事说三遍以上。</p>
+<p>回归正题：首先，推公式还是非常有必要的，老师虽然没有强求，但是对于修复原来的数理基础就显得很有必要。</p>
+<p>若不想推公式而只是想要理解前沿，看文献即可，<strong>完全看想懂到什么程度</strong>。在一般的文献中，若出现公式的话，下文必须有对公式每一项的说明，谁是谁谁是谁，以后写论文也是这要求。若想进一步了解，则需要考虑每一项的意思，上下文可以理解。</p>
+<p>看公式的方法：</p>
+<p>第一层次：最粗略的方法</p>
+<p>（1）将公式看作一张图或是一句话，得学会从公式中找到最关键的东西。公式也是可以念出来的，先念然后才会懂。</p>
+<p>（2）这公式说的什么，某一项是什么，大致什么概念，物理图像如何</p>
+<p>第二层次：地震学中不是所有的书都那么好看。老师提议使用Ari Ben-Menahem的《Seismic Waves and Sources》，《定量地震学》的缺点来自于英国人的洁癖，他们更喜欢把公式写的非常优美，然而优美会隐蔽细节。Ben-Menahem则更加人性化，尽量避免使用爱因斯坦求和约定，将其中的细节全部展现出来。看教科书（尤其是英文教科书）的时候，需要尤其注意BOX。</p>
+<p>第三层次：补充数理方程和特征函数基础知识，对应更加复杂的情况。</p>
+<p>对虚数的理解：凡是有虚数的地方都写到指数e上，容易发现它代表一种波动，简谐波动。虚数于地震学家而言就是震动。</p>
+<p>第四层次：看一些写的很好的地震学教科书，看不懂的时候多看几本书。也可以尝试MATLAB中解微分方程的功能。</p>
+<p>当无法看清一个问题的时候，不妨拿到一个简单体系中做一次数学实验。</p>
+<p><strong>Point 2:</strong> 对“如何开始一段处理地震记录”的尝试的建议</p>
+<p>在不反演参数时，找到一次地震的台站和震中位置画出来在一张图上，做前置滤波，识别震相，频谱，三分量记录做Polarization.</p>
+<p>建议一：（参考老师与夏明之间的曾经合作过的工作，汶川地震）有地震、地震台站，寻找远震范围记录；首先做高通滤波，然后做能量、包络线，包络线近似于此地震震源时间函数。对特大地震是没有办法的办法。</p>
+<p>建议二：（彭志刚）有一地震记录，先做高通滤波，图a；再做低通滤波，图b。高通滤波结果与低通滤波结果放一起，容易发现，当面波在不同位置来临时，固定位置处会激发出Tremor。 </p>
+<p>Polarzation，如何求不同地震分量从哪个方向来的，可多看一些文章。</p>
+<p>后续工作：完成PPT-讲解NDSHA基本原理，先给老师讲，有机会给研究生论坛讲。</p>
+<p>嗯……………，信息增益依旧很大</p>
 
       
     </div>
@@ -294,7 +286,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="https://crowboydoudou.github.io/2018/11/26/在CentOS上安装Matlab-R2017b/">https://crowboydoudou.github.io/2018/11/26/在CentOS上安装Matlab-R2017b/</a>
+      <a href="https://crowboydoudou.github.io/2018/11/28/11月28日与老师讨论/">https://crowboydoudou.github.io/2018/11/28/11月28日与老师讨论/</a>
     </p>
     <p class="copyright-item">
       <span>License: </span>
@@ -316,15 +308,15 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/11/28/11月28日与老师讨论/">
+      <a class="prev" href="/2018/11/29/ObsPy-滤波/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">11月28日与老师讨论</span>
+        <span class="prev-text nav-default">ObsPy_滤波</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
     
-      <a class="next" href="/2018/11/25/NDSHA中的震源系统/">
-        <span class="next-text nav-default">NDSHA中的震源系统</span>
+      <a class="next" href="/2018/11/26/在CentOS上安装Matlab-R2017b/">
+        <span class="next-text nav-default">在CentOS上安装Matlab_R2017b</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
