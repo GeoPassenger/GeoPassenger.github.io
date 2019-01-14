@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="SAC中的地震参数含义及读取"/>
+
+
+
+
+  <meta name="keywords" content="地震学、统计地震学、数学物理、计算机科学" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="OSSR">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://crowboydoudou.github.io/2018/12/13/SAC中的地震参数含义及读取/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> SAC中的地震参数含义及读取 - OSSR </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">OSSR</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">OSSR</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          SAC中的地震参数含义及读取
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-13
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/SAC/">SAC</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        <p>地震波形的参数几乎全部包含在头段变量中。因此，读入一个SAC数据，显示它的头段变量，可以立马看到与该段波形记录有关的绝大部分信息。</p>
+<p>头段中的变量共133个，占用632个字节位置。绝大部分变量遵守每个占用四个字节的规则，少部分占用8个字节（其实是9个字节，多出的一个是0）。第一列表示该行变量的起始位置，第二列表示变量类型</p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Type</th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>F</td>
+<td style="text-align:left">delta<strong>（采样周期）</strong></td>
+<td style="text-align:left">depmin<strong>（最小振幅）</strong></td>
+<td style="text-align:left">depmax<strong>（最大振幅）</strong></td>
+<td style="text-align:left">scale<strong>（纵坐标值放大倍数，一般是1）</strong></td>
+<td style="text-align:left">odelta<strong>（采样周期实际值，null）</strong></td>
+</tr>
+<tr>
+<td>20</td>
+<td>F</td>
+<td style="text-align:left">b<strong>（窗口起始时间）</strong></td>
+<td style="text-align:left">e<strong>（窗口结束时间）</strong></td>
+<td style="text-align:left">o<strong>（发生时刻-iztype）</strong></td>
+<td style="text-align:left">a<strong>（初动时-参考）</strong></td>
+<td style="text-align:left">internal</td>
+</tr>
+<tr>
+<td>40</td>
+<td>F</td>
+<td style="text-align:left">t0<strong>（震相到时）</strong></td>
+<td style="text-align:left">t1</td>
+<td style="text-align:left">t2</td>
+<td style="text-align:left">t3</td>
+<td style="text-align:left">t4</td>
+</tr>
+<tr>
+<td>60</td>
+<td>F</td>
+<td style="text-align:left">t5</td>
+<td style="text-align:left">t6</td>
+<td style="text-align:left">t7</td>
+<td style="text-align:left">t8</td>
+<td style="text-align:left">t9</td>
+</tr>
+<tr>
+<td>80</td>
+<td>F</td>
+<td style="text-align:left">f<strong>（结束时-参考）</strong></td>
+<td style="text-align:left">resp0<strong>（仪器参数）</strong></td>
+<td style="text-align:left">resp1</td>
+<td style="text-align:left">resp2</td>
+<td style="text-align:left">resp3</td>
+</tr>
+<tr>
+<td>100</td>
+<td>F</td>
+<td style="text-align:left">resp4</td>
+<td style="text-align:left">resp5</td>
+<td style="text-align:left">resp6</td>
+<td style="text-align:left">resp7</td>
+<td style="text-align:left">resp8</td>
+</tr>
+<tr>
+<td>120</td>
+<td>F</td>
+<td style="text-align:left">resp9</td>
+<td style="text-align:left">stla<strong>（台站纬度）</strong></td>
+<td style="text-align:left">stlo<strong>（台站经度）</strong></td>
+<td style="text-align:left">stel<strong>（台站海拔高度）</strong></td>
+<td style="text-align:left">stdp<strong>（台站相对地表深度，一般为0）</strong></td>
+</tr>
+<tr>
+<td>140</td>
+<td>F</td>
+<td style="text-align:left">evla<strong>（事件纬度）</strong></td>
+<td style="text-align:left">evlo<strong>（事件经度）</strong></td>
+<td style="text-align:left">evel<strong>（事件高程）</strong></td>
+<td style="text-align:left">evdp<strong>（事件深度）</strong></td>
+<td style="text-align:left">mag</td>
+</tr>
+<tr>
+<td>160</td>
+<td>F</td>
+<td style="text-align:left">user0</td>
+<td style="text-align:left">user1</td>
+<td style="text-align:left">user2</td>
+<td style="text-align:left">user3</td>
+<td style="text-align:left">user4</td>
+</tr>
+<tr>
+<td>180</td>
+<td>F</td>
+<td style="text-align:left">user5</td>
+<td style="text-align:left">user6</td>
+<td style="text-align:left">user7</td>
+<td style="text-align:left">user8</td>
+<td style="text-align:left">user9</td>
+</tr>
+<tr>
+<td>200</td>
+<td>F</td>
+<td style="text-align:left">dist<strong>（震台距）</strong></td>
+<td style="text-align:left">az<strong>（方位角）</strong></td>
+<td style="text-align:left">baz<strong>（反方位角）</strong></td>
+<td style="text-align:left">gcarc</td>
+<td style="text-align:left">internal</td>
+</tr>
+<tr>
+<td>220</td>
+<td>F</td>
+<td style="text-align:left">internal</td>
+<td style="text-align:left">depmen<strong>（因变量均值）</strong></td>
+<td style="text-align:left">cmpaz<strong>（方向矢量的方位角）</strong></td>
+<td style="text-align:left">cmpinc<strong>（与垂向的夹角）</strong></td>
+<td style="text-align:left">xminimum</td>
+</tr>
+<tr>
+<td>240</td>
+<td>F</td>
+<td style="text-align:left">xmaximum</td>
+<td style="text-align:left">yminimum</td>
+<td style="text-align:left">ymaximum</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>260</td>
+<td>F</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>280</td>
+<td>N</td>
+<td style="text-align:left">nzyear（年）</td>
+<td style="text-align:left">nzjday<strong>（第一天开始）</strong></td>
+<td style="text-align:left">nzhour<strong>（时）</strong></td>
+<td style="text-align:left">nzmin<strong>（分）</strong></td>
+<td style="text-align:left">nzsec<strong>（毫秒）</strong></td>
+</tr>
+<tr>
+<td>300</td>
+<td>N</td>
+<td style="text-align:left">nzmsec</td>
+<td style="text-align:left">nvhdr<strong>（头段版本号）</strong></td>
+<td style="text-align:left">norid</td>
+<td style="text-align:left">nevid</td>
+<td style="text-align:left">npts<strong>（采样点数）</strong></td>
+</tr>
+<tr>
+<td>320</td>
+<td>N</td>
+<td style="text-align:left">internal</td>
+<td style="text-align:left">nwfid</td>
+<td style="text-align:left">nxsize</td>
+<td style="text-align:left">nysize</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>340</td>
+<td>I</td>
+<td style="text-align:left">iftype<strong>（SAC文件类型）</strong></td>
+<td style="text-align:left">idep<strong>（因变量Y类型）</strong></td>
+<td style="text-align:left">iztype<strong>（等效参考时刻）</strong></td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">iinst<strong>（仪器类型）</strong></td>
+</tr>
+<tr>
+<td>360</td>
+<td>I</td>
+<td style="text-align:left">istreg</td>
+<td style="text-align:left">ievreg</td>
+<td style="text-align:left">ievtyp<strong>（事件类型）</strong></td>
+<td style="text-align:left">iqual<strong>（数据质量）</strong></td>
+<td style="text-align:left">isynth</td>
+</tr>
+<tr>
+<td>380</td>
+<td>I</td>
+<td style="text-align:left">imagtyp<strong>（震级类型）</strong></td>
+<td style="text-align:left">imagsrc<strong>（震级来源）</strong></td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>400</td>
+<td>I</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>420</td>
+<td>L</td>
+<td style="text-align:left">leven</td>
+<td style="text-align:left">lpspol</td>
+<td style="text-align:left">lovrok</td>
+<td style="text-align:left">lcalda</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>440</td>
+<td>K</td>
+<td style="text-align:left">kstnm<strong>（台站名）</strong></td>
+<td style="text-align:left">kevnm<strong>*（事件名）</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>464</td>
+<td>K</td>
+<td style="text-align:left">khole<strong>（核爆or孔眼）</strong></td>
+<td style="text-align:left">ko</td>
+<td style="text-align:left">ka</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>488</td>
+<td>K</td>
+<td style="text-align:left">kt0</td>
+<td style="text-align:left">kt1</td>
+<td style="text-align:left">kt2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>512</td>
+<td>K</td>
+<td style="text-align:left">kt3</td>
+<td style="text-align:left">kt4</td>
+<td style="text-align:left">kt5</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>536</td>
+<td>K</td>
+<td style="text-align:left">kt6</td>
+<td style="text-align:left">kt7</td>
+<td style="text-align:left">kt8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>560</td>
+<td>K</td>
+<td style="text-align:left">kt9</td>
+<td style="text-align:left">kf</td>
+<td style="text-align:left">kuser0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>584</td>
+<td>K</td>
+<td style="text-align:left">kuser1</td>
+<td style="text-align:left">kuser2</td>
+<td style="text-align:left">kcmpnm<strong>（存储分量名称）</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>608</td>
+<td>K</td>
+<td style="text-align:left">knetwk<strong>（台网名）</strong></td>
+<td style="text-align:left">kdatrd</td>
+<td style="text-align:left">kinst<strong>（仪器名）</strong></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>注：</p>
+<p>（1）辅助型头段变量并且有出现在头段变量列表中，例如kzdate, kztime;</p>
+<p>其中，kzdate精确到日期，kztime精确到毫秒（保留小数点后三位），表示<strong>台站接收到的时间</strong>。</p>
+<p><img src="/2018/12/13/SAC中的地震参数含义及读取/Screenshot from 2018-12-13 23-01-30.png" alt=""></p>
+<p>（2）关于iztype的取值，等效参考时刻</p>
+<ul>
+<li>INUKN    未知</li>
+<li>IB     文件开始时刻（文件创建时间？） </li>
+<li>IDAY   参考日期当天的午夜零点     </li>
+<li>IO    时间发生时间（此时头段变量o=0）</li>
+<li>IA    初动到时</li>
+<li>ITn     自定义，n可取0~9</li>
+</ul>
+<p>（3）o与iztype</p>
+<p><img src="/2018/12/13/SAC中的地震参数含义及读取/o_.png" alt="1544751334232"></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://crowboydoudou.github.io">Crowboydoudou</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://crowboydoudou.github.io/2018/12/13/SAC中的地震参数含义及读取/">https://crowboydoudou.github.io/2018/12/13/SAC中的地震参数含义及读取/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/地震参数/">地震参数</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/12/14/地震动的基本认识/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">地震动的基本认识</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/12/13/从GCMT看矩张量解/">
+        <span class="next-text nav-default">从GCMT看矩张量解</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:geo_passenger_zy@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Crowboydoudou</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

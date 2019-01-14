@@ -228,18 +228,18 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/21/PSHA与USERF3模型/">PSHA与USERF3模型</a>
+          <a class="post-link" href="/2018/11/29/ObsPy-滤波/">ObsPy_滤波</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-21
+          2018-11-29
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/NDSHA/">NDSHA</a>
+              <a href="/categories/Python/">Python</a>
             
           </span>
         
@@ -257,9 +257,10 @@
         
 
         
-          <p>昨天想到与盛峰师兄讨论了USERF3模型与PSHA，记在这里：</p>
-<p>UCERF3，是一种基于断裂的地震危险性分析模型；</p>
-<p>PSHA，是一个地震危险性分析的工作框架；</p>
+          <p>ObsPy提供了多个滤波功能，这里我先从高通滤波开始：</p>
+<h1 id="一，滤波过程"><a href="#一，滤波过程" class="headerlink" title="一，滤波过程"></a>一，滤波过程</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> obspy</span><br><span class="line"><span class="keyword">import</span> obspy.signal.filter</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">wc=obspy.read(<span class="string">"II.ESK.00.BHZ_2008-05-12T06_38_34.716_2008-05-12T06_49_34.716.sac"</span>)</span><br><span class="line">tr=wc[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">tr_filt=tr.copy()</span><br><span class="line">tr_filt.filter(<span class="string">'highpass'</span>,freq=<span class="number">1.0</span>,corners=<span class="number">1</span>,zerophase=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">tr_enve=tr_filt.copy()</span><br><span class="line">data=tr_enve.data</span><br><span class="line">data_enve=obspy.signal.filter.envelope(data)</span><br><span class="line"></span><br><span class="line">tr_inte=tr_enve.copy()</span><br><span class="line"></span><br><span class="line">t = np.arange(<span class="number">0</span>, tr.stats.npts / tr.stats.sampling_rate, tr.stats.delta)</span><br><span class="line">plt.subplot(<span class="number">311</span>)</span><br><span class="line">plt.plot(t, tr.data, <span class="string">'k'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Original record'</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">312</span>)</span><br><span class="line">plt.plot(t, tr_filt.data, <span class="string">'k'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'1Hz_Highpassed Data'</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">313</span>)</span><br><span class="line">plt.plot(t,data,<span class="string">'k'</span>)</span><br><span class="line">plt.plot(t,data_enve,<span class="string">'r'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Kinetic energy density'</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">'Time [s]'</span>)</span><br><span class="line">plt.suptitle(tr.stats.starttime)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h1 id="二，结果"><a href="#二，结果" class="headerlink" title="二，结果"></a>二，结果</h1><p><img src="/2018/11/29/ObsPy-滤波/Figure_1.png" alt=""></p>
+<p>注意：<strong>这里的包络线是错误的</strong></p>
 
         
       
@@ -277,133 +278,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/20/在Linux系统和Windows系统上快速传递文件/">在Linux系统和Windows系统上快速传递文件</a>
+          <a class="post-link" href="/2018/11/28/11月28日与老师讨论/">11月28日与老师讨论</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-20
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Unix/">Unix</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>我有两台电脑，一台是CentOS系统台式机，一台是Windows系统笔记本。由于CentOS系统台式机速度更快，但是笔记本更方便携带，因此经常需要在两台电脑之间反复的传递文件，如果每一次都是用移动介质的话未免显得过于麻烦。</p>
-<p>第一个选项：WinSCP，提供了Windows到Unix服务器的多种连接方式，支持多个文件传输协议（i.e., FTP/SFTP），但是只能是服务器，而不能是普通的主机，放弃。</p>
-<p>第二个选项：TeamViewer，更适用于团队之间的远程协作或是提供网络服务的公司为客户解决技术问题，放弃。</p>
-<p>第三个选项：VNCserver</p>
-<h1 id="一、从CentOS到Windows"><a href="#一、从CentOS到Windows" class="headerlink" title="一、从CentOS到Windows"></a>一、从CentOS到Windows</h1><p>虽然很难受，但是对于非服务器的主机暂时只能用最笨的方法-U盘快转了。</p>
-<p>有一种暂时可行的方法是：在CentOS系统中虽然没有Unix版本的百度云盘可用，但是可以登录在线版。数据量较小的话，可以采用这样一种方式。数据量很大的时候，由于下载带宽限制，最好使用移动存储介质转运。（下同）</p>
-<h1 id="二、从Windows到CentOS"><a href="#二、从Windows到CentOS" class="headerlink" title="二、从Windows到CentOS"></a>二、从Windows到CentOS</h1><p>虽然很难受，但是对于非服务器的主机暂时只能用最笨的方法-U盘快转了</p>
-<p>未完待续……</p>
-<p><strong>文本日志：</strong></p>
-<p>1.2018年11月20日，提出问题，尝试了三种选项，都逃不开一个词：服务器</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/20/Unix文件操作方法/">Unix文件操作方法</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-20
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Unix/">Unix</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>在Unix或者类Unix上操作文件时，避不开反复的用到文件操作，包括文件的粘贴/复制/读取/权限更改/属性查看等等。我一般比较混乱，记录在这里以便快速查看。</p>
-<h1 id="一、Linux文件属性"><a href="#一、Linux文件属性" class="headerlink" title="一、Linux文件属性"></a>一、Linux文件属性</h1><p>类Unix系统非常注意安全性，但是又给了ROOT用户极大的操作权限。在操作文件时必须得注意以下几点：</p>
-<p>1.不要轻易删除或移动根目录下的文件</p>
-<p>2.不要轻易更改环境变量文件，例如.bashrc/.bash_profile</p>
-<p>在任意目录下输入ls -l （ls -al效果相同），常会显示出一列文件属性。如下图：</p>
-<p><img src="/2018/11/20/Unix文件操作方法/2018-11-20 17-07-02屏幕截图.png" alt=""></p>
-<p>说明：</p>
-<p>（1）第一列数据：-rw-r–r–，表示文件权限。第一个字符是“-”，代表本列数据是文件；rw代表可读可写；</p>
-<p>（2）第三、四列数据：第一个geoyan代表文件所有者，第二个geoyan代表用户组；</p>
-<p>（3）第五列数据：数据容量</p>
-<p>（4）第六列数据：修改日期</p>
-<h1 id="二、文件的基本操作常用命令"><a href="#二、文件的基本操作常用命令" class="headerlink" title="二、文件的基本操作常用命令"></a>二、文件的基本操作常用命令</h1><p>file: 查看文件类型，例如ASCII、data、binary等；</p>
-<p>stat: 查看文件大小、存储位置、软硬链接、以及最近访问、更改、改动的时间；</p>
-<p>which：疑似只能寻找路径在环境变量中的文件；</p>
-<p>cd: 切换目录；. 此一层，..上一层，-前一层，~主目录</p>
-<p>mkdir: 建立一个新的目录；</p>
-<p>rmdir:删除一个空目录；</p>
-<h1 id="三、环境变量"><a href="#三、环境变量" class="headerlink" title="三、环境变量"></a>三、环境变量</h1><p>PATH相当于给系统的一个指路牌，告诉笨笨的它哪里有什么（路径），而且会告诉它你去了之后就会“明白”你需要做什么（该路径下只有一个可执行文件）。而且，前面的“指示牌”总是能抢到机会，告诉它首先需要做什么（即在存在多个搜索地址时，先搜索到谁就先执行谁），如果有很多个目的地的话。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/20/11月7日与老师讨论/">11月7日与老师讨论</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-20
+          2018-11-28
         </span>
         
           <span class="post-category">
@@ -426,15 +307,28 @@
         
 
         
-          <p>11月7日，我与老师进行了DEEP会议以后的第一讨论，这一次讨论由于是刚刚与Romanelli教授见面并基本确定合作关系之后的首次讨论，就显得尤为重要，同时基本确定了后面一年以内的工作内容和大体方向。</p>
-<h1 id="Point-I-关于与Romanelli教授联系"><a href="#Point-I-关于与Romanelli教授联系" class="headerlink" title="Point I  关于与Romanelli教授联系"></a>Point I  关于与Romanelli教授联系</h1><p>11月6日的时候，我给Romanelli 教授发送了第二封邮件，提出来关于模拟的三个问题以及关于峰值地面加速度的问题。这三个问题分别是：</p>
-<p><img src="/2018/11/20/11月7日与老师讨论/微信截图_20181120214606.png" alt=""></p>
-<p>老师开始便指出了我在称呼教授的时候犯的错误：首先，我把教授的名和姓弄混淆了，Fabio Romanelli，Romanelli是姓，Fabio是名。当我和教授刚刚认识的时候，可以称呼他为Prof. Romanelli或者Mr. Romanelli；当我和教授很熟悉的时候，可以直呼Fabio；而在英文习惯中，称呼全称往往是准备干仗了，这个时候别人会称教授为Fabio Romanelli。然后，老师认为我提出的前三个问题过于宽泛，可以毫不夸张的说，前三个问题里面每一个问题或许都可以用一篇文章来回答。关于第一个问题，讨论某一点的地震波避不开场效应的讨论（Site Response），在不同的Site上，由于地下近地表结构的巨大差异，地下结构的属性特征会近似“附着”在通过的地震波上并改变它的细微特征。关于第二个问题与第三个问题，如何评价一个模型的好坏有多重方法。但是不可以忽略的是，模型毕竟是模型，肯定无法做到无限逼近真实情况。但是可以用具体的方法来衡量模型的好坏并为其“打分”，例如RMS方法，既考虑用<strong>贝叶斯准则</strong>可以评价一个模型有多好，也考虑模型的不同因素之间的影响。</p>
-<p>最后，老师提出，学生与导师之间的交流是一个长期而漫长的过程，而我与Romanelli教授之间便是如此。通过有意识的记录下与Fabio教授之间每次的邮件通讯内容，可以反映我是如何从一个“小白”新手进阶成“老司机”的，同时，这或许能成为学生如何与导师之间交流与讨论的一个很不错的教材。后面可以预料的是，我肯定会与教授一起写文章，于是可以叫做《The birth of a paper》</p>
-<h1 id="Point-II-按照审稿人意见修改稿子"><a href="#Point-II-按照审稿人意见修改稿子" class="headerlink" title="Point II  按照审稿人意见修改稿子"></a>Point II  按照审稿人意见修改稿子</h1><p>在一开始的时候，我开心的告诉老师，自己知道两位审稿人具体是谁。本以为只是一句顺口的话不会引起多大的反应，可是老师的表情立马变得严肃了起来，因为我第一次打破了规则。通常，为了保证文章在审核过程中公平公正，文章在送外审时需要隐去作者和作者单位等任何可能泄露作者信息的标识，以确保审稿人在审稿的时候不会受到任何可能影响文章审核质量的因素。然而，不管我以何种途径获取审稿人的信息，都已是不遵守规矩的表现。还好只是第一次，并不会造成多大的影响，但是我想的是，这或许是我在科研写作上上过的第一节关于“守规矩”的课程吧。</p>
-<p>审稿人意见分两份，第一份是在原稿上批注；第二份是审稿意见表。老师要求我对批注逐条回复和修改，对不清晰的地方需要重新向审稿人明确具体想表达的意思。对审稿意见表，可以修改的则修改，不可修改的也需要加进文章的ARGUEMENT中去。</p>
-<h1 id="Point-III-关于博士研究生研究方向"><a href="#Point-III-关于博士研究生研究方向" class="headerlink" title="Point III  关于博士研究生研究方向"></a>Point III  关于博士研究生研究方向</h1><p>这个问题问完后我立马就后悔了。老师有老师自己的打算，迟迟不定，必有他自己的理由和考虑，也许是正在思虑更加兼顾主线与扩展、兼顾主业与副业的研究方向，也许是考虑到我已经开始跟随Fabio教授学习Seismic Hazard，并没有足够的必要来确定一个方向。所幸，最后老师并没有回避这个问题，确定了一个或许只能暂时这样确定的方向：Application of NDSHA in CSES.</p>
-<p>当然，并不是仅仅把别人的方法搬过来就完事了那么简单。</p>
+          <p><strong>Introduction:</strong> 这应该是最糟心的一周了，面对一本九十多页的几乎是纯数学的NDSHA基础文献，我显得有些着急和畏惧。因此，在这一周的组会前两天，我都一直是懵的状态。另外，我不想将所有的时间都花在读文献上，还想折腾一下SAC、GMT和ObsPy。</p>
+<p><strong>Key words:</strong> 读书看文之方法论、处理地震记录</p>
+<p><strong>Point 1:</strong> 在准备阶段该如何看文献和英文书籍</p>
+<p>年轻人，总是心浮气躁，还火急火燎的，干啥都着急，总想着一步就跨到终点。这形容我来说就再合适不过了。不由想起在前面的讨论中，导师对我说过多次的一句话：不要着急。不能着急、不能着急、不能着急，重要的事说三遍以上。</p>
+<p>回归正题：首先，推公式还是非常有必要的，老师虽然没有强求，但是对于修复原来的数理基础就显得很有必要。</p>
+<p>若不想推公式而只是想要理解前沿，看文献即可，<strong>完全看想懂到什么程度</strong>。在一般的文献中，若出现公式的话，下文必须有对公式每一项的说明，谁是谁谁是谁，以后写论文也是这要求。若想进一步了解，则需要考虑每一项的意思，上下文可以理解。</p>
+<p>看公式的方法：</p>
+<p>第一层次：最粗略的方法</p>
+<p>（1）将公式看作一张图或是一句话，得学会从公式中找到最关键的东西。公式也是可以念出来的，先念然后才会懂。</p>
+<p>（2）这公式说的什么，某一项是什么，大致什么概念，物理图像如何</p>
+<p>第二层次：地震学中不是所有的书都那么好看。老师提议使用Ari Ben-Menahem的《Seismic Waves and Sources》，《定量地震学》的缺点来自于英国人的洁癖，他们更喜欢把公式写的非常优美，然而优美会隐蔽细节。Ben-Menahem则更加人性化，尽量避免使用爱因斯坦求和约定，将其中的细节全部展现出来。看教科书（尤其是英文教科书）的时候，需要尤其注意BOX。</p>
+<p>第三层次：补充数理方程和特征函数基础知识，对应更加复杂的情况。</p>
+<p>对虚数的理解：凡是有虚数的地方都写到指数e上，容易发现它代表一种波动，简谐波动。虚数于地震学家而言就是震动。</p>
+<p>第四层次：看一些写的很好的地震学教科书，看不懂的时候多看几本书。也可以尝试MATLAB中解微分方程的功能。</p>
+<p>当无法看清一个问题的时候，不妨拿到一个简单体系中做一次数学实验。</p>
+<p><strong>Point 2:</strong> 对“如何开始一段处理地震记录”的尝试的建议</p>
+<p>在不反演参数时，找到一次地震的台站和震中位置画出来在一张图上，做前置滤波，识别震相，频谱，三分量记录做Polarization.</p>
+<p>建议一：（参考老师与夏明之间的曾经合作过的工作，汶川地震）有地震、地震台站，寻找远震范围记录；首先做高通滤波，然后做能量、包络线，包络线近似于此地震震源时间函数。对特大地震是没有办法的办法。</p>
+<p>建议二：（彭志刚）有一地震记录，先做高通滤波，图a；再做低通滤波，图b。高通滤波结果与低通滤波结果放一起，容易发现，当面波在不同位置来临时，固定位置处会激发出Tremor。 </p>
+<p>Polarzation，如何求不同地震分量从哪个方向来的，可多看一些文章。</p>
+<p>后续工作：完成PPT-讲解NDSHA基本原理，先给老师讲，有机会给研究生论坛讲。</p>
+<p>嗯……………，信息增益依旧很大</p>
 
         
       
@@ -452,18 +346,18 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/19/写在前面的话/">写在前面的话</a>
+          <a class="post-link" href="/2018/11/26/在CentOS上安装Matlab-R2017b/">在CentOS上安装Matlab_R2017b</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-19
+          2018-11-26
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/牛皮信封/">牛皮信封</a>
+              <a href="/categories/地震学研究生业余基本功/">地震学研究生业余基本功</a>
             
           </span>
         
@@ -481,17 +375,149 @@
         
 
         
-          <p><img src="/2018/11/19/写在前面的话/微信图片_20181119235006.jpg" alt=""></p>
-<p>我一直都很喜欢写信，不管是在中学时候，还是在高中，大学，或是现在。</p>
-<p>人生中第一封信，是写给妈妈。那次考试我考得不好，想跟妈妈解释我为什么考砸了，很多话不好意思说出口，就想到给妈妈写一封信，那是我第一次逻辑清晰的说话。</p>
-<p>中学的时候，我曾和喜欢的女孩子，也是我的初恋，在中考结束后有过一小段时间的书信交流。这段时间，我有了人生中第二封信到第四封信（没记错的话）。信中有长篇大论，有年少时“大人般”的谆谆教诲，也有少年时的理想和抱负。</p>
-<p>初中结束的时候，我写出了我人生中的第五封信，那是一封关于北京见闻的长信。我很感激母亲在我因中考失败很难过的时候接我到北京短暂的旅行。后来李叔叔听说我在初二时拿过作文大赛省二等奖，就要求我写一封信给他们看看。</p>
-<p>高三结束的时候，我去父亲在的工地上打小工，那段时间我写了第六封信，本想给初恋寄过去，但是由于种种原因没有将寄出。</p>
-<p>大学一年级的时候，我写出了我人生的第七封信，那是一封向一位女孩子表白的信。</p>
-<p>然后，直到现在，我再也没有写过第八封信。</p>
-<p>今天，我想重新开始我喜欢的书信。写给谁呢？就写给我未来的夫人吧。既然是给自己的夫人写信，那必定会是一件很美妙的事情。我想告诉她我的全部，我过去的故事，发生在和她在一起之前的故事，以及，我知道的所有美好的事情，都希望与她分享。</p>
-<p>放牛娃在插秧</p>
-<p>2018年11月19日</p>
+          <p>考虑到工作站优越的性能和极快的处理速度，一直想在CentOS 7上安装Matlab。但是由于一直使用不到Matlab而被搁置，直到我发现同学的的Ubantu上有MATLAB 2017b。Matlab的安装和使用确实是一件耽误不得的事，而且更耽误不得的是在Matlab的安装上费时费力。在百度搜索中搜索到的结果大多都是不懂装懂，胡扯一顿，有时还会误导像我这样的初级选手。经过一番折腾后（花了我一天半时间），将过程记于此，供以后参考：</p>
+<p><strong>第一步：准备MATLAB2017b安装文件</strong></p>
+<p>百度云盘：</p>
+<p>链接：<a href="https://pan.baidu.com/s/1dHzveWH5wy2Ozk-JdHJc4Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1dHzveWH5wy2Ozk-JdHJc4Q</a><br>提取码：ttzg<br>需要说一句的是，之所以选择2017b，一是因为折腾了好久不甘心半途放弃，二是2017b中加入了深度学习包，也许以后用得到。</p>
+<p><img src="/2018/11/26/在CentOS上安装Matlab-R2017b/微信截图_20181128213425.png" alt=""></p>
+<p>这里一共五个文件。后缀为z01，z02，zip的三个文件是原镜像文件由于过大而分割后的文件（就是讲ISO镜像分割了），MATLABR2017b_Linux_Crack.tar.gz其中包含许可证文件，install_key.txt中包含安装秘钥。</p>
+<p><strong>第二步：提取ISO镜像文件</strong></p>
+<p>1，合并（也可称为“修复”，之前的切割已经破坏了文件的完整性）多个压缩文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat R2017b_glnxa64.* &gt; R2017b.zip</span><br></pre></td></tr></table></figure>
+<p>NOTE：合并后的文件可随意命名；合并后的文件即是完整的文件，无需修复。关于修复这一点我被坑了好久。</p>
+<p>修复命令也粘贴于此：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -F(FF) old.zip --out new.zip</span><br></pre></td></tr></table></figure>
+<p>2，获得ISO文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum zip  <span class="comment">#安装zip文件解压工具</span></span><br><span class="line">unzip R2017b.zip</span><br></pre></td></tr></table></figure>
+<p><strong>第三步：挂载镜像</strong></p>
+<p>首先，由于Windows系统与Unix或Unix-like系统的不同，在Unix和Unix-like系统中的文件和系统是隔离开的。因此，首先需要将镜像文件挂载至系统（挂载的意思可以理解成告诉系统这个镜像在哪里）。另外需要注意的是，挂载路径和安装路径不一致。我的经历是，挂载至/opt路径，安装至/home下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o auto loop R2017b_glnxa64.iso /opt/MATLAB  <span class="comment">#挂载至/opt/MATLAB下</span></span><br></pre></td></tr></table></figure>
+<p><strong>第四步：安装</strong></p>
+<p>安装这里有一个类似于build(GMT安装)的命令，install</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /home/geoyan/matlab/install</span><br></pre></td></tr></table></figure>
+<p>按照网上大多教程，若执行sudo ./install一般会提示找不到Install这个命令，因为./本来的功能其实是执行bash脚本。安装初始，需要输入install_key.txt中的秘钥。我的安装位置选择默认(/usr/local/MATLAB/)。</p>
+<p><strong>第五步：破解</strong></p>
+<p>和Window下不同的是，这里的破解指的是移动许可证文件。在MATLABR2017b_Linux_Crack.tar.gz解压后的文件MATLABR2017b_Linux_Crack中包含两个文件：MATLABR2017b_Linux_Crack（对，我没看错，又是一个坑）和libmwservices.so。假如操作libmwservices.so文件的话就会出错，这时必须选择MATLABR2017b_Linux_Crack中的文件；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp license_standalone /usr/<span class="built_in">local</span>/MATLAB/R2017b/licenses</span><br><span class="line">sudo cp libmwservices.so /usr/<span class="built_in">local</span>/MATLAB/R2017b/bin/glnxa64</span><br></pre></td></tr></table></figure>
+<p><strong>第六步：MATLAB的启动</strong></p>
+<p>这里可以分两种方式启动：</p>
+<p>（1）在bin目录在使用./matlab。缺点是每次都要进入安装目录里面</p>
+<p>（2）假如环境变量，在任何地方可以随时启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/MATLAB/R2017b/bin=<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
+<p>well done.</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/11/25/NDSHA中的震源系统/">NDSHA中的震源系统</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/NDSHA/">NDSHA</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>各个模型或是工作框架中经常会使用到不同的震源系统，因此有必要知道NDSHA中使用到的是哪一种。</p>
+<p><img src="/2018/11/25/NDSHA中的震源系统/微信截图_20181128222452.png" alt=""></p>
+<p><strong>上图来自：Panza , et al, 2001</strong></p>
+<p>这里的断层系统沿用了经典的断层错动震源（faulting source如上图）。这里也区分了hypocenter和epicentre的区别，前者指震源（这里以点源示之），即地震开始的地方；后者指震中，即震源在地表的投影。</p>
+<p>按照《Modern Global Seismology》中所说，断层的滑动被限制在连接上下两盘的断层面上。</p>
+<p>描述一个断层错动震源共需要两个参数：走向（strike），倾角(dip)</p>
+<p>为了彻底理解断层定义，这里需要用到《Modern Global Seismology》中关于断层错动震源的图示：</p>
+<p><img src="/2018/11/25/NDSHA中的震源系统/微信截图_20181128224303.png" alt=""></p>
+<p>走向：从正北方向到断层到地表的投影之间的夹角（0到180度变化）</p>
+<p>倾角：粗糙的说，即是地表与断层面之间的夹角。图b从数学上面与面之间的夹角给出了说明</p>
+<p>除走向与倾向外，NDSHA另外加了两个参数：</p>
+<p>（1）从断层走向到震中与接收台站之间的连线的夹角，按逆时针计量</p>
+<p>（2）滑动角（rake），即滑动矢量与走向之间的夹角，按从走向逆时针旋转到滑动矢量计算，其取值范围是0度到360度。</p>
+<p>关于更一般且更实用的定义，同样参照《Modern Global Seismology》的图示：</p>
+<p><img src="/2018/11/25/NDSHA中的震源系统/微信截图_20181128224317.png" alt=""></p>
+<p>这里，破裂传播的方向是任意的。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/11/24/区分震源深度和矩心深度/">区分震源深度和矩心深度</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-24
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/地震学基础/">地震学基础</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>地震学中存在两个“深度”的概念，分别是震源深度和矩心深度。</p>
+<p>区别一：从与破裂之间的关系的角度看</p>
+<p>震源深度，最初来自于把震源看做是一个点，即最先开始发生破裂的地方，这里到地表的竖直深度即为震源深度；震源深度也可以理解为地震开始的地方，可由初动震相得到。而矩心深度与破裂起始的位置无关</p>
+<p>区别二：从与能量释放过程的角度看</p>
+<p>矩心深度，更强调是能量开始释放的深度，且由CMT的反演得到；矩心位置相当于地震滑动的“矩心”，矩心指物体的转动中心，这里到力的作用线的垂直距离即是力臂。因此，可以认为矩心位置与地震应力也有关系。而震源深度和能量的释放无关。</p>
 
         
       
@@ -593,7 +619,7 @@
      
       2017 - 
     
-    2018
+    2019
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>

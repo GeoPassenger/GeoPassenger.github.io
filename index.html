@@ -228,20 +228,14 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/29/ObsPy-滤波/">ObsPy_滤波</a>
+          <a class="post-link" href="/2018/12/28/贝塞尔函数/">贝塞尔函数</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-29
+          2018-12-28
         </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Python/">Python</a>
-            
-          </span>
         
         
       </div>
@@ -274,81 +268,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/28/11月28日与老师讨论/">11月28日与老师讨论</a>
+          <a class="post-link" href="/2018/12/19/Anaconda基本安装与操作/">Anaconda基本安装与操作</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-28
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/研究生与导师/">研究生与导师</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p><strong>Introduction:</strong> 这应该是最糟心的一周了，面对一本九十多页的几乎是纯数学的NDSHA基础文献，我显得有些着急和畏惧。因此，在这一周的组会前两天，我都一直是懵的状态。另外，我不想将所有的时间都花在读文献上，还想折腾一下SAC、GMT和ObsPy。</p>
-<p><strong>Key words:</strong> 读书看文之方法论、处理地震记录</p>
-<p><strong>Point 1:</strong> 在准备阶段该如何看文献和英文书籍</p>
-<p>年轻人，总是心浮气躁，还火急火燎的，干啥都着急，总想着一步就跨到终点。这形容我来说就再合适不过了。不由想起在前面的讨论中，导师对我说过多次的一句话：不要着急。不能着急、不能着急、不能着急，重要的事说三遍以上。</p>
-<p>回归正题：首先，推公式还是非常有必要的，老师虽然没有强求，但是对于修复原来的数理基础就显得很有必要。</p>
-<p>若不想推公式而只是想要理解前沿，看文献即可，<strong>完全看想懂到什么程度</strong>。在一般的文献中，若出现公式的话，下文必须有对公式每一项的说明，谁是谁谁是谁，以后写论文也是这要求。若想进一步了解，则需要考虑每一项的意思，上下文可以理解。</p>
-<p>看公式的方法：</p>
-<p>第一层次：最粗略的方法</p>
-<p>（1）将公式看作一张图或是一句话，得学会从公式中找到最关键的东西。公式也是可以念出来的，先念然后才会懂。</p>
-<p>（2）这公式说的什么，某一项是什么，大致什么概念，物理图像如何</p>
-<p>第二层次：地震学中不是所有的书都那么好看。老师提议使用Ari Ben-Menahem的《Seismic Waves and Sources》，《定量地震学》的缺点来自于英国人的洁癖，他们更喜欢把公式写的非常优美，然而优美会隐蔽细节。Ben-Menahem则更加人性化，尽量避免使用爱因斯坦求和约定，将其中的细节全部展现出来。看教科书（尤其是英文教科书）的时候，需要尤其注意BOX。</p>
-<p>第三层次：补充数理方程和特征函数基础知识，对应更加复杂的情况。</p>
-<p>对虚数的理解：凡是有虚数的地方都写到指数e上，容易发现它代表一种波动，简谐波动。虚数于地震学家而言就是震动。</p>
-<p>第四层次：看一些写的很好的地震学教科书，看不懂的时候多看几本书。也可以尝试MATLAB中解微分方程的功能。</p>
-<p>当无法看清一个问题的时候，不妨拿到一个简单体系中做一次数学实验。</p>
-<p><strong>Point 2:</strong> 对“如何开始一段处理地震记录”的尝试的建议</p>
-<p>在不反演参数时，找到一次地震的台站和震中位置画出来在一张图上，做前置滤波，识别震相，频谱，三分量记录做Polarization.</p>
-<p>建议一：（参考老师与夏明之间的曾经合作过的工作，汶川地震）有地震、地震台站，寻找远震范围记录；首先做高通滤波，然后做能量、包络线，包络线近似于此地震震源时间函数。对特大地震是没有办法的办法。</p>
-<p>建议二：（彭志刚）有一地震记录，先做高通滤波，图a；再做低通滤波，图b。高通滤波结果与低通滤波结果放一起，容易发现，当面波在不同位置来临时，固定位置处会激发出Tremor。 </p>
-<p>Polarzation，如何求不同地震分量从哪个方向来的，可多看一些文章。</p>
-<p>后续工作：完成PPT-讲解NDSHA基本原理，先给老师讲，有机会给研究生论坛讲。</p>
-<p>嗯……………，信息增益依旧很大</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/26/在CentOS上安装Matlab-R2017b/">在CentOS上安装Matlab_R2017b</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-26
+          2018-12-19
         </span>
         
           <span class="post-category">
@@ -371,36 +297,9 @@
         
 
         
-          <p>考虑到工作站优越的性能和极快的处理速度，一直想在CentOS 7上安装Matlab。但是由于一直使用不到Matlab而被搁置，直到我发现同学的的Ubantu上有MATLAB 2017b。Matlab的安装和使用确实是一件耽误不得的事，而且更耽误不得的是在Matlab的安装上费时费力。在百度搜索中搜索到的结果大多都是不懂装懂，胡扯一顿，有时还会误导像我这样的初级选手。经过一番折腾后（花了我一天半时间），将过程记于此，供以后参考：</p>
-<p><strong>第一步：准备MATLAB2017b安装文件</strong></p>
-<p>百度云盘：</p>
-<p>链接：<a href="https://pan.baidu.com/s/1dHzveWH5wy2Ozk-JdHJc4Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1dHzveWH5wy2Ozk-JdHJc4Q</a><br>提取码：ttzg<br>需要说一句的是，之所以选择2017b，一是因为折腾了好久不甘心半途放弃，二是2017b中加入了深度学习包，也许以后用得到。</p>
-<p><img src="/2018/11/26/在CentOS上安装Matlab-R2017b/微信截图_20181128213425.png" alt=""></p>
-<p>这里一共五个文件。后缀为z01，z02，zip的三个文件是原镜像文件由于过大而分割后的文件（就是讲ISO镜像分割了），MATLABR2017b_Linux_Crack.tar.gz其中包含许可证文件，install_key.txt中包含安装秘钥。</p>
-<p><strong>第二步：提取ISO镜像文件</strong></p>
-<p>1，合并（也可称为“修复”，之前的切割已经破坏了文件的完整性）多个压缩文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat R2017b_glnxa64.* &gt; R2017b.zip</span><br></pre></td></tr></table></figure>
-<p>NOTE：合并后的文件可随意命名；合并后的文件即是完整的文件，无需修复。关于修复这一点我被坑了好久。</p>
-<p>修复命令也粘贴于此：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -F(FF) old.zip --out new.zip</span><br></pre></td></tr></table></figure>
-<p>2，获得ISO文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum zip  <span class="comment">#安装zip文件解压工具</span></span><br><span class="line">unzip R2017b.zip</span><br></pre></td></tr></table></figure>
-<p><strong>第三步：挂载镜像</strong></p>
-<p>首先，由于Windows系统与Unix或Unix-like系统的不同，在Unix和Unix-like系统中的文件和系统是隔离开的。因此，首先需要将镜像文件挂载至系统（挂载的意思可以理解成告诉系统这个镜像在哪里）。另外需要注意的是，挂载路径和安装路径不一致。我的经历是，挂载至/opt路径，安装至/home下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o auto loop R2017b_glnxa64.iso /opt/MATLAB  <span class="comment">#挂载至/opt/MATLAB下</span></span><br></pre></td></tr></table></figure>
-<p><strong>第四步：安装</strong></p>
-<p>安装这里有一个类似于build(GMT安装)的命令，install</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /home/geoyan/matlab/install</span><br></pre></td></tr></table></figure>
-<p>按照网上大多教程，若执行sudo ./install一般会提示找不到Install这个命令，因为./本来的功能其实是执行bash脚本。安装初始，需要输入install_key.txt中的秘钥。我的安装位置选择默认(/usr/local/MATLAB/)。</p>
-<p><strong>第五步：破解</strong></p>
-<p>和Window下不同的是，这里的破解指的是移动许可证文件。在MATLABR2017b_Linux_Crack.tar.gz解压后的文件MATLABR2017b_Linux_Crack中包含两个文件：MATLABR2017b_Linux_Crack（对，我没看错，又是一个坑）和libmwservices.so。假如操作libmwservices.so文件的话就会出错，这时必须选择MATLABR2017b_Linux_Crack中的文件；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp license_standalone /usr/<span class="built_in">local</span>/MATLAB/R2017b/licenses</span><br><span class="line">sudo cp libmwservices.so /usr/<span class="built_in">local</span>/MATLAB/R2017b/bin/glnxa64</span><br></pre></td></tr></table></figure>
-<p><strong>第六步：MATLAB的启动</strong></p>
-<p>这里可以分两种方式启动：</p>
-<p>（1）在bin目录在使用./matlab。缺点是每次都要进入安装目录里面</p>
-<p>（2）假如环境变量，在任何地方可以随时启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/MATLAB/R2017b/bin=<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
-<p>well done.</p>
+          <p>Anaconda作为一款聚集了Python众多模块的软件，有很多基本操作需要经常用到：</p>
+<p>（1）查看已安装的环境：conda info –envs</p>
+<p>（2）</p>
 
         
       
@@ -418,18 +317,58 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/25/NDSHA中的震源系统/">NDSHA中的震源系统</a>
+          <a class="post-link" href="/2018/12/19/CPS-基本地震学学-绘制断层机制上的质点运动/">CPS_基本地震学学_绘制断层机制上的质点运动</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-25
+          2018-12-19
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/12/14/地震动的基本认识/">地震动的基本认识</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-14
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/NDSHA/">NDSHA</a>
+              <a href="/categories/工程地震学/">工程地震学</a>
             
           </span>
         
@@ -447,22 +386,22 @@
         
 
         
-          <p>各个模型或是工作框架中经常会使用到不同的震源系统，因此有必要知道NDSHA中使用到的是哪一种。</p>
-<p><img src="/2018/11/25/NDSHA中的震源系统/微信截图_20181128222452.png" alt=""></p>
-<p><strong>上图来自：Panza , et al, 2001</strong></p>
-<p>这里的断层系统沿用了经典的断层错动震源（faulting source如上图）。这里也区分了hypocenter和epicentre的区别，前者指震源（这里以点源示之），即地震开始的地方；后者指震中，即震源在地表的投影。</p>
-<p>按照《Modern Global Seismology》中所说，断层的滑动被限制在连接上下两盘的断层面上。</p>
-<p>描述一个断层错动震源共需要两个参数：走向（strike），倾角(dip)</p>
-<p>为了彻底理解断层定义，这里需要用到《Modern Global Seismology》中关于断层错动震源的图示：</p>
-<p><img src="/2018/11/25/NDSHA中的震源系统/微信截图_20181128224303.png" alt=""></p>
-<p>走向：从正北方向到断层到地表的投影之间的夹角（0到180度变化）</p>
-<p>倾角：粗糙的说，即是地表与断层面之间的夹角。图b从数学上面与面之间的夹角给出了说明</p>
-<p>除走向与倾向外，NDSHA另外加了两个参数：</p>
-<p>（1）从断层走向到震中与接收台站之间的连线的夹角，按逆时针计量</p>
-<p>（2）滑动角（rake），即滑动矢量与走向之间的夹角，按从走向逆时针旋转到滑动矢量计算，其取值范围是0度到360度。</p>
-<p>关于更一般且更实用的定义，同样参照《Modern Global Seismology》的图示：</p>
-<p><img src="/2018/11/25/NDSHA中的震源系统/微信截图_20181128224317.png" alt=""></p>
-<p>这里，破裂传播的方向是任意的。</p>
+          <p><strong>工程地震学的定义：</strong></p>
+<p><strong>（1）</strong> 对象：地震产生的强烈地震动及其效应</p>
+<p><strong>（2）</strong> 直接目的：定量预测工程场地（在实际中应为任意建筑物场地）内地震的破坏强度（以强地震动参数衡量）</p>
+<p><strong>（3）</strong> 最终目的：为计算建筑结构的地震反应（简称：结构地震反应计算）或抗震设计提供地震动输入。即在此种情形下来设计建筑物。</p>
+<p><strong>强地震动参数：</strong></p>
+<p>（1）地震烈度</p>
+<p>（2）地震动加速度</p>
+<p>（3）速度</p>
+<p>（4）位移峰值</p>
+<p>（5）持时</p>
+<p>（5）傅里叶谱</p>
+<p>（6）反应谱</p>
+<p>（7）时程包络线参数</p>
+<p><strong>地震动特性</strong></p>
+<p>（1）地震动只有低频（小于1赫兹）和高频（大于1赫兹）两个分类</p>
+<p>（2）低频地震动以确定性地震动为主要成分；高频地震动随机性较强</p>
 
         
       
@@ -480,18 +419,18 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/24/我的第二封信/">我的第二封信</a>
+          <a class="post-link" href="/2018/12/13/SAC中的地震参数含义及读取/">SAC中的地震参数含义及读取</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-24
+          2018-12-13
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/牛皮信封/">牛皮信封</a>
+              <a href="/categories/SAC/">SAC</a>
             
           </span>
         
@@ -509,22 +448,307 @@
         
 
         
-          <p>写在前面：嗯……….，第二封信好像隔了好久。那是因为，想要写下来的东西实在太多了，友情、亲情、学业，还有………….关于你的、未知的爱情。</p>
-<p>这些天看到藏地所的好友带着女朋友出去旅行了、母亲一如既往地催我赶紧找女朋友、和好兄弟去看《无名之辈》后一起羡慕里面的李大头终于赢得佳人芳心、远在南昌的好友爽又和我聊起来他心中的婚姻大事，远在青岛的同窗知己马力又和我感叹起来为何曾经长大地科院的校草找个对象也会这么难。我身边的同龄人，似乎都已经开始了自己对“婚姻”的第一步。因此，第二封信里，我也想来说说我心中的婚姻。</p>
-<p><strong>我的第二封信</strong>  <strong>我心中婚姻的样子</strong></p>
-<p>我心中关于结婚的第一印象，还是在我5岁的时候。那年弟弟还没有出生，我一个人坐在南头（老家称呼，还有北头）的家门口安静的发呆，突然看到前面的路上开来一辆运沙车，是的，你没有听错，是一辆运沙车，我记得很清楚，上面站着二叔和二姨，那是二叔娶回二姨的一天。哦对，运沙车的车灯那里还缠绕了一个大红花。</p>
-<p>此后数年，我心中对结婚的理解就一直保持着童年时分留下来的第一印象，用我现在的话说，就是和深爱的人好好地过一生，而且，丈夫需要始终站在妻子这一边，保护她、爱护她，谁敢动她就要把他打到地上起不来。</p>
-<p>关于婚姻的第二次印象，建立在我小学快毕业的时候干爷结婚。那是我第一次看到还有洁白的婚纱照。照片里，干爷很帅，干妈既美又白。令我自己印象深刻的是，当我看到这样一幅神圣的婚纱照的时候，年少而青涩且长得黑的我会突然变得害羞起来，现在想起，也许我当时突发奇想到了一二十年后我和我的她出现在上面的样子吧。</p>
-<p>关于婚姻的第三次印象，则是到了我初三的时候，那年老二结婚。这里需要隆重介绍一下老二，我经常喊他二锅，正如每个男孩的童年都有有一个大哥一样，我童年里大哥一样的人物便是他了。他对我的影响不亚于我的亲人。从干家务活到干农活、从六年级的作文到初一数学题，从在家里做饭到去野外野炊（那时候的野炊就是两块转头一拼，上面加根竹签烤），记忆里最出奇的一次还是他带着我们几个拿着板凳去庄稼地上写作业。2009年的老二，还是一副杀马特的样子，二流子的发型，早已打穿的耳洞，浑身上下都是洞的裤子，都和他一张老实人的脸显得格格不入。只是那一年，他结婚了。我至今还记得当他和自己的妻子坐在婚房时候的那一双眼神，期盼、复杂、惶恐、紧张。尽管当年的他怎么都不会想到，多年后会因为她而背上多大的负担。</p>
-<p>关于婚姻的第四次、第五次、第六次印象，则分别是顺宗大哥结婚，还有两位表姐（宋培、宋婷）出嫁。顺宗大哥结婚的时候是我第一次看到八抬大轿式的现代“复古式”婚姻，顺宗大哥骑在马上，气派极了。两位表姐出嫁的时候，出嫁前一晚都换好了白色的婚纱坐在娘家自己的床上，她们的母亲，也就是我的二姑妈，则一直在忙前忙后，准备嫁妆、行李箱、以及，我不知道的各种嫁女儿的规矩。而她们的父亲，则一直在楼上的某个角落里，抽烟、叹气、高兴、流泪。当年的我还是一副沉默寡言的样子，但是，关于她们这人生中最重要的时刻，我却记下来很多。</p>
-<p>上大学以后，我对婚姻的第七次和第八次印象，则是刘静（我的表姐）出嫁和黄鹏（我的表哥）结婚。刘静出嫁是在我大二的时候，对于那次经历我印象很不好，主要是参加那次婚礼的时候奶奶晚上着凉了，回家当天晚上吃饭后就吐了好多。看着奶奶在床上不舒服的样子，我实在是心疼极了，自然对婚姻的过程也就不会有任何的好印象。而在黄鹏结婚的时候，是我第一次看到爷爷和奶奶走在一起的样子，步履蹒跚、缓慢的背影却一次又一次的让我感动到心里最深处的田地。关于爷爷奶奶的故事还有很多很多，这封信里暂时就不展开说了。而在黄鹏的婚礼的那段时间前后，我却有着一道新添的伤疤，不论怎么敷药都没法愈合回去。</p>
-<p><img src="/2018/11/24/我的第二封信/together.png" alt=""></p>
-<p>而最近的一次关于婚姻的印象，则是在今年十月二日的时候，发小张傲结婚。相近的年纪、不同的阅历、一样的儿时经历，当发小单膝跪在他的她面前的时候，以及向他的两位父亲和母亲敬茶的时候，我不由想起童年的一幕又一幕场景，而今天，这小子终于定了终身。之后，我还抢到了棒花，棒花意味着下一位扔棒花的就是我的她了，尽管我不太相信这种习俗的定义，但是仍旧充满了憧憬。</p>
-<p>可以毫不夸张的说，在我的前面二十三年里，我一直相信有王子与公主的故事，遗憾的是我从不没有一刻真正的觉得我有朝一日也能成为“王子”。原因不说也罢，一直自认为形象气质不佳且身高偏矮。在庆幸的是在我的第二十四年里，我终于摆脱了这种想法，而且连根拔除。每一个人都会成为他的她心目中的王子，这是与生俱来的，与长相、身高、财富绝没有半点关系。</p>
-<p>还是在保研面试的时候，在我去所里面试的路上，看到了一位老爷爷和一位老奶奶一起骑着旧式自行车缓慢的走着，然后我偷偷地排了张照，大概就像这样：</p>
-<p><img src="/2018/11/24/我的第二封信/微信图片_20181124231111.jpg" alt=""></p>
-<p>我并没有去想为什么老爷爷不开着车带着他的夫人，只是因为我太钟爱于这样虽然显得有点老式、但是极其美好的时刻。年轻的时候可以载着她，桥车或自行车，但是我更喜欢自行车，哪怕等我买得起自己的车的时候。假如只有四五公里地，我是非常愿意骑着自行车带着夫人去的。</p>
-<p>假如上图是现在，继续假设现在是2050年，从现在做一次回溯性的追本溯源到结婚的时候（也许是2020~2025年中的某一年，太老了记不清）。我会记得一场与众不同的婚礼，在乡下的老家里，或是在工作的城市，有各自的亲属，有各自曾经的恩师和挚友，没有大音响，没有流水线式的司仪，没有花花绿绿的各式婚庆道具，我们有自己设置的婚礼现场，我唱了一首《想把我唱给你听》后。</p>
+          <p>地震波形的参数几乎全部包含在头段变量中。因此，读入一个SAC数据，显示它的头段变量，可以立马看到与该段波形记录有关的绝大部分信息。</p>
+<p>头段中的变量共133个，占用632个字节位置。绝大部分变量遵守每个占用四个字节的规则，少部分占用8个字节（其实是9个字节，多出的一个是0）。第一列表示该行变量的起始位置，第二列表示变量类型</p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Type</th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>F</td>
+<td style="text-align:left">delta<strong>（采样周期）</strong></td>
+<td style="text-align:left">depmin<strong>（最小振幅）</strong></td>
+<td style="text-align:left">depmax<strong>（最大振幅）</strong></td>
+<td style="text-align:left">scale<strong>（纵坐标值放大倍数，一般是1）</strong></td>
+<td style="text-align:left">odelta<strong>（采样周期实际值，null）</strong></td>
+</tr>
+<tr>
+<td>20</td>
+<td>F</td>
+<td style="text-align:left">b<strong>（窗口起始时间）</strong></td>
+<td style="text-align:left">e<strong>（窗口结束时间）</strong></td>
+<td style="text-align:left">o<strong>（发生时刻-iztype）</strong></td>
+<td style="text-align:left">a<strong>（初动时-参考）</strong></td>
+<td style="text-align:left">internal</td>
+</tr>
+<tr>
+<td>40</td>
+<td>F</td>
+<td style="text-align:left">t0<strong>（震相到时）</strong></td>
+<td style="text-align:left">t1</td>
+<td style="text-align:left">t2</td>
+<td style="text-align:left">t3</td>
+<td style="text-align:left">t4</td>
+</tr>
+<tr>
+<td>60</td>
+<td>F</td>
+<td style="text-align:left">t5</td>
+<td style="text-align:left">t6</td>
+<td style="text-align:left">t7</td>
+<td style="text-align:left">t8</td>
+<td style="text-align:left">t9</td>
+</tr>
+<tr>
+<td>80</td>
+<td>F</td>
+<td style="text-align:left">f<strong>（结束时-参考）</strong></td>
+<td style="text-align:left">resp0<strong>（仪器参数）</strong></td>
+<td style="text-align:left">resp1</td>
+<td style="text-align:left">resp2</td>
+<td style="text-align:left">resp3</td>
+</tr>
+<tr>
+<td>100</td>
+<td>F</td>
+<td style="text-align:left">resp4</td>
+<td style="text-align:left">resp5</td>
+<td style="text-align:left">resp6</td>
+<td style="text-align:left">resp7</td>
+<td style="text-align:left">resp8</td>
+</tr>
+<tr>
+<td>120</td>
+<td>F</td>
+<td style="text-align:left">resp9</td>
+<td style="text-align:left">stla<strong>（台站纬度）</strong></td>
+<td style="text-align:left">stlo<strong>（台站经度）</strong></td>
+<td style="text-align:left">stel<strong>（台站海拔高度）</strong></td>
+<td style="text-align:left">stdp<strong>（台站相对地表深度，一般为0）</strong></td>
+</tr>
+<tr>
+<td>140</td>
+<td>F</td>
+<td style="text-align:left">evla<strong>（事件纬度）</strong></td>
+<td style="text-align:left">evlo<strong>（事件经度）</strong></td>
+<td style="text-align:left">evel<strong>（事件高程）</strong></td>
+<td style="text-align:left">evdp<strong>（事件深度）</strong></td>
+<td style="text-align:left">mag</td>
+</tr>
+<tr>
+<td>160</td>
+<td>F</td>
+<td style="text-align:left">user0</td>
+<td style="text-align:left">user1</td>
+<td style="text-align:left">user2</td>
+<td style="text-align:left">user3</td>
+<td style="text-align:left">user4</td>
+</tr>
+<tr>
+<td>180</td>
+<td>F</td>
+<td style="text-align:left">user5</td>
+<td style="text-align:left">user6</td>
+<td style="text-align:left">user7</td>
+<td style="text-align:left">user8</td>
+<td style="text-align:left">user9</td>
+</tr>
+<tr>
+<td>200</td>
+<td>F</td>
+<td style="text-align:left">dist<strong>（震台距）</strong></td>
+<td style="text-align:left">az<strong>（方位角）</strong></td>
+<td style="text-align:left">baz<strong>（反方位角）</strong></td>
+<td style="text-align:left">gcarc</td>
+<td style="text-align:left">internal</td>
+</tr>
+<tr>
+<td>220</td>
+<td>F</td>
+<td style="text-align:left">internal</td>
+<td style="text-align:left">depmen<strong>（因变量均值）</strong></td>
+<td style="text-align:left">cmpaz<strong>（方向矢量的方位角）</strong></td>
+<td style="text-align:left">cmpinc<strong>（与垂向的夹角）</strong></td>
+<td style="text-align:left">xminimum</td>
+</tr>
+<tr>
+<td>240</td>
+<td>F</td>
+<td style="text-align:left">xmaximum</td>
+<td style="text-align:left">yminimum</td>
+<td style="text-align:left">ymaximum</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>260</td>
+<td>F</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>280</td>
+<td>N</td>
+<td style="text-align:left">nzyear（年）</td>
+<td style="text-align:left">nzjday<strong>（第一天开始）</strong></td>
+<td style="text-align:left">nzhour<strong>（时）</strong></td>
+<td style="text-align:left">nzmin<strong>（分）</strong></td>
+<td style="text-align:left">nzsec<strong>（毫秒）</strong></td>
+</tr>
+<tr>
+<td>300</td>
+<td>N</td>
+<td style="text-align:left">nzmsec</td>
+<td style="text-align:left">nvhdr<strong>（头段版本号）</strong></td>
+<td style="text-align:left">norid</td>
+<td style="text-align:left">nevid</td>
+<td style="text-align:left">npts<strong>（采样点数）</strong></td>
+</tr>
+<tr>
+<td>320</td>
+<td>N</td>
+<td style="text-align:left">internal</td>
+<td style="text-align:left">nwfid</td>
+<td style="text-align:left">nxsize</td>
+<td style="text-align:left">nysize</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>340</td>
+<td>I</td>
+<td style="text-align:left">iftype<strong>（SAC文件类型）</strong></td>
+<td style="text-align:left">idep<strong>（因变量Y类型）</strong></td>
+<td style="text-align:left">iztype<strong>（等效参考时刻）</strong></td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">iinst<strong>（仪器类型）</strong></td>
+</tr>
+<tr>
+<td>360</td>
+<td>I</td>
+<td style="text-align:left">istreg</td>
+<td style="text-align:left">ievreg</td>
+<td style="text-align:left">ievtyp<strong>（事件类型）</strong></td>
+<td style="text-align:left">iqual<strong>（数据质量）</strong></td>
+<td style="text-align:left">isynth</td>
+</tr>
+<tr>
+<td>380</td>
+<td>I</td>
+<td style="text-align:left">imagtyp<strong>（震级类型）</strong></td>
+<td style="text-align:left">imagsrc<strong>（震级来源）</strong></td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>400</td>
+<td>I</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>420</td>
+<td>L</td>
+<td style="text-align:left">leven</td>
+<td style="text-align:left">lpspol</td>
+<td style="text-align:left">lovrok</td>
+<td style="text-align:left">lcalda</td>
+<td style="text-align:left">unused</td>
+</tr>
+<tr>
+<td>440</td>
+<td>K</td>
+<td style="text-align:left">kstnm<strong>（台站名）</strong></td>
+<td style="text-align:left">kevnm<strong>*（事件名）</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>464</td>
+<td>K</td>
+<td style="text-align:left">khole<strong>（核爆or孔眼）</strong></td>
+<td style="text-align:left">ko</td>
+<td style="text-align:left">ka</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>488</td>
+<td>K</td>
+<td style="text-align:left">kt0</td>
+<td style="text-align:left">kt1</td>
+<td style="text-align:left">kt2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>512</td>
+<td>K</td>
+<td style="text-align:left">kt3</td>
+<td style="text-align:left">kt4</td>
+<td style="text-align:left">kt5</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>536</td>
+<td>K</td>
+<td style="text-align:left">kt6</td>
+<td style="text-align:left">kt7</td>
+<td style="text-align:left">kt8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>560</td>
+<td>K</td>
+<td style="text-align:left">kt9</td>
+<td style="text-align:left">kf</td>
+<td style="text-align:left">kuser0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>584</td>
+<td>K</td>
+<td style="text-align:left">kuser1</td>
+<td style="text-align:left">kuser2</td>
+<td style="text-align:left">kcmpnm<strong>（存储分量名称）</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td>608</td>
+<td>K</td>
+<td style="text-align:left">knetwk<strong>（台网名）</strong></td>
+<td style="text-align:left">kdatrd</td>
+<td style="text-align:left">kinst<strong>（仪器名）</strong></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>注：</p>
+<p>（1）辅助型头段变量并且有出现在头段变量列表中，例如kzdate, kztime;</p>
+<p>其中，kzdate精确到日期，kztime精确到毫秒（保留小数点后三位），表示<strong>台站接收到的时间</strong>。</p>
+<p><img src="/2018/12/13/SAC中的地震参数含义及读取/Screenshot from 2018-12-13 23-01-30.png" alt=""></p>
+<p>（2）关于iztype的取值，等效参考时刻</p>
+<ul>
+<li>INUKN    未知</li>
+<li>IB     文件开始时刻（文件创建时间？） </li>
+<li>IDAY   参考日期当天的午夜零点     </li>
+<li>IO    时间发生时间（此时头段变量o=0）</li>
+<li>IA    初动到时</li>
+<li>ITn     自定义，n可取0~9</li>
+</ul>
+<p>（3）o与iztype</p>
+<p><img src="/2018/12/13/SAC中的地震参数含义及读取/o_.png" alt="1544751334232"></p>
 
         
       
@@ -621,7 +845,7 @@
      
       2017 - 
     
-    2018
+    2019
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="ObsPy_数据申请"/>
+
+
+
+
+  <meta name="keywords" content="地震学、统计地震学、数学物理、计算机科学" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="OSSR">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://crowboydoudou.github.io/2018/12/04/ObsPy-数据申请/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> ObsPy_数据申请 - OSSR </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">OSSR</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">OSSR</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          ObsPy_数据申请
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-04
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一，基本申请功能"><span class="toc-text">一，基本申请功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二，Routing-Clients"><span class="toc-text">二，Routing Clients</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p>首先需要明确的是，ObsPy是一个独立的地震数据处理模块，包含读数据、处理数据、作图等功能。</p>
+<p>正如之前蒋师兄所说，ObsPy诞生在SAC之后，因此ObsPy应该是融入了SAC的绝大部分功能。</p>
+<h1 id="一，基本申请功能"><a href="#一，基本申请功能" class="headerlink" title="一，基本申请功能"></a>一，基本申请功能</h1><p>我首先需要了解ObsPy的基本数据申请功能，包含波形数据申请、获取事件、台站分布等三个部分。代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###############################################</span></span><br><span class="line"><span class="comment">#waveform_event_stations</span></span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#source activate the environment of obspy and enter Python</span></span><br><span class="line">source activate obspy</span><br><span class="line">python</span><br><span class="line"></span><br><span class="line"><span class="comment">#Initialize a client project</span></span><br><span class="line"><span class="keyword">from</span> obspy.clients.fdsn <span class="keyword">import</span> Client</span><br><span class="line">client=Client(<span class="string">"IRIS"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Show currently avaliable providers</span></span><br><span class="line"><span class="keyword">from</span> obspy.clients.fdsn.header <span class="keyword">import</span> URL_MAPPINGS</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> sorted(URL_MAPPINGS.keys()):</span><br><span class="line">    print(<span class="string">"&#123;0:&lt;7&#125; &#123;1&#125;"</span>.format(key, URL_MAPPINGS[key]))</span><br><span class="line"><span class="comment">#Note: It's vital importrant to do indent properly,or errors will happened just like this: expected an indented block</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Next, the basic usage of getting event_waveform_data will be showed</span></span><br><span class="line"><span class="comment">#At the first of all, i really need to know what i want to do very clearly</span></span><br><span class="line"><span class="comment">#Nowthen, My needs are list below:</span></span><br><span class="line"><span class="comment">#(1)Event: around 2010-02-27 06:45 (UTC) in New Mexico, ANMO. 120 minutes of the "LHZ" channel</span></span><br><span class="line"><span class="comment">#(2)Network: GSN, global seismograph networks, IU</span></span><br><span class="line"><span class="comment">#Results are returned as stream objects</span></span><br><span class="line"><span class="keyword">from</span> obspy <span class="keyword">import</span> UTCDateTime</span><br><span class="line">t = UTCDateTime(<span class="string">"2010-02-27T06:45:00.000"</span>)</span><br><span class="line">st = client.get_waveforms(<span class="string">"IU"</span>,<span class="string">"ANMO"</span>,<span class="string">"00"</span>,<span class="string">"LHZ"</span>,t,t+<span class="number">120</span>*<span class="number">60</span>)</span><br><span class="line">st.plot()</span><br><span class="line"></span><br><span class="line"><span class="comment">#get_events</span></span><br><span class="line">starttime = UTCDateTime(<span class="string">"2009-08-27"</span>)</span><br><span class="line">endtime = UTCDateTime(<span class="string">"2010-02-27"</span>)</span><br><span class="line">cat=client.get_events(starttime=starttime,endtime=endtime,minmagnitude=<span class="number">6</span>,catalog=<span class="string">"ISC"</span>)</span><br><span class="line">print(cat)</span><br><span class="line"><span class="comment">#or, you want to see all event during the given time range</span></span><br><span class="line"><span class="comment">#print(cat.__str__(print_all=True))</span></span><br><span class="line">cat.plot()</span><br><span class="line"></span><br><span class="line"><span class="comment">#get_stations</span></span><br><span class="line">inventory = client.get_stations(network=<span class="string">"IU"</span>, station=<span class="string">"A*"</span>,starttime=starttime,endtime=endtime)</span><br><span class="line">print(inventory)</span><br><span class="line"><span class="comment">#the code, inventory.plot(), cannot work.</span></span><br></pre></td></tr></table></figure>
+<h1 id="二，Routing-Clients"><a href="#二，Routing-Clients" class="headerlink" title="二，Routing Clients"></a>二，Routing Clients</h1><p>路由服务（Routers），即一种可以从任何一个数据中心查询数据的网络服务，然后再在这些信息的基础上去下载数据，以节省时间。</p>
+<p>所有的路由服务现在仅支持两种服务：数据选择（dataselect）和台站（station）服务，且需要服从FDSNWS服务框架。而ObsPy支持两种路由服务：<a href="https://service.iris.edu/irisws/fedcatalog/1/" target="_blank" rel="noopener">IRIS Federator</a>，<a href="http://www.orfeus-eu.org/data/eida/webservices/routing/" target="_blank" rel="noopener">EIDAWS Routing Service</a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ObsPy provides two method to query which data centers offer certain pieces of data.</span></span><br><span class="line"><span class="comment">#(1)IRIS Federator</span></span><br><span class="line"><span class="comment">#(2)EDIAWS Routing Services</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#client_get_waveforms</span></span><br><span class="line"><span class="keyword">from</span> obspy <span class="keyword">import</span> UTCDateTime</span><br><span class="line">client = RoutingClient(<span class="string">"iris-federator"</span>)</span><br><span class="line">st=client.get_waveforms(channel=<span class="string">"LHZ"</span>,starttime=UTCDateTime(<span class="number">2017</span>, <span class="number">1</span>, <span class="number">1</span>),endtime=UTCDateTime(<span class="number">2017</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">5</span>),latitude=<span class="number">10</span>,longtitude=<span class="number">10</span>,maxradius=<span class="number">25</span>)</span><br><span class="line">print(st)</span><br><span class="line">st.plot()</span><br><span class="line"></span><br><span class="line"><span class="comment">#client_get_stations</span></span><br><span class="line">client = RoutingClient(<span class="string">"iris-federator"</span>)</span><br><span class="line">inv=client.get_stations(channel=<span class="string">"LHZ"</span>,starttime=UTCDateTime(<span class="number">2017</span>, <span class="number">1</span>, <span class="number">1</span>),endtime=UTCDateTime(<span class="number">2017</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">5</span>),latitude=<span class="number">10</span>,longtitude=<span class="number">10</span>,maxradius=<span class="number">25</span>)</span><br><span class="line">print(inv)</span><br></pre></td></tr></table></figure>
+<p>Reference:</p>
+<p><a href="https://docs.obspy.org/packages/obspy.clients.fdsn.html#id2" target="_blank" rel="noopener">https://docs.obspy.org/packages/obspy.clients.fdsn.html#id2</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://crowboydoudou.github.io">Crowboydoudou</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://crowboydoudou.github.io/2018/12/04/ObsPy-数据申请/">https://crowboydoudou.github.io/2018/12/04/ObsPy-数据申请/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/数据申请/">数据申请</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/12/05/表示定理/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">表示定理（Representation Theorem）</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/12/04/分离变量法求解波动方程/">
+        <span class="next-text nav-default">分离变量法求解波动方程</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:geo_passenger_zy@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Crowboydoudou</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

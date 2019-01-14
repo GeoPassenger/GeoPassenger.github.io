@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="表示定理（Representation Theorem）"/>
+
+
+
+
+  <meta name="keywords" content="地震学、统计地震学、数学物理、计算机科学" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="OSSR">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://crowboydoudou.github.io/2018/12/05/表示定理/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> 表示定理（Representation Theorem） - OSSR </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">OSSR</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">OSSR</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          表示定理（Representation Theorem）
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-05
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/地震学基础/">地震学基础</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言："><span class="toc-text">前言：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题："><span class="toc-text">问题：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤："><span class="toc-text">步骤：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一，最简单的表示定理"><span class="toc-text">一，最简单的表示定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二，实际应用中的表示定理"><span class="toc-text">二，实际应用中的表示定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-明确问题"><span class="toc-text">1.明确问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-从已知位移场到任意位移场"><span class="toc-text">2.从已知位移场到任意位移场</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a><strong>前言：</strong></h1><p>Representation theorem，表示定理，第一眼我看成了重构理论。正如《定量地震学》中所述，表示定理的是按照自己的意愿来处理地震学问题，将抽象问题转化为数学问题。具体的说，就是把震源的物理描述，及其在近处或远处的观测点产生运动的一般性问题，在数学的框架中描述出来。</p>
+<h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a><strong>问题：</strong></h1><p>（1）什么是表示定理？表示定理能做什么？</p>
+<p>（2）在描述震源的过程表述定理干了什么事？</p>
+<h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a><strong>步骤：</strong></h1><h2 id="一，最简单的表示定理"><a href="#一，最简单的表示定理" class="headerlink" title="一，最简单的表示定理"></a>一，最简单的表示定理</h2><p>弹性动力学的表示定理包含以下两种类型（都存在对时间的依赖性）：（1）二维复平面中的表示定理；（2）三维空间中的表示定理</p>
+<p>（1）二维复平面</p>
+<p>若f(z)是复变量z的解析函数（analytical function），即满足下式：</p>
+<p><img src="/2018/12/05/表示定理/表示定理.jpg" alt=""></p>
+<p>其中，积分回路可以是任意包含复变量z的路径，但是不能包含f的奇点。<strong>上式即是f(z)的一个表示，在确定f在C上的值后，却可以确定C内任意处的值</strong>。</p>
+<p>（2）三维空间</p>
+<p><img src="/2018/12/05/表示定理/表示定理1.1.jpg" alt=""></p>
+<h2 id="二，实际应用中的表示定理"><a href="#二，实际应用中的表示定理" class="headerlink" title="二，实际应用中的表示定理"></a>二，实际应用中的表示定理</h2><p>首先，关注一个重要公式：互易定理。互易定理阐释了在任意弹性体V内一对解之间存在的一般关系。</p>
+<p><img src="/2018/12/05/表示定理/互易定理.png" alt="1544622446946"></p>
+<p>关于各参数的说明：</p>
+<p>（1）u(x,t)，位移场中的一个，由体力f在考虑边界S上的及初始条件产生。T(u,n)由u产生的牵引力。</p>
+<p>（3）v(x,t)，位移场中的一个，由体力g在于u不同的边界条件及初始条件下产生。T(v,n)由v产生的牵引力。</p>
+<p><strong>实际发现，以上表述方法非常难以理解。因此，这里寻求一种更加简洁易懂的方法，参考自《Seismic wave and sources》</strong></p>
+<h2 id="1-明确问题"><a href="#1-明确问题" class="headerlink" title="1.明确问题"></a>1.明确问题</h2><p>首先，我们需要知道表示定理的物理背景是什么？为什么需要表示定理。</p>
+<p><img src="/2018/12/05/表示定理/v1.jpg" alt=""></p>
+<p>如图，假如源在原点处，那么，如何表示源在任意观测点（如<strong>r</strong>）处产生的位移<strong>u</strong>(<strong>x</strong>,t)。u1,u2表示体元V（包含面积S）上的任意两个矢量场（括号中为产生此应力场的单位体应力），<strong>n</strong>表示朝外的单位法向量。</p>
+<p>正如这部分开头处提到的，u1,u2存在相应的数量关系，即Betti互异性定理：</p>
+<p><img src="/2018/12/05/表示定理/Betti_1.png" alt="1544680970429"></p>
+<p>工字行符号表示应力，联系《定量地震学》中所述，应表示由位移产生的牵引力。可以看到，互异性定理描述了两组位移场间存在的力与位移之间的关系。左边是体积分，描述了两组体力与位移交叉相乘后再整个体积元内的影响；右面是面积分，描述了两组牵引力（<strong>实则是一个应力场在受体力而产生后由于牛顿第三定理而存在的反向作用力，这个作用力也会对其他位置产生影响</strong>）与位移之间的交叉相乘后在整个表面S上的影响（注意乘了一个法向矢量）。左边等于右边，可以说明三点：</p>
+<p>（1）作用力与反作用之间的等效性；</p>
+<p>（2）边界S上的连续性；</p>
+<p>（3）能量的连续性，力*位移=动量</p>
+<h2 id="2-从已知位移场到任意位移场"><a href="#2-从已知位移场到任意位移场" class="headerlink" title="2.从已知位移场到任意位移场"></a><strong>2.从已知位移场到任意位移场</strong></h2><p>假设在沿着<strong>r=a</strong>的r=r0处的单位体力（delta函数）在无限介质中产生了的位移场<strong>u2</strong>。同时假设无限介质的属性同互易定理下的模型中的有限介质V内的属性相同。首先，以<img src="/2018/12/05/表示定理/delta.png" alt="1544683131879">替换上述互易定理，得到：</p>
+<p><img src="/2018/12/05/表示定理/微信截图_20181213144003.png" alt=""></p>
+<p>这称为索米亚那关系（Somigliana’s relation）</p>
+<p>最后得到弹性动力学表示定理：</p>
+<p><img src="/2018/12/05/表示定理/表示定理.png" alt=""></p>
+<p>包含三部分：</p>
+<p>第一项：体力分布在以格林函数的二阶导数作为权重时的体积分；即体力在位移场中的贡献值。</p>
+<p>第二项：表面应力分布在以格林函数的二阶导数作为权重时的面积分；即表面应力在位移场中的贡献值。</p>
+<p>第三项：表面位移场分布在以格林函数对应的牵引力与法向量的乘积作为权重时的面积分；即牵引力在位移场中的贡献值。</p>
+<p>可以看到，格林函数更多的是充当了一个权重因子，均匀了体力、面力、牵引力的贡献。</p>
+<p><strong>最后，以森舍对表示定理的两条总结作结：</strong></p>
+<p>（1）表示定理的核心只有一个：牛顿第二定理</p>
+<p>（2）表示定理共包含两个要素：一是震源，一是传播路径；综合考虑震源与传播路径，即是任意一点的位移</p>
+<p><img src="/2018/12/05/表示定理/V.jpg" alt=""></p>
+<p>参考：</p>
+<ol>
+<li>Ben-Menahem and Sarva Jit Singh. Seismic Waves and Sources.</li>
+<li>Keiiti Aki, Paul G. Richards. Quantitative Seismology.</li>
+<li>陈运泰，顾浩鼎，震源理论基础（上册）.</li>
+</ol>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://crowboydoudou.github.io">Crowboydoudou</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://crowboydoudou.github.io/2018/12/05/表示定理/">https://crowboydoudou.github.io/2018/12/05/表示定理/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/12/13/从GCMT看矩张量解/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">从GCMT看矩张量解</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/12/04/ObsPy-数据申请/">
+        <span class="next-text nav-default">ObsPy_数据申请</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:geo_passenger_zy@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Crowboydoudou</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

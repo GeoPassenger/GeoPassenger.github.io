@@ -245,11 +245,22 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一，滤波过程"><span class="toc-text">一，滤波过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二，结果"><span class="toc-text">二，结果</span></a></li></ol>
+    </div>
+  </div>
+
 
 
     <div class="post-content">
       
-        
+        <p>ObsPy提供了多个滤波功能，这里我先从高通滤波开始：</p>
+<h1 id="一，滤波过程"><a href="#一，滤波过程" class="headerlink" title="一，滤波过程"></a>一，滤波过程</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> obspy</span><br><span class="line"><span class="keyword">import</span> obspy.signal.filter</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">wc=obspy.read(<span class="string">"II.ESK.00.BHZ_2008-05-12T06_38_34.716_2008-05-12T06_49_34.716.sac"</span>)</span><br><span class="line">tr=wc[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">tr_filt=tr.copy()</span><br><span class="line">tr_filt.filter(<span class="string">'highpass'</span>,freq=<span class="number">1.0</span>,corners=<span class="number">1</span>,zerophase=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">tr_enve=tr_filt.copy()</span><br><span class="line">data=tr_enve.data</span><br><span class="line">data_enve=obspy.signal.filter.envelope(data)</span><br><span class="line"></span><br><span class="line">tr_inte=tr_enve.copy()</span><br><span class="line"></span><br><span class="line">t = np.arange(<span class="number">0</span>, tr.stats.npts / tr.stats.sampling_rate, tr.stats.delta)</span><br><span class="line">plt.subplot(<span class="number">311</span>)</span><br><span class="line">plt.plot(t, tr.data, <span class="string">'k'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Original record'</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">312</span>)</span><br><span class="line">plt.plot(t, tr_filt.data, <span class="string">'k'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'1Hz_Highpassed Data'</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">313</span>)</span><br><span class="line">plt.plot(t,data,<span class="string">'k'</span>)</span><br><span class="line">plt.plot(t,data_enve,<span class="string">'r'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Kinetic energy density'</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">'Time [s]'</span>)</span><br><span class="line">plt.suptitle(tr.stats.starttime)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h1 id="二，结果"><a href="#二，结果" class="headerlink" title="二，结果"></a>二，结果</h1><p><img src="/2018/11/29/ObsPy-滤波/Figure_1.png" alt=""></p>
+<p>注意：<strong>这里的包络线是错误的</strong></p>
+
       
     </div>
 
@@ -291,6 +302,12 @@
         
         
   <nav class="post-nav">
+    
+      <a class="prev" href="/2018/12/04/解析解与数值解之间的区别/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">解析解与数值解之间的区别</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
     
     
       <a class="next" href="/2018/11/28/11月28日与老师讨论/">
@@ -381,7 +398,7 @@
      
       2017 - 
     
-    2018
+    2019
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>

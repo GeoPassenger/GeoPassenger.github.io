@@ -228,13 +228,53 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/24/区分震源深度和矩心深度/">区分震源深度和矩心深度</a>
+          <a class="post-link" href="/2018/12/13/从GCMT看矩张量解/">从GCMT看矩张量解</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-24
+          2018-12-13
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/12/05/表示定理/">表示定理（Representation Theorem）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-05
         </span>
         
           <span class="post-category">
@@ -257,11 +297,51 @@
         
 
         
-          <p>地震学中存在两个“深度”的概念，分别是震源深度和矩心深度。</p>
-<p>区别一：从与破裂之间的关系的角度看</p>
-<p>震源深度，最初来自于把震源看做是一个点，即最先开始发生破裂的地方，这里到地表的竖直深度即为震源深度；震源深度也可以理解为地震开始的地方，可由初动震相得到。而矩心深度与破裂起始的位置无关</p>
-<p>区别二：从与能量释放过程的角度看</p>
-<p>矩心深度，更强调是能量开始释放的深度，且由CMT的反演得到；矩心位置相当于地震滑动的“矩心”，矩心指物体的转动中心，这里到力的作用线的垂直距离即是力臂。因此，可以认为矩心位置与地震应力也有关系。而震源深度和能量的释放无关。</p>
+          <h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a><strong>前言：</strong></h1><p>Representation theorem，表示定理，第一眼我看成了重构理论。正如《定量地震学》中所述，表示定理的是按照自己的意愿来处理地震学问题，将抽象问题转化为数学问题。具体的说，就是把震源的物理描述，及其在近处或远处的观测点产生运动的一般性问题，在数学的框架中描述出来。</p>
+<h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a><strong>问题：</strong></h1><p>（1）什么是表示定理？表示定理能做什么？</p>
+<p>（2）在描述震源的过程表述定理干了什么事？</p>
+<h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a><strong>步骤：</strong></h1><h2 id="一，最简单的表示定理"><a href="#一，最简单的表示定理" class="headerlink" title="一，最简单的表示定理"></a>一，最简单的表示定理</h2><p>弹性动力学的表示定理包含以下两种类型（都存在对时间的依赖性）：（1）二维复平面中的表示定理；（2）三维空间中的表示定理</p>
+<p>（1）二维复平面</p>
+<p>若f(z)是复变量z的解析函数（analytical function），即满足下式：</p>
+<p><img src="/2018/12/05/表示定理/表示定理.jpg" alt=""></p>
+<p>其中，积分回路可以是任意包含复变量z的路径，但是不能包含f的奇点。<strong>上式即是f(z)的一个表示，在确定f在C上的值后，却可以确定C内任意处的值</strong>。</p>
+<p>（2）三维空间</p>
+<p><img src="/2018/12/05/表示定理/表示定理1.1.jpg" alt=""></p>
+<h2 id="二，实际应用中的表示定理"><a href="#二，实际应用中的表示定理" class="headerlink" title="二，实际应用中的表示定理"></a>二，实际应用中的表示定理</h2><p>首先，关注一个重要公式：互易定理。互易定理阐释了在任意弹性体V内一对解之间存在的一般关系。</p>
+<p><img src="/2018/12/05/表示定理/互易定理.png" alt="1544622446946"></p>
+<p>关于各参数的说明：</p>
+<p>（1）u(x,t)，位移场中的一个，由体力f在考虑边界S上的及初始条件产生。T(u,n)由u产生的牵引力。</p>
+<p>（3）v(x,t)，位移场中的一个，由体力g在于u不同的边界条件及初始条件下产生。T(v,n)由v产生的牵引力。</p>
+<p><strong>实际发现，以上表述方法非常难以理解。因此，这里寻求一种更加简洁易懂的方法，参考自《Seismic wave and sources》</strong></p>
+<h2 id="1-明确问题"><a href="#1-明确问题" class="headerlink" title="1.明确问题"></a>1.明确问题</h2><p>首先，我们需要知道表示定理的物理背景是什么？为什么需要表示定理。</p>
+<p><img src="/2018/12/05/表示定理/v1.jpg" alt=""></p>
+<p>如图，假如源在原点处，那么，如何表示源在任意观测点（如<strong>r</strong>）处产生的位移<strong>u</strong>(<strong>x</strong>,t)。u1,u2表示体元V（包含面积S）上的任意两个矢量场（括号中为产生此应力场的单位体应力），<strong>n</strong>表示朝外的单位法向量。</p>
+<p>正如这部分开头处提到的，u1,u2存在相应的数量关系，即Betti互异性定理：</p>
+<p><img src="/2018/12/05/表示定理/Betti_1.png" alt="1544680970429"></p>
+<p>工字行符号表示应力，联系《定量地震学》中所述，应表示由位移产生的牵引力。可以看到，互异性定理描述了两组位移场间存在的力与位移之间的关系。左边是体积分，描述了两组体力与位移交叉相乘后再整个体积元内的影响；右面是面积分，描述了两组牵引力（<strong>实则是一个应力场在受体力而产生后由于牛顿第三定理而存在的反向作用力，这个作用力也会对其他位置产生影响</strong>）与位移之间的交叉相乘后在整个表面S上的影响（注意乘了一个法向矢量）。左边等于右边，可以说明三点：</p>
+<p>（1）作用力与反作用之间的等效性；</p>
+<p>（2）边界S上的连续性；</p>
+<p>（3）能量的连续性，力*位移=动量</p>
+<h2 id="2-从已知位移场到任意位移场"><a href="#2-从已知位移场到任意位移场" class="headerlink" title="2.从已知位移场到任意位移场"></a><strong>2.从已知位移场到任意位移场</strong></h2><p>假设在沿着<strong>r=a</strong>的r=r0处的单位体力（delta函数）在无限介质中产生了的位移场<strong>u2</strong>。同时假设无限介质的属性同互易定理下的模型中的有限介质V内的属性相同。首先，以<img src="/2018/12/05/表示定理/delta.png" alt="1544683131879">替换上述互易定理，得到：</p>
+<p><img src="/2018/12/05/表示定理/微信截图_20181213144003.png" alt=""></p>
+<p>这称为索米亚那关系（Somigliana’s relation）</p>
+<p>最后得到弹性动力学表示定理：</p>
+<p><img src="/2018/12/05/表示定理/表示定理.png" alt=""></p>
+<p>包含三部分：</p>
+<p>第一项：体力分布在以格林函数的二阶导数作为权重时的体积分；即体力在位移场中的贡献值。</p>
+<p>第二项：表面应力分布在以格林函数的二阶导数作为权重时的面积分；即表面应力在位移场中的贡献值。</p>
+<p>第三项：表面位移场分布在以格林函数对应的牵引力与法向量的乘积作为权重时的面积分；即牵引力在位移场中的贡献值。</p>
+<p>可以看到，格林函数更多的是充当了一个权重因子，均匀了体力、面力、牵引力的贡献。</p>
+<p><strong>最后，以森舍对表示定理的两条总结作结：</strong></p>
+<p>（1）表示定理的核心只有一个：牛顿第二定理</p>
+<p>（2）表示定理共包含两个要素：一是震源，一是传播路径；综合考虑震源与传播路径，即是任意一点的位移</p>
+<p><img src="/2018/12/05/表示定理/V.jpg" alt=""></p>
+<p>参考：</p>
+<ol>
+<li>Ben-Menahem and Sarva Jit Singh. Seismic Waves and Sources.</li>
+<li>Keiiti Aki, Paul G. Richards. Quantitative Seismology.</li>
+<li>陈运泰，顾浩鼎，震源理论基础（上册）.</li>
+</ol>
 
         
       
@@ -279,18 +359,18 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/23/GMT脚本之Topo和Geoid/">GMT脚本之Topo和Geoid</a>
+          <a class="post-link" href="/2018/12/04/ObsPy-数据申请/">ObsPy_数据申请</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-23
+          2018-12-04
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/GMT/">GMT</a>
+              <a href="/categories/Python/">Python</a>
             
           </span>
         
@@ -308,21 +388,15 @@
         
 
         
-          <p>=======================================================================================</p>
-<p>​            原始来源：GMT EXAMPLE 02</p>
-<p><strong>原始资料</strong>        绘图目的：使用网格数据绘制两个不同的图，高程和大地水准面</p>
-<p>​            绘图模块：gmtset, grd2cpt, grdgradient, grdimage, makecpt, psscale, pstext</p>
-<p>=======================================================================================</p>
-<p>加注释后的绘图代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ps=example_02.ps</span><br><span class="line"><span class="comment">#Font_TITLE用于控制标题使用的字体，30p;MAP_ANNOT_OBLIQUE控制经纬度标注方向。</span></span><br><span class="line">gmt <span class="built_in">set</span> FONT_TITLE 30p MAP_ANNOT_OBLIQUE 0  <span class="comment">#全局有效</span></span><br><span class="line"><span class="comment">#######################################################################################</span></span><br><span class="line"><span class="comment">#绘制图a</span></span><br><span class="line"><span class="comment">#makecpt用于制作CPT文件，这里的目的是，选择CPT文件rainbow中进行插值，定义要生成的CPT文件的Z值在。[-2,14]中，间隔为2。</span></span><br><span class="line">gmt makecpt -Crainbow -T-2/14/2 &gt; g.cpt</span><br><span class="line"><span class="comment">#grdimage用于在地图上绘制网格数据，HI_geoid.nc是即将被绘制的网格数据;-R指定了左下角坐标与右上角坐标，-JOc指定Oblique Mercator投影，宽度为4.4i;-E设置投影后网格经度，默认值100；-C指定了绘图时要指定的CPT文件；-X和-Y确定了绘图的原点</span></span><br><span class="line">gmt grdimage HI_geoid2.nc -R160/20/220/30r -JOc190/25.5/292/69/4.5i -E50 -K -P \</span><br><span class="line">            -B10 -Cg.cpt -X1.5i -Y1.25i &gt; <span class="variable">$ps</span></span><br><span class="line"><span class="comment">#psscale用于绘制颜色棒，-D指定了色标的尺寸和位置，第一个jRM：放在右边，o：参考点的额外偏移量，w：色标的长度和宽度，mc:将标注和标签共同放在色标的另一边，并垂直打印，e:为前景色和背景色加一三角形；-B，对色标而言，纵向为x，横向为y；-Bx2+lGEOID,设置x的间隔为2，标签为GEOID；-By+lm，间隔值缺失，标签为m.</span></span><br><span class="line">gmt psscale -Cg.cpt -DjRM+o0.6i/0+jLM+w2.88i/0.4i+mc+e -R -J -O -K -Bx2+lGEOID -By+lm &gt;&gt; <span class="variable">$ps</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#######################################################################################</span></span><br><span class="line"><span class="comment">#绘制图b</span></span><br><span class="line"><span class="comment">#-Z创建一个连续的颜色面板</span></span><br><span class="line">gmt grd2cpt HI_topo2.nc -Crelief -Z &gt; t.cpt</span><br><span class="line"><span class="comment">#计算网格的方向导数，-G指定输出文件</span></span><br><span class="line">gmt grdgradient HI_topo2.nc -A0 -Nt -GHI_topo2_int.nc</span><br><span class="line"><span class="comment">#-I增加光照，以上一步生成的网格文件来增加光照，MAP_TITLE_OFFSET设置图标题的底部与轴标注的顶部之间的距离</span></span><br><span class="line">gmt grdimage HI_topo2.nc -IHI_topo2_int.nc -R -J -B+t<span class="string">"H@#awaiian@# T@#opo and @#G@#eoid@#"</span> \</span><br><span class="line">            -B10 -E50 -O -K -Ct.cpt -Y4.5i --MAP_TITLE_OFFSET=0.5i &gt;&gt; <span class="variable">$ps</span></span><br><span class="line">gmt psscale -Ct.cpt -DjRM+o0.6i/0+jLM+w2.88i/0.4i+mc -R -J -O -K -I0.3 -Bx2+lTOPO -By+lkm &gt;&gt; <span class="variable">$ps</span></span><br><span class="line">gmt pstext -R0/8.5/0/11 -Jx1i -F+f30p,Helvetica-Bold+jCB -O -N -Y-4.5i &gt;&gt; <span class="variable">$ps</span> &lt;&lt; END</span><br><span class="line">-0.4 7.5 a)</span><br><span class="line">-0.4 3.0 b)</span><br><span class="line">END</span><br><span class="line">rm -f HI_topo2_int.nc ?.cpt gmt.conf</span><br></pre></td></tr></table></figure>
-<p>绘图效果：</p>
-<p><img src="/2018/11/23/GMT脚本之Topo和Geoid/微信截图_20181123095601.png" alt=""></p>
-<p>需要关注的问题：</p>
-<p>（1）gradient求网格文件的梯度，梯度文件可以作为grdimage中-I选项的网格文件用来控制光照强度</p>
-<p>（2）-B选项的第二种命令风格</p>
-<p>（3）暂时认为修改配置参数的位置会影响作用范围，若出现在开头则会影响整个脚本；若出现在某一行中只会影响当前行</p>
-<p>日志：</p>
-<p>（1）2018-11-23  添加原始代码</p>
+          <p>首先需要明确的是，ObsPy是一个独立的地震数据处理模块，包含读数据、处理数据、作图等功能。</p>
+<p>正如之前蒋师兄所说，ObsPy诞生在SAC之后，因此ObsPy应该是融入了SAC的绝大部分功能。</p>
+<h1 id="一，基本申请功能"><a href="#一，基本申请功能" class="headerlink" title="一，基本申请功能"></a>一，基本申请功能</h1><p>我首先需要了解ObsPy的基本数据申请功能，包含波形数据申请、获取事件、台站分布等三个部分。代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###############################################</span></span><br><span class="line"><span class="comment">#waveform_event_stations</span></span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#source activate the environment of obspy and enter Python</span></span><br><span class="line">source activate obspy</span><br><span class="line">python</span><br><span class="line"></span><br><span class="line"><span class="comment">#Initialize a client project</span></span><br><span class="line"><span class="keyword">from</span> obspy.clients.fdsn <span class="keyword">import</span> Client</span><br><span class="line">client=Client(<span class="string">"IRIS"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Show currently avaliable providers</span></span><br><span class="line"><span class="keyword">from</span> obspy.clients.fdsn.header <span class="keyword">import</span> URL_MAPPINGS</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> sorted(URL_MAPPINGS.keys()):</span><br><span class="line">    print(<span class="string">"&#123;0:&lt;7&#125; &#123;1&#125;"</span>.format(key, URL_MAPPINGS[key]))</span><br><span class="line"><span class="comment">#Note: It's vital importrant to do indent properly,or errors will happened just like this: expected an indented block</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Next, the basic usage of getting event_waveform_data will be showed</span></span><br><span class="line"><span class="comment">#At the first of all, i really need to know what i want to do very clearly</span></span><br><span class="line"><span class="comment">#Nowthen, My needs are list below:</span></span><br><span class="line"><span class="comment">#(1)Event: around 2010-02-27 06:45 (UTC) in New Mexico, ANMO. 120 minutes of the "LHZ" channel</span></span><br><span class="line"><span class="comment">#(2)Network: GSN, global seismograph networks, IU</span></span><br><span class="line"><span class="comment">#Results are returned as stream objects</span></span><br><span class="line"><span class="keyword">from</span> obspy <span class="keyword">import</span> UTCDateTime</span><br><span class="line">t = UTCDateTime(<span class="string">"2010-02-27T06:45:00.000"</span>)</span><br><span class="line">st = client.get_waveforms(<span class="string">"IU"</span>,<span class="string">"ANMO"</span>,<span class="string">"00"</span>,<span class="string">"LHZ"</span>,t,t+<span class="number">120</span>*<span class="number">60</span>)</span><br><span class="line">st.plot()</span><br><span class="line"></span><br><span class="line"><span class="comment">#get_events</span></span><br><span class="line">starttime = UTCDateTime(<span class="string">"2009-08-27"</span>)</span><br><span class="line">endtime = UTCDateTime(<span class="string">"2010-02-27"</span>)</span><br><span class="line">cat=client.get_events(starttime=starttime,endtime=endtime,minmagnitude=<span class="number">6</span>,catalog=<span class="string">"ISC"</span>)</span><br><span class="line">print(cat)</span><br><span class="line"><span class="comment">#or, you want to see all event during the given time range</span></span><br><span class="line"><span class="comment">#print(cat.__str__(print_all=True))</span></span><br><span class="line">cat.plot()</span><br><span class="line"></span><br><span class="line"><span class="comment">#get_stations</span></span><br><span class="line">inventory = client.get_stations(network=<span class="string">"IU"</span>, station=<span class="string">"A*"</span>,starttime=starttime,endtime=endtime)</span><br><span class="line">print(inventory)</span><br><span class="line"><span class="comment">#the code, inventory.plot(), cannot work.</span></span><br></pre></td></tr></table></figure>
+<h1 id="二，Routing-Clients"><a href="#二，Routing-Clients" class="headerlink" title="二，Routing Clients"></a>二，Routing Clients</h1><p>路由服务（Routers），即一种可以从任何一个数据中心查询数据的网络服务，然后再在这些信息的基础上去下载数据，以节省时间。</p>
+<p>所有的路由服务现在仅支持两种服务：数据选择（dataselect）和台站（station）服务，且需要服从FDSNWS服务框架。而ObsPy支持两种路由服务：<a href="https://service.iris.edu/irisws/fedcatalog/1/" target="_blank" rel="noopener">IRIS Federator</a>，<a href="http://www.orfeus-eu.org/data/eida/webservices/routing/" target="_blank" rel="noopener">EIDAWS Routing Service</a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ObsPy provides two method to query which data centers offer certain pieces of data.</span></span><br><span class="line"><span class="comment">#(1)IRIS Federator</span></span><br><span class="line"><span class="comment">#(2)EDIAWS Routing Services</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#client_get_waveforms</span></span><br><span class="line"><span class="keyword">from</span> obspy <span class="keyword">import</span> UTCDateTime</span><br><span class="line">client = RoutingClient(<span class="string">"iris-federator"</span>)</span><br><span class="line">st=client.get_waveforms(channel=<span class="string">"LHZ"</span>,starttime=UTCDateTime(<span class="number">2017</span>, <span class="number">1</span>, <span class="number">1</span>),endtime=UTCDateTime(<span class="number">2017</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">5</span>),latitude=<span class="number">10</span>,longtitude=<span class="number">10</span>,maxradius=<span class="number">25</span>)</span><br><span class="line">print(st)</span><br><span class="line">st.plot()</span><br><span class="line"></span><br><span class="line"><span class="comment">#client_get_stations</span></span><br><span class="line">client = RoutingClient(<span class="string">"iris-federator"</span>)</span><br><span class="line">inv=client.get_stations(channel=<span class="string">"LHZ"</span>,starttime=UTCDateTime(<span class="number">2017</span>, <span class="number">1</span>, <span class="number">1</span>),endtime=UTCDateTime(<span class="number">2017</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">5</span>),latitude=<span class="number">10</span>,longtitude=<span class="number">10</span>,maxradius=<span class="number">25</span>)</span><br><span class="line">print(inv)</span><br></pre></td></tr></table></figure>
+<p>Reference:</p>
+<p><a href="https://docs.obspy.org/packages/obspy.clients.fdsn.html#id2" target="_blank" rel="noopener">https://docs.obspy.org/packages/obspy.clients.fdsn.html#id2</a></p>
 
         
       
@@ -340,18 +414,18 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/22/EXCEL中汉字转拼音/">EXCEL中汉字转拼音</a>
+          <a class="post-link" href="/2018/12/04/分离变量法求解波动方程/">分离变量法求解波动方程</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-22
+          2018-12-04
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/地震学研究生业余基本功/">地震学研究生业余基本功</a>
+              <a href="/categories/地震学基础/">地震学基础</a>
             
           </span>
         
@@ -369,19 +443,30 @@
         
 
         
-          <p><strong>前言：</strong>昨天晚上的时候，师兄突然找到我，需要把经纬度对应的地区名全部转成拼音。这与我之前的工作：寻找川滇地区断裂带英文表述的工作有些类似。实际中的困难时，经常会找不到有英文表述的地区列表。开始觉得这并不难，只是用个函数就行，谁知道这函数后面还有宏。</p>
-<p><strong>需求：</strong>将EXCEL文件中的汉子转换为拼音</p>
-<p><strong>解决办法：</strong></p>
-<p>（1）添加宏命令</p>
-<p>注意：在添加宏的时候，代码区会自动添加两行头尾：</p>
-<figure class="highlight plain"><figcaption><span>basic</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sub mol()</span><br><span class="line">    #模块区</span><br><span class="line">End sub</span><br></pre></td></tr></table></figure>
-<p>假如把拼音转换函数直接加到模块中间，最后一定会出现编译错误：缺少End Sub，站在C语言的角度理解，这不就是缺少尾部吗？然而并不是。因此，需要删除这两行由软件自动添加进去的。同时，移除在建立模块时的模块2（不知为何，建立模块2后会自动建立模块1），在<strong>完全空白</strong>的代码区重新贴入函数代码，然后编译即可，编译完成后直接关掉编译窗口；</p>
-<p>getpy代码如下：</p>
-<figure class="highlight plain"><figcaption><span>basic</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br></pre></td><td class="code"><pre><span class="line">Function pinyin(p As String) As String</span><br><span class="line">i = Asc(p)</span><br><span class="line">Select Case i</span><br><span class="line">Case -20319 To -20318: pinyin = &quot;a&quot;     </span><br><span class="line">Case -20317 To -20305: pinyin = &quot;ai&quot;    </span><br><span class="line">Case -20304 To -20296: pinyin = &quot;an&quot;    </span><br><span class="line">Case -20295 To -20293: pinyin = &quot;ang&quot;   </span><br><span class="line">Case -20292 To -20284: pinyin = &quot;ao&quot;    </span><br><span class="line">Case -20283 To -20266: pinyin = &quot;ba&quot;    </span><br><span class="line">Case -20265 To -20258: pinyin = &quot;bai&quot;   </span><br><span class="line">Case -20257 To -20243: pinyin = &quot;ban&quot;   </span><br><span class="line">Case -20242 To -20231: pinyin = &quot;bang&quot;  </span><br><span class="line">Case -20230 To -20052: pinyin = &quot;bao&quot;   </span><br><span class="line">Case -20051 To -20037: pinyin = &quot;bei&quot;   </span><br><span class="line">Case -20036 To -20033: pinyin = &quot;ben&quot;   </span><br><span class="line">Case -20032 To -20027: pinyin = &quot;beng&quot;  </span><br><span class="line">Case -20026 To -20003: pinyin = &quot;bi&quot;    </span><br><span class="line">Case -20002 To -19991: pinyin = &quot;bian&quot;  </span><br><span class="line">Case -19990 To -19987: pinyin = &quot;biao&quot;  </span><br><span class="line">Case -19986 To -19983: pinyin = &quot;bie&quot;   </span><br><span class="line">Case -19982 To -19977: pinyin = &quot;bin&quot;   </span><br><span class="line">Case -19976 To -19806: pinyin = &quot;bing&quot;  </span><br><span class="line">Case -19805 To -19785: pinyin = &quot;bo&quot;    </span><br><span class="line">Case -19784 To -19776: pinyin = &quot;bu&quot;    </span><br><span class="line">Case -19775 To -19775: pinyin = &quot;ca&quot;    </span><br><span class="line">Case -19774 To -19764: pinyin = &quot;cai&quot;   </span><br><span class="line">Case -19763 To -19757: pinyin = &quot;can&quot;   </span><br><span class="line">Case -19756 To -19752: pinyin = &quot;cang&quot;  </span><br><span class="line">Case -19751 To -19747: pinyin = &quot;cao&quot;   </span><br><span class="line">Case -19746 To -19742: pinyin = &quot;ce&quot;    </span><br><span class="line">Case -19741 To -19740: pinyin = &quot;ceng&quot;  </span><br><span class="line">Case -19739 To -19729: pinyin = &quot;cha&quot;   </span><br><span class="line">Case -19728 To -19726: pinyin = &quot;chai&quot;  </span><br><span class="line">Case -19725 To -19716: pinyin = &quot;chan&quot;  </span><br><span class="line">Case -19715 To -19541: pinyin = &quot;chang&quot; </span><br><span class="line">Case -19540 To -19532: pinyin = &quot;chao&quot;  </span><br><span class="line">Case -19531 To -19526: pinyin = &quot;che&quot;   </span><br><span class="line">Case -19525 To -19516: pinyin = &quot;chen&quot;  </span><br><span class="line">Case -19515 To -19501: pinyin = &quot;cheng&quot; </span><br><span class="line">Case -19500 To -19485: pinyin = &quot;chi&quot;   </span><br><span class="line">Case -19484 To -19480: pinyin = &quot;chong&quot; </span><br><span class="line">Case -19479 To -19468: pinyin = &quot;chou&quot;  </span><br><span class="line">Case -19467 To -19290: pinyin = &quot;chu&quot;   </span><br><span class="line">Case -19289 To -19289: pinyin = &quot;chuai&quot; </span><br><span class="line">Case -19288 To -19282: pinyin = &quot;chuan&quot; </span><br><span class="line">Case -19281 To -19276: pinyin = &quot;chuang&quot;</span><br><span class="line">Case -19275 To -19271: pinyin = &quot;chui&quot;  </span><br><span class="line">Case -19270 To -19264: pinyin = &quot;chun&quot;  </span><br><span class="line">Case -19263 To -19262: pinyin = &quot;chuo&quot;  </span><br><span class="line">Case -19261 To -19250: pinyin = &quot;ci&quot;    </span><br><span class="line">Case -19249 To -19244: pinyin = &quot;cong&quot;  </span><br><span class="line">Case -19243 To -19243: pinyin = &quot;cou&quot;   </span><br><span class="line">Case -19242 To -19239: pinyin = &quot;cu&quot;    </span><br><span class="line">Case -19238 To -19236: pinyin = &quot;cuan&quot;  </span><br><span class="line">Case -19235 To -19228: pinyin = &quot;cui&quot;   </span><br><span class="line">Case -19227 To -19225: pinyin = &quot;cun&quot;   </span><br><span class="line">Case -19224 To -19219: pinyin = &quot;cuo&quot;   </span><br><span class="line">Case -19218 To -19213: pinyin = &quot;da&quot;    </span><br><span class="line">Case -19212 To -19039: pinyin = &quot;dai&quot;   </span><br><span class="line">Case -19038 To -19024: pinyin = &quot;dan&quot;   </span><br><span class="line">Case -19023 To -19019: pinyin = &quot;dang&quot;  </span><br><span class="line">Case -19018 To -19007: pinyin = &quot;dao&quot;   </span><br><span class="line">Case -19006 To -19004: pinyin = &quot;de&quot;    </span><br><span class="line">Case -19003 To -18997: pinyin = &quot;deng&quot;  </span><br><span class="line">Case -18996 To -18978: pinyin = &quot;di&quot;    </span><br><span class="line">Case -18977 To -18962: pinyin = &quot;dian&quot;  </span><br><span class="line">Case -18961 To -18953: pinyin = &quot;diao&quot;  </span><br><span class="line">Case -18952 To -18784: pinyin = &quot;die&quot;   </span><br><span class="line">Case -18783 To -18775: pinyin = &quot;ding&quot;  </span><br><span class="line">Case -18774 To -18774: pinyin = &quot;diu&quot;   </span><br><span class="line">Case -18773 To -18527: pinyin = &quot;dong&quot;  </span><br><span class="line">Case -18526 To -18519: pinyin = &quot;fa&quot;    </span><br><span class="line">Case -18518 To -18502: pinyin = &quot;fan&quot;   </span><br><span class="line">Case -18501 To -18491: pinyin = &quot;fang&quot;  </span><br><span class="line">Case -18490 To -18479: pinyin = &quot;fei&quot;   </span><br><span class="line">Case -18478 To -18464: pinyin = &quot;fen&quot;   </span><br><span class="line">Case -18463 To -18449: pinyin = &quot;feng&quot;  </span><br><span class="line">Case -18448 To -18448: pinyin = &quot;fo&quot;    </span><br><span class="line">Case -18447 To -18447: pinyin = &quot;fou&quot;   </span><br><span class="line">Case -18446 To -18240: pinyin = &quot;fu&quot;    </span><br><span class="line">Case -18239 To -18238: pinyin = &quot;ga&quot;    </span><br><span class="line">Case -18237 To -18232: pinyin = &quot;gai&quot;   </span><br><span class="line">Case -18231 To -18221: pinyin = &quot;gan&quot;   </span><br><span class="line">Case -18220 To -18212: pinyin = &quot;gang&quot;  </span><br><span class="line">Case -18211 To -18202: pinyin = &quot;gao&quot;   </span><br><span class="line">Case -18201 To -18185: pinyin = &quot;ge&quot;    </span><br><span class="line">Case -18184 To -18184: pinyin = &quot;gei&quot;   </span><br><span class="line">Case -18183 To -18182: pinyin = &quot;gen&quot;   </span><br><span class="line">Case -18181 To -18013: pinyin = &quot;geng&quot;  </span><br><span class="line">Case -18012 To -17998: pinyin = &quot;gong&quot;  </span><br><span class="line">Case -17997 To -17989: pinyin = &quot;gou&quot;   </span><br><span class="line">Case -17988 To -17971: pinyin = &quot;gu&quot;    </span><br><span class="line">Case -17970 To -17965: pinyin = &quot;gua&quot;   </span><br><span class="line">Case -17964 To -17962: pinyin = &quot;guai&quot;  </span><br><span class="line">Case -17961 To -17951: pinyin = &quot;guan&quot;  </span><br><span class="line">Case -17950 To -17948: pinyin = &quot;guang&quot; </span><br><span class="line">Case -17947 To -17932: pinyin = &quot;gui&quot;   </span><br><span class="line">Case -17931 To -17929: pinyin = &quot;gun&quot;   </span><br><span class="line">Case -17928 To -17923: pinyin = &quot;guo&quot;   </span><br><span class="line">Case -17922 To -17760: pinyin = &quot;ha&quot;    </span><br><span class="line">Case -17759 To -17753: pinyin = &quot;hai&quot;   </span><br><span class="line">Case -17752 To -17734: pinyin = &quot;han&quot;   </span><br><span class="line">Case -17733 To -17731: pinyin = &quot;hang&quot;  </span><br><span class="line">Case -17730 To -17722: pinyin = &quot;hao&quot;   </span><br><span class="line">Case -17721 To -17704: pinyin = &quot;he&quot;    </span><br><span class="line">Case -17703 To -17702: pinyin = &quot;hei&quot;   </span><br><span class="line">Case -17701 To -17698: pinyin = &quot;hen&quot;   </span><br><span class="line">Case -17697 To -17693: pinyin = &quot;heng&quot;  </span><br><span class="line">Case -17692 To -17684: pinyin = &quot;hong&quot;  </span><br><span class="line">Case -17683 To -17677: pinyin = &quot;hou&quot;   </span><br><span class="line">Case -17676 To -17497: pinyin = &quot;hu&quot;    </span><br><span class="line">Case -17496 To -17488: pinyin = &quot;hua&quot;   </span><br><span class="line">Case -17487 To -17483: pinyin = &quot;huai&quot;  </span><br><span class="line">Case -17482 To -17469: pinyin = &quot;huan&quot;  </span><br><span class="line">Case -17468 To -17455: pinyin = &quot;huang&quot; </span><br><span class="line">Case -17454 To -17434: pinyin = &quot;hui&quot;   </span><br><span class="line">Case -17433 To -17428: pinyin = &quot;hun&quot;   </span><br><span class="line">Case -17427 To -17418: pinyin = &quot;huo&quot;   </span><br><span class="line">Case -17417 To -17203: pinyin = &quot;ji&quot;    </span><br><span class="line">Case -17202 To -17186: pinyin = &quot;jia&quot;   </span><br><span class="line">Case -17185 To -16984: pinyin = &quot;jian&quot;  </span><br><span class="line">Case -16983 To -16971: pinyin = &quot;jiang&quot; </span><br><span class="line">Case -16970 To -16943: pinyin = &quot;jiao&quot;  </span><br><span class="line">Case -16942 To -16916: pinyin = &quot;jie&quot;   </span><br><span class="line">Case -16915 To -16734: pinyin = &quot;jin&quot;   </span><br><span class="line">Case -16733 To -16709: pinyin = &quot;jing&quot;  </span><br><span class="line">Case -16708 To -16707: pinyin = &quot;jiong&quot; </span><br><span class="line">Case -16706 To -16690: pinyin = &quot;jiu&quot;   </span><br><span class="line">Case -16689 To -16665: pinyin = &quot;ju&quot;    </span><br><span class="line">Case -16664 To -16658: pinyin = &quot;juan&quot;  </span><br><span class="line">Case -16657 To -16648: pinyin = &quot;jue&quot;   </span><br><span class="line">Case -16647 To -16475: pinyin = &quot;jun&quot;   </span><br><span class="line">Case -16474 To -16471: pinyin = &quot;ka&quot;    </span><br><span class="line">Case -16470 To -16466: pinyin = &quot;kai&quot;   </span><br><span class="line">Case -16465 To -16460: pinyin = &quot;kan&quot;   </span><br><span class="line">Case -16459 To -16453: pinyin = &quot;kang&quot;  </span><br><span class="line">Case -16452 To -16449: pinyin = &quot;kao&quot;   </span><br><span class="line">Case -16448 To -16434: pinyin = &quot;ke&quot;    </span><br><span class="line">Case -16433 To -16430: pinyin = &quot;ken&quot;   </span><br><span class="line">Case -16429 To -16428: pinyin = &quot;keng&quot;  </span><br><span class="line">Case -16427 To -16424: pinyin = &quot;kong&quot;  </span><br><span class="line">Case -16423 To -16420: pinyin = &quot;kou&quot;   </span><br><span class="line">Case -16419 To -16413: pinyin = &quot;ku&quot;    </span><br><span class="line">Case -16412 To -16408: pinyin = &quot;kua&quot;   </span><br><span class="line">Case -16407 To -16404: pinyin = &quot;kuai&quot;  </span><br><span class="line">Case -16403 To -16402: pinyin = &quot;kuan&quot;  </span><br><span class="line">Case -16401 To -16394: pinyin = &quot;kuang&quot; </span><br><span class="line">Case -16393 To -16221: pinyin = &quot;kui&quot;   </span><br><span class="line">Case -16220 To -16217: pinyin = &quot;kun&quot;   </span><br><span class="line">Case -16216 To -16213: pinyin = &quot;kuo&quot;   </span><br><span class="line">Case -16212 To -16206: pinyin = &quot;la&quot;    </span><br><span class="line">Case -16205 To -16203: pinyin = &quot;lai&quot;   </span><br><span class="line">Case -16202 To -16188: pinyin = &quot;lan&quot;   </span><br><span class="line">Case -16187 To -16181: pinyin = &quot;lang&quot;  </span><br><span class="line">Case -16180 To -16172: pinyin = &quot;lao&quot;   </span><br><span class="line">Case -16171 To -16170: pinyin = &quot;le&quot;    </span><br><span class="line">Case -16169 To -16159: pinyin = &quot;lei&quot;   </span><br><span class="line">Case -16158 To -16156: pinyin = &quot;leng&quot;  </span><br><span class="line">Case -16155 To -15960: pinyin = &quot;li&quot;    </span><br><span class="line">Case -15959 To -15959: pinyin = &quot;lia&quot;   </span><br><span class="line">Case -15958 To -15945: pinyin = &quot;lian&quot;  </span><br><span class="line">Case -15944 To -15934: pinyin = &quot;liang&quot; </span><br><span class="line">Case -15933 To -15921: pinyin = &quot;liao&quot;  </span><br><span class="line">Case -15920 To -15916: pinyin = &quot;lie&quot;   </span><br><span class="line">Case -15915 To -15904: pinyin = &quot;lin&quot;   </span><br><span class="line">Case -15903 To -15890: pinyin = &quot;ling&quot;  </span><br><span class="line">Case -15889 To -15879: pinyin = &quot;liu&quot;   </span><br><span class="line">Case -15878 To -15708: pinyin = &quot;long&quot;  </span><br><span class="line">Case -15707 To -15702: pinyin = &quot;lou&quot;   </span><br><span class="line">Case -15701 To -15682: pinyin = &quot;lu&quot;    </span><br><span class="line">Case -15681 To -15668: pinyin = &quot;lv&quot;    </span><br><span class="line">Case -15667 To -15662: pinyin = &quot;luan&quot;  </span><br><span class="line">Case -15661 To -15660: pinyin = &quot;lue&quot;   </span><br><span class="line">Case -15659 To -15653: pinyin = &quot;lun&quot;   </span><br><span class="line">Case -15652 To -15641: pinyin = &quot;luo&quot;   </span><br><span class="line">Case -15640 To -15632: pinyin = &quot;ma&quot;    </span><br><span class="line">Case -15631 To -15626: pinyin = &quot;mai&quot;   </span><br><span class="line">Case -15625 To -15455: pinyin = &quot;man&quot;   </span><br><span class="line">Case -15454 To -15449: pinyin = &quot;mang&quot;  </span><br><span class="line">Case -15448 To -15437: pinyin = &quot;mao&quot;   </span><br><span class="line">Case -15436 To -15436: pinyin = &quot;me&quot;    </span><br><span class="line">Case -15435 To -15420: pinyin = &quot;mei&quot;   </span><br><span class="line">Case -15419 To -15417: pinyin = &quot;men&quot;   </span><br><span class="line">Case -15416 To -15409: pinyin = &quot;meng&quot;  </span><br><span class="line">Case -15408 To -15395: pinyin = &quot;mi&quot;    </span><br><span class="line">Case -15394 To -15386: pinyin = &quot;mian&quot;  </span><br><span class="line">Case -15385 To -15378: pinyin = &quot;miao&quot;  </span><br><span class="line">Case -15377 To -15376: pinyin = &quot;mie&quot;   </span><br><span class="line">Case -15375 To -15370: pinyin = &quot;min&quot;   </span><br><span class="line">Case -15369 To -15364: pinyin = &quot;ming&quot;  </span><br><span class="line">Case -15363 To -15363: pinyin = &quot;miu&quot;   </span><br><span class="line">Case -15362 To -15184: pinyin = &quot;mo&quot;    </span><br><span class="line">Case -15183 To -15181: pinyin = &quot;mou&quot;   </span><br><span class="line">Case -15180 To -15166: pinyin = &quot;mu&quot;    </span><br><span class="line">Case -15165 To -15159: pinyin = &quot;na&quot;    </span><br><span class="line">Case -15158 To -15154: pinyin = &quot;nai&quot;   </span><br><span class="line">Case -15153 To -15151: pinyin = &quot;nan&quot;   </span><br><span class="line">Case -15150 To -15150: pinyin = &quot;nang&quot;  </span><br><span class="line">Case -15149 To -15145: pinyin = &quot;nao&quot;   </span><br><span class="line">Case -15144 To -15144: pinyin = &quot;ne&quot;    </span><br><span class="line">Case -15143 To -15142: pinyin = &quot;nei&quot;   </span><br><span class="line">Case -15141 To -15141: pinyin = &quot;nen&quot;   </span><br><span class="line">Case -15140 To -15140: pinyin = &quot;neng&quot;  </span><br><span class="line">Case -15139 To -15129: pinyin = &quot;ni&quot;    </span><br><span class="line">Case -15128 To -15122: pinyin = &quot;nian&quot;  </span><br><span class="line">Case -15121 To -15120: pinyin = &quot;niang&quot; </span><br><span class="line">Case -15119 To -15118: pinyin = &quot;niao&quot;  </span><br><span class="line">Case -15117 To -15111: pinyin = &quot;nie&quot;   </span><br><span class="line">Case -15110 To -15110: pinyin = &quot;nin&quot;   </span><br><span class="line">Case -15109 To -14942: pinyin = &quot;ning&quot;  </span><br><span class="line">Case -14941 To -14938: pinyin = &quot;niu&quot;   </span><br><span class="line">Case -14937 To -14934: pinyin = &quot;nong&quot;  </span><br><span class="line">Case -14933 To -14931: pinyin = &quot;nu&quot;    </span><br><span class="line">Case -14930 To -14930: pinyin = &quot;nv&quot;    </span><br><span class="line">Case -14929 To -14929: pinyin = &quot;nuan&quot;  </span><br><span class="line">Case -14928 To -14927: pinyin = &quot;nue&quot;   </span><br><span class="line">Case -14926 To -14923: pinyin = &quot;nuo&quot;   </span><br><span class="line">Case -14922 To -14922: pinyin = &quot;o&quot;     </span><br><span class="line">Case -14921 To -14915: pinyin = &quot;ou&quot;    </span><br><span class="line">Case -14914 To -14909: pinyin = &quot;pa&quot;    </span><br><span class="line">Case -14908 To -14903: pinyin = &quot;pai&quot;   </span><br><span class="line">Case -14902 To -14895: pinyin = &quot;pan&quot;   </span><br><span class="line">Case -14894 To -14890: pinyin = &quot;pang&quot;  </span><br><span class="line">Case -14889 To -14883: pinyin = &quot;pao&quot;   </span><br><span class="line">Case -14882 To -14874: pinyin = &quot;pei&quot;   </span><br><span class="line">Case -14873 To -14872: pinyin = &quot;pen&quot;   </span><br><span class="line">Case -14871 To -14858: pinyin = &quot;peng&quot;  </span><br><span class="line">Case -14857 To -14679: pinyin = &quot;pi&quot;    </span><br><span class="line">Case -14678 To -14675: pinyin = &quot;pian&quot;  </span><br><span class="line">Case -14674 To -14671: pinyin = &quot;piao&quot;  </span><br><span class="line">Case -14670 To -14669: pinyin = &quot;pie&quot;   </span><br><span class="line">Case -14668 To -14664: pinyin = &quot;pin&quot;   </span><br><span class="line">Case -14663 To -14655: pinyin = &quot;ping&quot;  </span><br><span class="line">Case -14654 To -14646: pinyin = &quot;po&quot;    </span><br><span class="line">Case -14645 To -14631: pinyin = &quot;pu&quot;    </span><br><span class="line">Case -14630 To -14595: pinyin = &quot;qi&quot;    </span><br><span class="line">Case -14594 To -14430: pinyin = &quot;qia&quot;   </span><br><span class="line">Case -14429 To -14408: pinyin = &quot;qian&quot;  </span><br><span class="line">Case -14407 To -14400: pinyin = &quot;qiang&quot; </span><br><span class="line">Case -14399 To -14385: pinyin = &quot;qiao&quot;  </span><br><span class="line">Case -14384 To -14380: pinyin = &quot;qie&quot;   </span><br><span class="line">Case -14379 To -14369: pinyin = &quot;qin&quot;   </span><br><span class="line">Case -14368 To -14356: pinyin = &quot;qing&quot;  </span><br><span class="line">Case -14355 To -14354: pinyin = &quot;qiong&quot; </span><br><span class="line">Case -14353 To -14346: pinyin = &quot;qiu&quot;   </span><br><span class="line">Case -14345 To -14171: pinyin = &quot;qu&quot;    </span><br><span class="line">Case -14170 To -14160: pinyin = &quot;quan&quot;  </span><br><span class="line">Case -14159 To -14152: pinyin = &quot;que&quot;   </span><br><span class="line">Case -14151 To -14150: pinyin = &quot;qun&quot;   </span><br><span class="line">Case -14149 To -14146: pinyin = &quot;ran&quot;   </span><br><span class="line">Case -14145 To -14141: pinyin = &quot;rang&quot;  </span><br><span class="line">Case -14140 To -14138: pinyin = &quot;rao&quot;   </span><br><span class="line">Case -14137 To -14136: pinyin = &quot;re&quot;    </span><br><span class="line">Case -14135 To -14126: pinyin = &quot;ren&quot;   </span><br><span class="line">Case -14125 To -14124: pinyin = &quot;reng&quot;  </span><br><span class="line">Case -14123 To -14123: pinyin = &quot;ri&quot;    </span><br><span class="line">Case -14122 To -14113: pinyin = &quot;rong&quot;  </span><br><span class="line">Case -14112 To -14110: pinyin = &quot;rou&quot;   </span><br><span class="line">Case -14109 To -14100: pinyin = &quot;ru&quot;    </span><br><span class="line">Case -14099 To -14098: pinyin = &quot;ruan&quot;  </span><br><span class="line">Case -14097 To -14095: pinyin = &quot;rui&quot;   </span><br><span class="line">Case -14094 To -14093: pinyin = &quot;run&quot;   </span><br><span class="line">Case -14092 To -14091: pinyin = &quot;ruo&quot;   </span><br><span class="line">Case -14090 To -14088: pinyin = &quot;sa&quot;    </span><br><span class="line">Case -14087 To -14084: pinyin = &quot;sai&quot;   </span><br><span class="line">Case -14083 To -13918: pinyin = &quot;san&quot;   </span><br><span class="line">Case -13917 To -13915: pinyin = &quot;sang&quot;  </span><br><span class="line">Case -13914 To -13911: pinyin = &quot;sao&quot;   </span><br><span class="line">Case -13910 To -13908: pinyin = &quot;se&quot;    </span><br><span class="line">Case -13907 To -13907: pinyin = &quot;sen&quot;   </span><br><span class="line">Case -13906 To -13906: pinyin = &quot;seng&quot;  </span><br><span class="line">Case -13905 To -13897: pinyin = &quot;sha&quot;   </span><br><span class="line">Case -13896 To -13895: pinyin = &quot;shai&quot;  </span><br><span class="line">Case -13894 To -13879: pinyin = &quot;shan&quot;  </span><br><span class="line">Case -13878 To -13871: pinyin = &quot;shang&quot; </span><br><span class="line">Case -13870 To -13860: pinyin = &quot;shao&quot;  </span><br><span class="line">Case -13859 To -13848: pinyin = &quot;she&quot;   </span><br><span class="line">Case -13847 To -13832: pinyin = &quot;shen&quot;  </span><br><span class="line">Case -13831 To -13659: pinyin = &quot;sheng&quot; </span><br><span class="line">Case -13658 To -13612: pinyin = &quot;shi&quot;   </span><br><span class="line">Case -13611 To -13602: pinyin = &quot;shou&quot;  </span><br><span class="line">Case -13601 To -13407: pinyin = &quot;shu&quot;   </span><br><span class="line">Case -13406 To -13405: pinyin = &quot;shua&quot;  </span><br><span class="line">Case -13404 To -13401: pinyin = &quot;shuai&quot; </span><br><span class="line">Case -13400 To -13399: pinyin = &quot;shuan&quot; </span><br><span class="line">Case -13398 To -13396: pinyin = &quot;shuang&quot;</span><br><span class="line">Case -13395 To -13392: pinyin = &quot;shui&quot;  </span><br><span class="line">Case -13391 To -13388: pinyin = &quot;shun&quot;  </span><br><span class="line">Case -13387 To -13384: pinyin = &quot;shuo&quot;  </span><br><span class="line">Case -13383 To -13368: pinyin = &quot;si&quot;    </span><br><span class="line">Case -13367 To -13360: pinyin = &quot;song&quot;  </span><br><span class="line">Case -13359 To -13357: pinyin = &quot;sou&quot;   </span><br><span class="line">Case -13356 To -13344: pinyin = &quot;su&quot;    </span><br><span class="line">Case -13343 To -13341: pinyin = &quot;suan&quot;  </span><br><span class="line">Case -13340 To -13330: pinyin = &quot;sui&quot;   </span><br><span class="line">Case -13329 To -13327: pinyin = &quot;sun&quot;   </span><br><span class="line">Case -13326 To -13319: pinyin = &quot;suo&quot;   </span><br><span class="line">Case -13318 To -13148: pinyin = &quot;ta&quot;    </span><br><span class="line">Case -13147 To -13139: pinyin = &quot;tai&quot;   </span><br><span class="line">Case -13138 To -13121: pinyin = &quot;tan&quot;   </span><br><span class="line">Case -13120 To -13108: pinyin = &quot;tang&quot;  </span><br><span class="line">Case -13107 To -13097: pinyin = &quot;tao&quot;   </span><br><span class="line">Case -13096 To -13096: pinyin = &quot;te&quot;    </span><br><span class="line">Case -13095 To -13092: pinyin = &quot;teng&quot;  </span><br><span class="line">Case -13091 To -13077: pinyin = &quot;ti&quot;    </span><br><span class="line">Case -13076 To -13069: pinyin = &quot;tian&quot;  </span><br><span class="line">Case -13068 To -13064: pinyin = &quot;tiao&quot;  </span><br><span class="line">Case -13063 To -13061: pinyin = &quot;tie&quot;   </span><br><span class="line">Case -13060 To -12889: pinyin = &quot;ting&quot;  </span><br><span class="line">Case -12888 To -12876: pinyin = &quot;tong&quot;  </span><br><span class="line">Case -12875 To -12872: pinyin = &quot;tou&quot;   </span><br><span class="line">Case -12871 To -12861: pinyin = &quot;tu&quot;    </span><br><span class="line">Case -12860 To -12859: pinyin = &quot;tuan&quot;  </span><br><span class="line">Case -12858 To -12853: pinyin = &quot;tui&quot;   </span><br><span class="line">Case -12852 To -12850: pinyin = &quot;tun&quot;   </span><br><span class="line">Case -12849 To -12839: pinyin = &quot;tuo&quot;   </span><br><span class="line">Case -12838 To -12832: pinyin = &quot;wa&quot;    </span><br><span class="line">Case -12831 To -12830: pinyin = &quot;wai&quot;   </span><br><span class="line">Case -12829 To -12813: pinyin = &quot;wan&quot;   </span><br><span class="line">Case -12812 To -12803: pinyin = &quot;wang&quot;  </span><br><span class="line">Case -12802 To -12608: pinyin = &quot;wei&quot;   </span><br><span class="line">Case -12607 To -12598: pinyin = &quot;wen&quot;   </span><br><span class="line">Case -12597 To -12595: pinyin = &quot;weng&quot;  </span><br><span class="line">Case -12594 To -12586: pinyin = &quot;wo&quot;    </span><br><span class="line">Case -12585 To -12557: pinyin = &quot;wu&quot;    </span><br><span class="line">Case -12556 To -12360: pinyin = &quot;xi&quot;    </span><br><span class="line">Case -12359 To -12347: pinyin = &quot;xia&quot;   </span><br><span class="line">Case -12346 To -12321: pinyin = &quot;xian&quot;  </span><br><span class="line">Case -12320 To -12301: pinyin = &quot;xiang&quot; </span><br><span class="line">Case -12300 To -12121: pinyin = &quot;xiao&quot;  </span><br><span class="line">Case -12120 To -12100: pinyin = &quot;xie&quot;   </span><br><span class="line">Case -12099 To -12090: pinyin = &quot;xin&quot;   </span><br><span class="line">Case -12089 To -12075: pinyin = &quot;xing&quot;  </span><br><span class="line">Case -12074 To -12068: pinyin = &quot;xiong&quot; </span><br><span class="line">Case -12067 To -12059: pinyin = &quot;xiu&quot;   </span><br><span class="line">Case -12058 To -12040: pinyin = &quot;xu&quot;    </span><br><span class="line">Case -12039 To -11868: pinyin = &quot;xuan&quot;  </span><br><span class="line">Case -11867 To -11862: pinyin = &quot;xue&quot;   </span><br><span class="line">Case -11861 To -11848: pinyin = &quot;xun&quot;   </span><br><span class="line">Case -11847 To -11832: pinyin = &quot;ya&quot;    </span><br><span class="line">Case -11831 To -11799: pinyin = &quot;yan&quot;   </span><br><span class="line">Case -11798 To -11782: pinyin = &quot;yang&quot;  </span><br><span class="line">Case -11781 To -11605: pinyin = &quot;yao&quot;   </span><br><span class="line">Case -11604 To -11590: pinyin = &quot;ye&quot;    </span><br><span class="line">Case -11589 To -11537: pinyin = &quot;yi&quot;    </span><br><span class="line">Case -11536 To -11359: pinyin = &quot;yin&quot;   </span><br><span class="line">Case -11358 To -11341: pinyin = &quot;ying&quot;  </span><br><span class="line">Case -11340 To -11340: pinyin = &quot;yo&quot;    </span><br><span class="line">Case -11339 To -11325: pinyin = &quot;yong&quot;  </span><br><span class="line">Case -11324 To -11304: pinyin = &quot;you&quot;   </span><br><span class="line">Case -11303 To -11098: pinyin = &quot;yu&quot;    </span><br><span class="line">Case -11097 To -11078: pinyin = &quot;yuan&quot;  </span><br><span class="line">Case -11077 To -11068: pinyin = &quot;yue&quot;   </span><br><span class="line">Case -11067 To -11056: pinyin = &quot;yun&quot;   </span><br><span class="line">Case -11055 To -11053: pinyin = &quot;za&quot;    </span><br><span class="line">Case -11052 To -11046: pinyin = &quot;zai&quot;   </span><br><span class="line">Case -11045 To -11042: pinyin = &quot;zan&quot;   </span><br><span class="line">Case -11041 To -11039: pinyin = &quot;zang&quot;  </span><br><span class="line">Case -11038 To -11025: pinyin = &quot;zao&quot;   </span><br><span class="line">Case -11024 To -11021: pinyin = &quot;ze&quot;    </span><br><span class="line">Case -11020 To -11020: pinyin = &quot;zei&quot;   </span><br><span class="line">Case -11019 To -11019: pinyin = &quot;zen&quot;   </span><br><span class="line">Case -11018 To -11015: pinyin = &quot;zeng&quot;  </span><br><span class="line">Case -11014 To -10839: pinyin = &quot;zha&quot;   </span><br><span class="line">Case -10838 To -10833: pinyin = &quot;zhai&quot;  </span><br><span class="line">Case -10832 To -10816: pinyin = &quot;zhan&quot;  </span><br><span class="line">Case -10815 To -10801: pinyin = &quot;zhang&quot; </span><br><span class="line">Case -10800 To -10791: pinyin = &quot;zhao&quot;  </span><br><span class="line">Case -10790 To -10781: pinyin = &quot;zhe&quot;   </span><br><span class="line">Case -10780 To -10765: pinyin = &quot;zhen&quot;  </span><br><span class="line">Case -10764 To -10588: pinyin = &quot;zheng&quot; </span><br><span class="line">Case -10587 To -10545: pinyin = &quot;zhi&quot;   </span><br><span class="line">Case -10544 To -10534: pinyin = &quot;zhong&quot; </span><br><span class="line">Case -10533 To -10520: pinyin = &quot;zhou&quot;  </span><br><span class="line">Case -10519 To -10332: pinyin = &quot;zhu&quot;   </span><br><span class="line">Case -10331 To -10330: pinyin = &quot;zhua&quot;  </span><br><span class="line">Case -10329 To -10329: pinyin = &quot;zhuai&quot; </span><br><span class="line">Case -10328 To -10323: pinyin = &quot;zhuan&quot; </span><br><span class="line">Case -10322 To -10316: pinyin = &quot;zhuang&quot;</span><br><span class="line">Case -10315 To -10310: pinyin = &quot;zhui&quot;  </span><br><span class="line">Case -10309 To -10308: pinyin = &quot;zhun&quot;  </span><br><span class="line">Case -10307 To -10297: pinyin = &quot;zhuo&quot;  </span><br><span class="line">Case -10296 To -10282: pinyin = &quot;zi&quot;    </span><br><span class="line">Case -10281 To -10275: pinyin = &quot;zong&quot;  </span><br><span class="line">Case -10274 To -10271: pinyin = &quot;zou&quot;   </span><br><span class="line">Case -10270 To -10263: pinyin = &quot;zu&quot;    </span><br><span class="line">Case -10262 To -10261: pinyin = &quot;zuan&quot;  </span><br><span class="line">Case -10260 To -10257: pinyin = &quot;zui&quot;   </span><br><span class="line">Case -10256 To -10255: pinyin = &quot;zun&quot;   </span><br><span class="line">Case -10254 To -10254: pinyin = &quot;zuo&quot;   </span><br><span class="line">Case Else: pinyin = p</span><br><span class="line">End Select</span><br><span class="line">End Function</span><br><span class="line">Function getpy(str)</span><br><span class="line">For i = 1 To Len(str)</span><br><span class="line">getpy = getpy &amp; pinyin(Mid(str, i, 1))</span><br><span class="line">Next i</span><br><span class="line">End Function</span><br></pre></td></tr></table></figure>
-<p>（2）若有空格的话，需要用SUBSTITUTE(D1,” “,””)删除。注意第一个双引号之间有一个空格，第二个双引号间没有空格。</p>
-<p>（3）运行函数</p>
-<p>运行=getpy(A1)</p>
-<p>遇到的问题：二义性表示，就是重复的声明了两次导致的。</p>
+          <h1 id="一，问题描述"><a href="#一，问题描述" class="headerlink" title="一，问题描述"></a>一，问题描述</h1><p>首先，我们需要考虑最简单的一种情形。为了简单期间，以x轴为基准轴，把弦的一段放在原点。</p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/string.png" alt="1544684702801"></p>
+<p>以<strong>u(x,t)</strong>表示弦l上任意位置在t时刻的小位移量。假如弦只发生很小的横向震动，那么必满足以下方程：</p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/微信截图_20181213150857.png" alt=""></p>
+<p>同时，需满足以下条件：</p>
+<p>（1）初始条件：</p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/IC.png" alt="1544685047515"></p>
+<p>（2）边界条件：</p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/BC.png" alt="1544685022208"></p>
+<h1 id="二，分步骤解答"><a href="#二，分步骤解答" class="headerlink" title="二，分步骤解答"></a>二，分步骤解答</h1><p>第一步：方程的求解</p>
+<p>（1）分离变量，并解出常系数普通偏微分方程的解：</p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/微信截图_20181213151346.png" alt=""></p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/微信截图_20181213151603.png" alt=""></p>
+<p>第二步：应用边界条件，缩小解的范围</p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/BC_.png" alt=""></p>
+<p>其中大括号内的两个常系数可以是任意数（包括复数）</p>
+<p>第三步：应用初始条件，进一步缩小解的范围</p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/SS.png" alt=""></p>
+<p>（1）固定时间t，当取不同的k值时，弦l会被划分成多个半周期，如下图，k分别取值1,2,3：</p>
+<p><img src="/2018/12/04/分离变量法求解波动方程/K.png" alt=""></p>
+<p>（2）固定位置x，略</p>
+<h1 id="三，小结"><a href="#三，小结" class="headerlink" title="三，小结"></a>三，小结</h1><p>（1）不同的Mode，代表不同的k值，也即具有不同周期和频率的波；</p>
+<p>（2）波动方程的解，可以看成是一系列三角函数的叠加；</p>
+<h1 id="四，参考资料"><a href="#四，参考资料" class="headerlink" title="四，参考资料"></a><strong>四，参考资料</strong></h1><p>Joel Feldman, 2007. Solution of the Wave Equation by Separation of Variables.</p>
 
         
       
@@ -399,18 +484,18 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/11/21/11月21日与老师讨论/">11月21日与老师讨论</a>
+          <a class="post-link" href="/2018/12/04/解析解与数值解之间的区别/">解析解与数值解之间的区别</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-11-21
+          2018-12-04
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/研究生与导师/">研究生与导师</a>
+              <a href="/categories/地震学基础/">地震学基础</a>
             
           </span>
         
@@ -428,103 +513,14 @@
         
 
         
-          <p><strong>Introduction</strong>: 距离上次讨论结束，已经大概有近两周的时间没见到老师了，怪想念的。所以，当今天推开所长办公室的时候，心中一阵狂喜，终于可以再次和老师讨论了，我的笔记本上的问题已经积攒了一打。</p>
-<p><strong>Key words</strong>: 修改文章、阅读材料、与王博士合作、与Romanelli教授的合作、NDSHA、Others</p>
-<p><strong>Point 1 修改文章</strong></p>
-<p>今天的主要任务是讨论稿件最后的修改。首先，老师检查了我之前修改的样稿，询问每一处修改的位置（用红色字体标红）、修改的原因以及对王立学博士审稿意见的答复。一共修改近十处，其中最让我担心的是摘要部分的添加内容。之所以最担心这里，主要是由于摘要需要高度概括文章结论，很不好写，对于我这样刚入门的新手来说就显得更有难度了。还记得在文章形成阶段，对摘要的写作如履薄冰，生怕说的有不合适的地方。幸运的是，老师比较认可我添加上去的内容。说明我的科学文献写作功底有了一点提升。</p>
-<p>然后，老师提出来文章少一点Ingredient，简直是送命题啊，老师的严肃让我立马意识到自己肯定遗漏了某一处老师非常在意的而且极为重要的细节。好在我想起来了，这里少了致谢，而在文章修改过程中王博士指导了那么多，怎么能半点不提他的贡献呢？</p>
-<p>最后，老师基本认可文章工作，同意后面的进一步细修由我全权负责即可，主要是与王博士沟通是否愿意成为第四作者，以及与编辑部的后续关于版面费、审稿费以及稿件校样的事宜。</p>
-<p><strong>Point 2 阅读材料</strong></p>
-<p><img src="/2018/11/21/11月21日与老师讨论/微信图片_20181121224810.jpg" alt=""></p>
-<p>老师考虑到我之前阅读的由Seth Stein与Michael Wysession写的《An Introduction to Seismology, Earthquake and Earth Structure》难度太大，给我提供了另一本相对较为简单一点的《Modern Global Seismology》，以及可能会对我有用处的《Fractals and Chaos in geology and geophysics》，还有指导年轻人如何开始做工作的《Advice for a Young Investigator》。最有象征意义的也特别使我触动的是最后一本，不仅说明老师认可我前一段时间做的工作，已经开始入门了，还为我的进一步学习指明了方向，开始做更加精细的工作了。</p>
-<p><strong>Point 3 与王立学博士和Romanelli教授的合作</strong></p>
-<p>这里，老师给我提了两点要求、两点建议：</p>
-<p>两点要求：</p>
-<p>（1）与王立学博士和Romanelli教授之间的合作要一直进行下去；</p>
-<p>（2）在这个过程中我需要更加主动一点</p>
-<p>两点建议：</p>
-<p>（1）不要因为害怕提的问题过于Stupid而畏畏缩缩不敢提问，特别是与Romanelli教授之间的合作，可以提任何问题，只要英语表达到位表明我英语足够好就行。国外的学生整天一堆Stupid的问题。</p>
-<p>（2）提的问题应尽量具体，好让别人能够回答；</p>
-<p>关于工作的建议：</p>
-<p>（1）在确保正确性的前提下保证效率；</p>
-<p>（2）从最简单的问题开始。例如，PSHA最初的模型极其简单，参数只有两个，模型也只有两个（GR定律与大森衰减关系），然后在不断改进的工作中才成为今天这样复杂的样子；</p>
-<p><strong>Point 4 NDSHA</strong></p>
-<p>关于NDSHA的进一步补充：</p>
-<p>（1）在最简单的情形下，可以考虑某处多深处有一个地震，也提前知道地震的震源机制信息等各种信息，然后据此计算某处受到的影响。NDSHA需要做到的事，考虑所有可能的情形，然后取其中一种最坏的情况来计算地面峰值加速度。</p>
-<p>（2）NEO-deterministic，这里的Neo可以理解为新的意思，即是一种完全不同于以往的做法。</p>
-<p>（3）NDSHA不同于以往的是，既考虑统计关系，也考虑物理机制。但是,NDSHA与PSHA计算出来的结果都是一样的，即峰值地面加速度。</p>
-<p><strong>Point 5 需要关注的对象</strong></p>
-<p><img src="/2018/11/21/11月21日与老师讨论/微信截图_20181121231256.png" alt=""></p>
-<p>上图来自：Wenk, S., Pelties, C., Igel, H., and et al. 2013. Regional wave propagation using the discontinous Galerkin method. Soild Earth, 4: 43-57.</p>
-<p>图中合成地震图和实际观测结果对比中的差异来源主要有：计算方法的差异、模型的差异，峰谷的对应显示了在计算过程应该修整的地方。而最值得关注的是ESK和KONO，在后半段的合成振幅远远超过观测振幅。</p>
-<p>（1）CAP方法，即Cut and Paste，初步理解是在拟合合成地震记录与实际观测记录的过程中，如何使他们更加接近；</p>
-<p>（2）地震学第一原理</p>
-<p>（3）最优化方法</p>
-<p><strong>Point 6 Wisdom of Crowds与英语考试</strong></p>
-<p>（1）关于川滇断层的工作暂时停止，加紧速度补上基础地震学理论；</p>
-<p>（2）需要准备英语考试时可暂停一个月的工作；可是对于我这样的工作狂，还是得坚持，哈哈哈哈哈。</p>
-<p>最后，给老师手动比个心，今天的信息增益很大，我的受益，持续良多。</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/21/我的第一封信/">我的第一封信</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-21
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/牛皮信封/">牛皮信封</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p><strong>便签</strong>：在前面有了7封信后，我在想，是该继续第8封信开始写，还是重新归零。假如从第8封开始的话，那看上去更像是对过往的继承。但是，我并不想简单的继承过去的经历。而重新执笔，更多的应该是想把过去没写的或者是没时间和精力写的重新补上。需要说明的是，并不是现在有时间和精力了，而是现在清楚的知道，没时间也得挤时间出来。</p>
-<p>我想过两种方式，从没有来得及写的第一封信，到最近需要写的一封信。或者是，从最近需要写的第一封信，逐渐到过去没来得及写的最后一封信。时间的箭头一直是向前的，这会让人们一直感到很公平，它从来都不会、也永远都不会朝向任何一人偏角哪怕1度。</p>
-<p>昨天下午，当我还在图书馆奋笔推公式的时候，突然发现老舍友一帆发来消息，消息显示他正在我所门口。而当一帆坐在我面前的时候，高帅在微信里告诉我说，他刚经过孝感北站。于是，第一封信，我想用来介绍我这帮偶然获得朋友，兰州所的兄弟们。</p>
-<h1 id="第一封信-兰州所的兄弟们"><a href="#第一封信-兰州所的兄弟们" class="headerlink" title="第一封信: 兰州所的兄弟们"></a><strong>第一封信: 兰州所的兄弟们</strong></h1><p><img src="/2018/11/21/我的第一封信/1542741969.jpg" alt="1542741969"></p>
-<p>之所以说偶然，是因为我完全是偶然的被分到了和他们一个宿舍。而偶然中更加偶然的是，我们所只有我一个被分到了和他们一个宿舍。大部队集中在151和152，我几乎处于“被抛弃”的状态。还记得在开学没几天的时候，桐哥，安亮的好兄弟，想与我换宿舍。当时这小子态度还很坚决，不仅说愿意帮我搬行李到152去，甚至还鼓动肖勇也劝说到愿意帮我搬。可是，我并不想搬。一来是这里空间很大，我并不想搬。他们越想与我换，我越是不能动摇，只能比他们更加坚决。不然一旦换了就容易鄙视自己为什么这么怂。二来是我固执的认为遇见即是缘分，哪怕搬上去会有暂时的好，和同所的离得近会有更多的心安，可是长远来看，参考以前的经历，我一定会后悔的。</p>
-<p>一开始的时候，由于我一如既往的保持着虚假的“冷淡”，与兰州所这帮同学们关系没有那么快进入质的变化。还是在第一次聚餐的时候，他们就喊我去了。尽管我心里并不是很乐意去，在席间也保持着并不礼貌的“少言寡语”，但是那次他们的热情、豪爽、真诚很快打动了我。也是自那次聚餐后，我开始参加他们的每一次所里的聚餐，有时候我也会把我自己当做半个兰州所的同学。直到后来，我在141里拥有了更胜于151给我的感觉，真实。</p>
-<p>开学第一天，我便结识了隔壁的兄弟，安亮。然后是141-5的高泽明，141-3的李福秀，接着是141-3的于一帆，141-4的海忠，141-6的陈金昌，141-7的李桐林，141-8的胡涛，以及141-9的肖修来。在此后的日子里，我们逐渐熟识，从陌生人到同窗，从同窗到好友，从好友到挚友，一起喝过酒，撸过串，一起聊过挂过的科，一起聊过高冷的女神、失去过的女友。然后我知道了，福秀很闷骚，高帅很自恋，等等等等。然而最令我感动和感激的是，他们从未拿我当外人，他们每一次的聚集都一定会叫上我。不管是12个汉子之间相聚喝酒，还是兰州所2017级里全部的硕士；不管是日常里普通的聚餐，还是逢年过节时重要的聚餐，我几乎每次都在。有时候，我会感觉到自己更像是兰州所的一员。</p>
-<p>值得一提的是，当后来我们熟识的时候，我们慢慢有了绰号，肖修来，肖堂主，阿修，也是我的“浴友”，经常一起约时间去洗澡，在隔壁的淋浴头下经常互开玩笑“捡肥皂”。修来也算一位性情中人，一直对家中喜欢过他的姑娘念念不忘，但是又喜欢和我讨论今天在哪儿看到了女神级的姑娘；李福秀，福秀，秀秀，阿福，这听起来像极了旺财的绰号也是我取的，这小子喜欢晚上窝在宿舍看林正英主演的恐怖片，也喜欢滔滔不绝的与我讨论今天在哪儿又邂逅了一位姑娘。</p>
-<p>一年的时间很短，我们的故事很多；一年的时间很快，快到我们甚至还没意识过来，我们要分别了。</p>
-<p>小学期还没结束的时候，安亮和福秀就撤回兰州去了。安亮是为了早日和女朋友相聚，而福秀却扯了个要早点回去帮师兄做实验的理由（我真想抽他）。小学期逐渐结束的时候，我、修来、海忠、高帅、金昌一起送走了一帆。后来，福秀和修来送走了海忠，最后，金昌和高帅送走了我，而最后的最后，我没有去送他们，特别是没有去送最后一个走的修来，真的很抱歉。而自那之后，兰州，也成为了我另外一个可以在累了的时候可以去的地方。因为我知道，在兰州那里，还有我的一群好兄弟，他们热情且豪爽、真诚又洒脱。</p>
-<p><img src="/2018/11/21/我的第一封信/1542741826.jpg" alt="1542741826"></p>
-<p>最后，我想到《韩非子-显学》中的一句话：宰相必起于州部，猛将必发于卒伍。我们都不是什么”宰相“、”猛将“，但是我们皆于州部或卒伍之中不断地发力，未来哪怕不是”宰相“，也必成”猛将“。</p>
-<p>琰</p>
-<p>2018年11月21日</p>
-<p>不好意思今晚熬了点夜</p>
+          <p>数值解与解析解是常微分或偏微分方程中两种常见形式。不同的解有这不同的求解方法。</p>
+<h1 id="一，解析解-analytical-solution"><a href="#一，解析解-analytical-solution" class="headerlink" title="一，解析解(analytical solution)"></a>一，解析解(analytical solution)</h1><p>简言之，解析解就是可以用表达式来表达的解，即<strong>精确解</strong>，表示着方程所有解共有的数学属性。</p>
+<p>解析解又称闭合解，原因是对于一函数而言，代入自变量区间内的任意数值都可以得到唯一对应的函数值，因此，可以将此函数理解为是闭合的（close-form），即对任一独立变量，都有一个因变量（是否可以是两个？？）与它形成对应关系，就像一个团队中每一个名字都会对应一个独立个体一样（当然也可能会出现同名，即两个函数值）。</p>
+<p>在形式上，解析解可以包含分式、三角函数、指数、对数、泰勒级数等等。</p>
+<p>在解法上，如分离变量法、常数变异法等获得的都是解析解。</p>
+<h1 id="二，数值解-numerical-solution"><a href="#二，数值解-numerical-solution" class="headerlink" title="二，数值解(numerical solution)"></a>二，数值解(numerical solution)</h1><p>简言之，数值解就是一个数值，仅表示方程的一个<strong>近似解</strong>。由于并不是所有情况都能得出一个解析解，因此在解析解无法求得时，数值解就像救命稻草一样。</p>
+<p>数值解对应着数值解法，如有限元、插值、逼近。另外，由电脑计算得出的结果也是数值解。</p>
+<p>关于数值解与解析解的区别无须面面俱到，知道最本质的差别，这些对我来说应该就够了。</p>
 
         
       
@@ -626,7 +622,7 @@
      
       2017 - 
     
-    2018
+    2019
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>
